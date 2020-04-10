@@ -1,12 +1,12 @@
 import { AuthToken } from 'crud/modules/auth/authToken';
 import Axios from 'axios';
-import config from 'crud/config';
+import config from 'config';
 import { getLanguageCode } from 'crud/i18n';
 import Qs from 'qs';
 import * as moment from 'moment';
 
 const authAxios = Axios.create({
-  baseURL: config.backendUrl,
+  baseURL: config.baseURLApi,
   paramsSerializer: function(params) {
     return Qs.stringify(params, {
       arrayFormat: 'brackets',

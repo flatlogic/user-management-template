@@ -3,7 +3,7 @@ import { i18n } from 'crud/i18n';
 import filesize from 'filesize';
 import { AuthToken } from 'crud/modules/auth/authToken';
 import Axios from 'axios';
-import config from 'crud/config';
+import config from 'config';
 
 function extractExtensionFrom(filename) {
   if (!filename) {
@@ -82,7 +82,7 @@ export default class FileUploader {
     formData.append('file', file);
     formData.append('filename', filename);
     await Axios.post(
-      `${config.backendUrl}/upload/${path}`,
+      `${config.baseURLApi}/upload/${path}`,
       formData,
       {
         headers: {
@@ -94,6 +94,6 @@ export default class FileUploader {
 
     const privateUrl = `${path}/${filename}`;
 
-    return `${config.backendUrl}/download?privateUrl=${privateUrl}`;
+    return `${config.baseURLApi}/download?privateUrl=${privateUrl}`;
   }
 }
