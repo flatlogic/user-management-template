@@ -1,0 +1,30 @@
+.table .thead th {
+  background-color: var(--primary);
+  color: white;
+}
+
+.menu-nav {
+  background-color: var(--primary);
+  color: #a2a3b7;
+}
+
+.menu-logo a {
+  color: white;
+}
+
+.menu-li a {
+  color: #a2a3b7;
+}
+
+.menu-li a .icon,
+.menu-li.active a .icon,
+.menu-li:hover a,
+.menu-li:hover a .icon {
+  color: white;
+}
+
+.menu-li.active a {
+  border-right: 2px solid white;
+  color: white;
+  background-color: #082947;
+}

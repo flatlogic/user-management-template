@@ -1,0 +1,13 @@
+node-sass ./default.scss ../dist/default.css --output-style compressed
+node-sass ./light.scss ../dist/light.css --output-style compressed
+node-sass ./cyan.scss ../dist/cyan.css --output-style compressed
+node-sass ./geek-blue.scss ../dist/geek-blue.css --output-style compressed
+node-sass ./gold.scss ../dist/gold.css --output-style compressed
+node-sass ./lime.scss ../dist/lime.css --output-style compressed
+node-sass ./magenta.scss ../dist/magenta.css --output-style compressed
+node-sass ./orange.scss ../dist/orange.css --output-style compressed
+node-sass ./polar-green.scss ../dist/polar-green.css --output-style compressed
+node-sass ./purple.scss ../dist/purple.css --output-style compressed
+node-sass ./red.scss ../dist/red.css --output-style compressed
+node-sass ./volcano.scss ../dist/volcano.css --output-style compressed
+node-sass ./yellow.scss ../dist/yellow.css --output-style compressed
