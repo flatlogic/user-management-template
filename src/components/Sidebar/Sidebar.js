@@ -108,6 +108,15 @@ class Sidebar extends React.Component {
             iconName="flaticon-file"
           />
 
+          <LinksGroup
+            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+            activeItem={this.props.activeItem}
+            header="My Profile"
+            link="/app/profile"
+            isHeader
+            iconName="flaticon-file"
+          />
+
         </ul>
         <h5 className={s.navTitle}>
           LABELS

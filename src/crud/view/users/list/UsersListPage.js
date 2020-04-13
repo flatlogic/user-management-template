@@ -10,7 +10,10 @@ import { i18n } from 'crud/i18n';
 class UsersListPage extends Component {
   render() {
     return (
+    	<div>
+          <UsersListToolbar />
           <UsersListTable />
+      	</div>
     );
   }
 }

@@ -103,12 +103,11 @@ class Layout extends React.Component {
                   timeout={200}
                 >
                   <Switch>
-                    <Route path="/app/profile" exact component={Profile} />
                     <Route path="/app/tables/dynamic" exact component={TablesDynamic} />
-
 
                     <Route path={"/app/users"} exact component={CustomLoadable({loader: () => import('crud/view/users/list/UsersListPage')})} />
                     <Route path={"/app/users/new"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
+                    <Route path={"/app/profile"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
                     <Route path={"/app/users/:id/edit"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
                     <Route path={"/app/users/:id"} exact component={CustomLoadable({loader: () => import('crud/view/users/view/UsersViewPage')})} />
 

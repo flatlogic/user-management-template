@@ -16,10 +16,15 @@ class UsersFormPage extends Component {
 
   componentDidMount() {
     const { dispatch, match } = this.props;
-
     if (this.isEditing()) {
       dispatch(actions.doFind(match.params.id));
-    } else {
+    }
+    else if(this.isProfile()) {
+      const currentUser = JSON.parse(localStorage.getItem('user'));
+      const currentUserId = currentUser.user.id;
+      dispatch(actions.doFind(currentUserId));
+    }
+    else {
       dispatch(actions.doNew());
     }
 
@@ -28,7 +33,7 @@ class UsersFormPage extends Component {
 
   doSubmit = (id, data) => {
     const { dispatch } = this.props;
-    if (this.isEditing()) {
+    if (this.isEditing() || this.isProfile()) {
       dispatch(actions.doUpdate(id, data));
     } else {
       dispatch(actions.doCreate(data));
@@ -40,10 +45,19 @@ class UsersFormPage extends Component {
     return !!match.params.id;
   };
 
+  isProfile = () => {
+    const { match } = this.props;
+    return match.url == '/app/profile';
+  };
+
   title = () => {
+    if(this.isProfile()) {
+      return 'Edit My Profile';
+    }
+
     return this.isEditing()
-      ? i18n('entities.users.edit.title')
-      : i18n('entities.users.new.title');
+      ? 'Edit User'
+      : 'Add User';
   };
 
   render() {
@@ -57,11 +71,11 @@ class UsersFormPage extends Component {
               saveLoading={this.props.saveLoading}
               findLoading={this.props.findLoading}
               record={
-                this.isEditing() ? this.props.record : {}
+                (this.isEditing() || this.isProfile()) ? this.props.record : {}
               }
               isEditing={this.isEditing()}
               onSubmit={this.doSubmit}
-              onCancel={() => getHistory().push('/users')}
+              onCancel={() => getHistory().push('/app/users')}
             />
           )}
         </ContentWrapper>
