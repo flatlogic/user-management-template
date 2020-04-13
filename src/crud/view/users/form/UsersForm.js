@@ -101,41 +101,6 @@ class UsersForm extends Component {
                   max={undefined}
                 />
 
-                <InputFormItem
-                  name={'password'}
-                  schema={usersFields}
-
-                />
-
-                <SwitchFormItem
-                  name={'emailVerified'}
-                  schema={usersFields}
-                />
-
-                <InputFormItem
-                  name={'emailVerificationToken'}
-                  schema={usersFields}
-
-                />
-
-                <DatePickerFormItem
-                  name={'emailVerificationTokenExpiresAt'}
-                  schema={usersFields}
-                  showTimeInput
-                />
-
-                <InputFormItem
-                  name={'passwordResetToken'}
-                  schema={usersFields}
-
-                />
-
-                <DatePickerFormItem
-                  name={'passwordResetTokenExpiresAt'}
-                  schema={usersFields}
-                  showTimeInput
-                />
-
                 <div className="form-buttons">
                   <button
                     className="btn btn-primary"

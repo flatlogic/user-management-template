@@ -133,48 +133,6 @@ class UsersListTable extends Component {
                 <span className="fs-sm">Avatar</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="password" dataSort
-                
-              >
-                <span className="fs-sm">Password</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="emailVerified" dataSort
-                
-                dataFormat={dataFormat.booleanFormatter}
-                
-              >
-                <span className="fs-sm">emailVerified</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="emailVerificationToken" dataSort
-                
-              >
-                <span className="fs-sm">emailVerificationToken</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="emailVerificationTokenExpiresAt" dataSort
-                
-                dataFormat={dataFormat.dateTimeFormatter}
-                
-              >
-                <span className="fs-sm">emailVerificationTokenExpiresAt</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="passwordResetToken" dataSort
-                
-              >
-                <span className="fs-sm">passwordResetToken</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="passwordResetTokenExpiresAt" dataSort
-                
-                dataFormat={dataFormat.dateTimeFormatter}
-                
-              >
-                <span className="fs-sm">passwordResetTokenExpiresAt</span>
-              </TableHeaderColumn>
-
             </BootstrapTable>
           </Widget>
 
