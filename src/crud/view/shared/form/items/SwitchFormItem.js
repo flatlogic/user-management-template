@@ -36,10 +36,9 @@ export class SwitchFormItemNotFast extends Component {
           </label>
         )}
 
-        <div className="custom-control custom-switch">
+        <div className="abc-checkbox">
           <input
             type="checkbox"
-            className="custom-control-input"
             id={name}
             name={name}
             onChange={(event) => {
@@ -54,7 +53,6 @@ export class SwitchFormItemNotFast extends Component {
           />
 
           <label
-            className="custom-control-label"
             htmlFor={name}
           >
             &#160;

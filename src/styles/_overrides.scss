@@ -708,10 +708,6 @@ pre {
   }
 }
 
-//
-// Font Awesome
-// --------------------------------------------------
-
 .circle {
   .fa {
     vertical-align: middle;
@@ -771,5 +767,15 @@ pre {
 
   @include hover-focus() {
     background-color: rgba($white, 0.9);
+  }
+}
+
+///////// Awesome Bootstrap Checkbox //////////
+
+.abc-checkbox, .abc-radio {
+  label:after {
+    font-family: Line Awesome Free, sans-serif !important;
+    content: "\f00c" !important;
+    font-weight: $font-weight-semi-bold;
   }
 }

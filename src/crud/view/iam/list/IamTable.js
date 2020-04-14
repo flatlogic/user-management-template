@@ -67,10 +67,9 @@ class IamTable extends Component {
               <tr>
                 <TableColumnHeader className="th-checkbox">
                   {hasRows && (
-                    <div className="custom-control custom-checkbox">
+                    <div className="abc-checkbox">
                       <input
                         type="checkbox"
-                        className="custom-control-input"
                         id="table-header-checkbox"
                         checked={!!isAllSelected}
                         onChange={() =>
@@ -79,7 +78,6 @@ class IamTable extends Component {
                       />
                       <label
                         htmlFor="table-header-checkbox"
-                        className="custom-control-label"
                       >
                         &#160;
                       </label>
@@ -144,10 +142,9 @@ class IamTable extends Component {
                 rows.map((row) => (
                   <tr key={row.id}>
                     <th className="th-checkbox" scope="row">
-                      <div className="custom-control custom-checkbox">
+                      <div className="abc-checkbox">
                         <input
                           type="checkbox"
-                          className="custom-control-input"
                           id={`table-header-checkbox-${row.id}`}
                           checked={selectedKeys.includes(
                             row.id,
@@ -158,7 +155,6 @@ class IamTable extends Component {
                         />
                         <label
                           htmlFor={`table-header-checkbox-${row.id}`}
-                          className="custom-control-label"
                         >
                           &#160;
                         </label>
