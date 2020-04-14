@@ -22,8 +22,8 @@ class Login extends React.Component {
         super(props);
 
         this.state = {
-            email: 'admin@flatlogic.com',
-            password: 'password',
+            email: '',
+            password: '',
         };
 
         this.doLogin = this.doLogin.bind(this);
@@ -89,13 +89,6 @@ class Login extends React.Component {
                         <p className="widget-auth-info">
                             Use your email to sign in.
                         </p>
-                        <Alert className="alert-sm text-center mt-2" color="secondary">
-                            This is a real app with Node.js backend - use
-                            <br/>
-                            <span className="font-weight-bold">"admin@flatlogic.com / password"</span>
-                            <br/>
-                            to login!
-                        </Alert>
                         <form className="mt" onSubmit={this.doLogin}>
                             {
                                 this.props.errorMessage && (
