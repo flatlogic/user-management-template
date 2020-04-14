@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import Spinner from 'crud/view/shared/Spinner';
 import ViewWrapper from 'crud/view/shared/styles/ViewWrapper';
 import TextViewItem from 'crud/view/shared/view/TextViewItem';
-import UserViewItem from 'crud/view/iam/view/UserViewItem';
 import ImagesViewItem from 'crud/view/shared/view/ImagesViewItem';
 import FilesViewItem from 'crud/view/shared/view/FilesViewItem';
 

@@ -20,6 +20,15 @@ email: { type: 'string', label: 'E-mail',
 disabled: { type: 'boolean', label: 'Disabled',
     
     },
+role: { type: 'enum', label: 'Role',
+  
+    options: [
+    
+        { value: 'admin', label: 'Admin' },
+        { value: 'user', label: 'User' },    
+    ],
+    
+    },
 avatar: { type: 'images', label: 'Avatar',
     
     },

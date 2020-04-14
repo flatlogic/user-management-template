@@ -97,6 +97,12 @@ class UsersListTable extends Component {
                 <span className="fs-sm">E-mail</span>
               </TableHeaderColumn>
 
+              <TableHeaderColumn dataField="role" dataSort
+
+              >
+                <span className="fs-sm">Role</span>
+              </TableHeaderColumn>
+
               <TableHeaderColumn dataField="disabled" dataSort
 
                 dataFormat={dataFormat.booleanFormatter}

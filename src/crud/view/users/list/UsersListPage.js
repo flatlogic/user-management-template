@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import UsersListFilter from 'crud/view/users/list/UsersListFilter';
 import UsersListTable from 'crud/view/users/list/UsersListTable';
 import UsersListToolbar from 'crud/view/users/list/UsersListToolbar';
 import ContentWrapper from 'crud/view/layout/styles/ContentWrapper';

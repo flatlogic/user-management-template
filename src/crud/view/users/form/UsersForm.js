@@ -10,7 +10,6 @@ import FormSchema from 'crud/view/shared/form/formSchema';
 import ButtonIcon from 'crud/view/shared/ButtonIcon';
 import InputFormItem from 'crud/view/shared/form/items/InputFormItem';
 import InputNumberFormItem from 'crud/view/shared/form/items/InputNumberFormItem';
-import UserAutocompleteFormItem from 'crud/view/iam/autocomplete/UserAutocompleteFormItem';
 import SwitchFormItem from 'crud/view/shared/form/items/SwitchFormItem';
 import RadioFormItem from 'crud/view/shared/form/items/RadioFormItem';
 import SelectFormItem from 'crud/view/shared/form/items/SelectFormItem';
@@ -83,6 +82,11 @@ class UsersForm extends Component {
                   name={'email'}
                   schema={usersFields}
 
+                />
+
+                <RadioFormItem
+                  name={'role'}
+                  schema={usersFields}
                 />
 
                 <SwitchFormItem
