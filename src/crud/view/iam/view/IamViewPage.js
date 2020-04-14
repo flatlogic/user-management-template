@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ContentWrapper from 'crud/view/layout/styles/ContentWrapper';
 import PageTitle from 'crud/view/shared/styles/PageTitle';
-import Breadcrumb from 'crud/view/shared/Breadcrumb';
 import IamView from 'crud/view/iam/view/IamView';
 import { i18n } from 'crud/i18n';
 import actions from 'crud/modules/iam/view/iamViewActions';
@@ -20,14 +19,6 @@ class IamViewPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Breadcrumb
-          items={[
-            [i18n('home.menu'), '/'],
-            [i18n('iam.menu'), '/iam'],
-            [i18n('iam.view.title')],
-          ]}
-        />
-
         <ContentWrapper>
           <PageTitle>{i18n('iam.view.title')}</PageTitle>
 

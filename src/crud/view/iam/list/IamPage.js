@@ -4,7 +4,6 @@ import IamTable from 'crud/view/iam/list/UsersSing';
 import IamToolbar from 'crud/view/iam/list/IamToolbar';
 import ContentWrapper from 'crud/view/layout/styles/ContentWrapper';
 import PageTitle from 'crud/view/shared/styles/PageTitle';
-import Breadcrumb from 'crud/view/shared/Breadcrumb';
 import { i18n } from 'crud/i18n';
 
 class IamPage extends Component {

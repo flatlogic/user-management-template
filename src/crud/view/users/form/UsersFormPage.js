@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ContentWrapper from 'crud/view/layout/styles/ContentWrapper';
 import PageTitle from 'crud/view/shared/styles/PageTitle';
-import Breadcrumb from 'crud/view/shared/Breadcrumb';
 import UsersForm from 'crud/view/users/form/UsersForm';
 import { i18n } from 'crud/i18n';
 import { getHistory } from 'crud/modules/store';

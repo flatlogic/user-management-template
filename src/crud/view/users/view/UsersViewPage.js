@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ContentWrapper from 'crud/view/layout/styles/ContentWrapper';
 import PageTitle from 'crud/view/shared/styles/PageTitle';
-import Breadcrumb from 'crud/view/shared/Breadcrumb';
 import UsersView from 'crud/view/users/view/UsersView';
 import { i18n } from 'crud/i18n';
 import actions from 'crud/modules/users/view/usersViewActions';
@@ -18,14 +17,6 @@ class UsersPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Breadcrumb
-          items={[
-            [i18n('home.menu'), '/'],
-            [i18n('entities.users.menu'), '/users'],
-            [i18n('entities.users.view.title')],
-          ]}
-        />
-
         <ContentWrapper>
           <PageTitle>
             {i18n('entities.users.view.title')}

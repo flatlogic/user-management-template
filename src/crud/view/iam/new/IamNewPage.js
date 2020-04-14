@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ContentWrapper from 'crud/view/layout/styles/ContentWrapper';
 import PageTitle from 'crud/view/shared/styles/PageTitle';
-import Breadcrumb from 'crud/view/shared/Breadcrumb';
 import IamNewForm from 'crud/view/iam/new/IamNewForm';
 import actions from 'crud/modules/iam/form/iamFormActions';
 import selectors from 'crud/modules/iam/form/iamFormSelectors';
@@ -23,14 +22,6 @@ class IamNewPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Breadcrumb
-          items={[
-            [i18n('home.menu'), '/'],
-            [i18n('iam.menu'), '/iam'],
-            [i18n('iam.new.title')],
-          ]}
-        />
-
         <ContentWrapper>
           <PageTitle>{i18n('iam.new.title')}</PageTitle>
 
