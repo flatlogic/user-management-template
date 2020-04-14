@@ -26,9 +26,7 @@ import { logoutUser } from '../../actions/user';
 import chroma from 'chroma-js'
 import { toggleSidebar, openSidebar, closeSidebar, changeActiveSidebarItem } from '../../actions/navigation';
 
-import a5 from '../../images/people/a5.jpg';
-
-import s from './Header.module.scss'; // eslint-disable-line css-modules/no-unused-class
+import s from './Header.module.scss';
 
 class Header extends React.Component {
   static propTypes = {
@@ -162,8 +160,8 @@ class Header extends React.Component {
         <Nav className="ml-auto">
           <NavbarText>
             <span className={`${s.avatar} rounded-circle thumb-sm float-left mr-2`}>
-              {user.avatar || user.email === "admin@flatlogic.com" ? (
-                <img src={user.avatar || a5} alt="..."/>
+              {user.avatar ? (
+                <img src={user.avatar} alt="..."/>
               ) : (
                 <span>{firstUserLetter}</span>
               )}
