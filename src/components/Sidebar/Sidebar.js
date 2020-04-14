@@ -74,38 +74,10 @@ class Sidebar extends React.Component {
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
             activeItem={this.props.activeItem}
-            header="Dashboard"
-            isHeader
-            iconName="la-home"
-            link="/app/main/dashboard"
-            index="main"
-          />
-          <LinksGroup
-            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
-            activeItem={this.props.activeItem}
-            header="Tables"
-            isHeader
-            iconName="la-home"
-            link="/app/tables/dynamic"
-            index="main"
-          />
-          <LinksGroup
-            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
-            activeItem={this.props.activeItem}
-            header="Another Page"
-            link="/app/another-page"
-            isHeader
-            iconName="la-file"
-            badge="6"
-          />
-
-          <LinksGroup
-            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
-            activeItem={this.props.activeItem}
             header="Users"
             link="/app/users"
             isHeader
-            iconName="la-file"
+            iconName="la-users"
           />
 
           <LinksGroup
@@ -114,7 +86,7 @@ class Sidebar extends React.Component {
             header="My Profile"
             link="/app/profile"
             isHeader
-            iconName="la-file"
+            iconName="la-user"
           />
 
         </ul>

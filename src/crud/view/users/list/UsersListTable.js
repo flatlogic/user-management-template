@@ -1,20 +1,12 @@
 
 import * as dataFormat from 'crud/view/users/list/UsersDataFormatters';
-import { i18n } from 'crud/i18n';
 import actions from 'crud/modules/users/list/usersListActions';
-import destroyActions from 'crud/modules/users/destroy/usersDestroyActions';
 import selectors from 'crud/modules/users/list/usersListSelectors';
 import destroySelectors from 'crud/modules/users/destroy/usersDestroySelectors';
-import usersSelectors from 'crud/modules/users/usersSelectors';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-
-
-import { reactTableData, reactBootstrapTableData } from 'pages/tables/dynamic/data';
 
 import {
-  Progress,
   Dropdown,
   DropdownMenu,
   DropdownToggle,
@@ -27,16 +19,11 @@ import {
 } from 'react-bootstrap-table';
 
 import Widget from 'components/Widget';
-import s from 'pages/tables/dynamic/Dynamic.modules.scss';
+import s from 'crud/view/users/list/styles/Tables.modules.scss';
 
 class UsersListTable extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      reactTable: reactTableData(),
-      reactBootstrapTable: reactBootstrapTableData(),
-    };
   }
 
   componentDidMount() {
@@ -88,47 +75,47 @@ class UsersListTable extends Component {
               </TableHeaderColumn>
 
               <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="fullName" dataSort
-                
+
               >
                 <span className="fs-sm">Full Name</span>
               </TableHeaderColumn>
 
               <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="firstName" dataSort
-                
+
               >
                 <span className="fs-sm">First Name</span>
               </TableHeaderColumn>
 
               <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="lastName" dataSort
-                
+
               >
                 <span className="fs-sm">Last Name</span>
               </TableHeaderColumn>
 
               <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="phoneNumber" dataSort
-                
+
               >
                 <span className="fs-sm">Phone Number</span>
               </TableHeaderColumn>
 
               <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="email" dataSort
-                
+
               >
                 <span className="fs-sm">E-mail</span>
               </TableHeaderColumn>
 
               <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="disabled" dataSort
-                
+
                 dataFormat={dataFormat.booleanFormatter}
-                
+
               >
                 <span className="fs-sm">Disabled</span>
               </TableHeaderColumn>
 
               <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="avatar" dataSort
-                
+
                 dataFormat={dataFormat.imageFormatter}
-                
+
               >
                 <span className="fs-sm">Avatar</span>
               </TableHeaderColumn>
