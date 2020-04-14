@@ -13,20 +13,16 @@
     height: 100%;
   }
 
-  .nav-item {
-    .nav-link {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      position: relative;
-      padding: 0.5rem;
+  .nav-item .nav-link,
+  .navbar-text{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    padding: 0.5rem;
 
-
-
-
-      .la {
-        font-size: 20px;
-      }
+    .la {
+      font-size: 20px;
     }
   }
 
@@ -197,8 +193,9 @@ small {
 ///////// Buttons //////////
 
 .dropdown-toggle::after {
-  font-family: LineAwesome, sans-serif;
-  content: "\F110";
+  font-family: Line Awesome Free, sans-serif;
+  content: "\f107";
+  font-weight: $font-weight-semi-bold;
   border: none;
   width: auto;
   height: auto;
@@ -252,10 +249,6 @@ small {
 .btn {
   font-family: $font-family-sans-serif;
   background-image: linear-gradient(to right, #ffffff26, #fff0);
-
-  .glyphicon {
-    top: 3px;
-  }
 }
 
 .btn,
@@ -451,17 +444,11 @@ small {
   color: $gray-600;
 }
 
-///////// Glyphicons //////////
-
-.glyphicon {
-  vertical-align: middle;
-}
-
-///////// Font Awesome //////////
+///////// Line Awesome //////////
 
 .navbar {
-  .fa {
-    &.fa-lg {
+  .la {
+    &.la-lg {
       line-height: 19px;
     }
   }
@@ -479,25 +466,6 @@ small {
 
 .tooltip-inner {
   @include border-radius(3px);
-}
-
-///////// Base Elements //////////
-
-.navbar-notifications {
-  .list-group-item:hover {
-    .progress {
-      background: $white;
-    }
-  }
-
-  .btn-link {
-    color: #666;
-    text-decoration: none;
-
-    &:hover {
-      color: #333;
-    }
-  }
 }
 
 ///////// List Group //////////
@@ -711,7 +679,7 @@ pre {
   align-items: center;
   justify-content: space-between;
 
-  .fa {
+  .la {
     transition: $transition-base;
 
     &.expanded {
@@ -768,11 +736,6 @@ pre {
       color: darken($white, 10%);
     }
   }
-}
-
-//// React Joyride Shadow fix ////
-.__floater {
-  filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 0px 10px)!important
 }
 
 .table-striped {

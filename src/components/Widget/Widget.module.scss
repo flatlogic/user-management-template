@@ -88,7 +88,7 @@
   display: block;
   position: relative;
   margin-bottom: $grid-gutter-width;
-  
+
   background: $widget-bg-color;
   border-radius: $widget-border-radius;
   box-shadow: var(--widget-shadow);
@@ -142,7 +142,7 @@
 .widget {
   &:global.p-0 .widget-body {
       padding: 0!important;
-  }  
+  }
 }
 
 .widgetBody {
@@ -202,10 +202,6 @@
         position: relative;
         top: 2px;
       }
-
-      .glyphicon {
-        font-size: 0.7rem;
-      }
     }
   }
 }
@@ -214,12 +210,6 @@
   top: 2px;
   position: relative;
   margin-left: 3px;
-
-  :global {
-    .glyphicon {
-      vertical-align: baseline;
-    }
-  }
 }
 
 :global {

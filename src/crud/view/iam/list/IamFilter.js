@@ -119,7 +119,7 @@ class IamFilter extends Component {
                       >
                         <ButtonIcon
                           loading={loading}
-                          iconClass="fas fa-search"
+                          iconClass="la la-search"
                         />{' '}
                         {i18n('common.search')}
                       </button>
@@ -132,7 +132,7 @@ class IamFilter extends Component {
                       >
                         <ButtonIcon
                           loading={loading}
-                          iconClass="fas fa-undo"
+                          iconClass="la la-undo"
                         />{' '}
                         {i18n('common.reset')}
                       </button>

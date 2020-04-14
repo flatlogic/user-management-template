@@ -32,7 +32,7 @@
 }
 
 .sidebarClose.sidebarWrapper {
-  width: $sidebar-width-closed; 
+  width: $sidebar-width-closed;
   @include media-breakpoint-down(sm) {
     width: 0;
   }
@@ -108,10 +108,6 @@
 .staticSidebar .labelName {
   transition: none;
   opacity: 1;
-}
-
-.glyphiconSm {
-  font-size: 9px;
 }
 
 .sidebarLabels {

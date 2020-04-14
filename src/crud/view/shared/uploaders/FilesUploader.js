@@ -94,7 +94,7 @@ class FilesUploader extends Component {
       >
         <ButtonIcon
           loading={loading}
-          iconClass="fas fa-plus"
+          iconClass="la la-plus"
         />{' '}
         {i18n('fileUploader.upload')}
         <input
@@ -119,7 +119,7 @@ class FilesUploader extends Component {
             {this.value().map((item) => {
               return (
                 <div key={item.id}>
-                  <i className="fas fa-link text-muted mr-2"></i>
+                  <i className="la la-link text-muted mr-2"></i>
 
                   <a
                     href={item.publicUrl}
@@ -138,7 +138,7 @@ class FilesUploader extends Component {
                         this.handleRemove(item.id)
                       }
                     >
-                      <i className="fas fa-times"></i>
+                      <i className="la la-times"></i>
                     </button>
                   )}
                 </div>

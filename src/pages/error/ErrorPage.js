@@ -29,7 +29,7 @@ class ErrorPage extends React.Component {
               </FormGroup>
               <Link to="app/extra/search">
                 <Button className={s.errorBtn} type="submit" color="success">
-                  Search <i className="fa fa-search text-white ml-xs" />
+                  Search <i className="la la-search text-white ml-xs" />
                 </Button>
               </Link>
             </Form>

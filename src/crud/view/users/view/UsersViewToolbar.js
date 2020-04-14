@@ -50,7 +50,7 @@ class UsersViewToolbar extends Component {
               className="btn btn-primary"
               type="button"
             >
-              <ButtonIcon iconClass="fas fa-edit" />{' '}
+              <ButtonIcon iconClass="la la-edit" />{' '}
               {i18n('common.edit')}
             </button>
           </Link>
@@ -65,7 +65,7 @@ class UsersViewToolbar extends Component {
           >
             <ButtonIcon
               loading={destroyLoading}
-              iconClass="fas fa-trash-alt"
+              iconClass="la la-trash-alt"
             />{' '}
             {i18n('common.destroy')}
           </button>
@@ -78,7 +78,7 @@ class UsersViewToolbar extends Component {
             )}`}
           >
             <button className="btn btn-light" type="button">
-              <ButtonIcon iconClass="fas fa-history" />{' '}
+              <ButtonIcon iconClass="la la-history" />{' '}
               {i18n('auditLog.menu')}
             </button>
           </Link>

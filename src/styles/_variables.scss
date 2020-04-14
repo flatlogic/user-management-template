@@ -2,13 +2,6 @@
 
 $enable-shadows:            true !default;
 
-$glyphicons-halflings-include-bonus: false !default;
-$glyphicons-halflings-class-prefix: glyphicon !default;
-$glyphicons-halflings-font-base-size: 14px !default;
-
-$glyphicons-halflings-font-path: '../fonts/glyphicons' !default;
-$fa-font-path: '../fonts/font-awesome' !default;
-
 /*
  * Typography
  * ======================================================================== */
@@ -110,8 +103,6 @@ $sidebar-transition-time: 0.3s !default;
 $sidebar-width-open: 230px;
 $sidebar-width-closed: 50px;
 $sidebar-transition-time: 0.3s !default;
-
-$chat-sidebar-width-open: 250px;
 
 $sidebar-border: 1px solid darken($body-bg, 2%);
 
@@ -230,11 +221,3 @@ $padding-small-horizontal:  0.75rem !default;
 // -------------------------
 
 $screen-lg-height: 670px !default;
-
-
-//== Chat Sidebar
-//
-$chat-sidebar-width-open: 250px;
-
-$chat-component-padding: 21px;
-$chat-section-width: 330px;

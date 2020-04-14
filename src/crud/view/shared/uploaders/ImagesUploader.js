@@ -97,7 +97,7 @@ class ImagesUploader extends Component {
       >
         <ButtonIcon
           loading={loading}
-          iconClass="fas fa-plus"
+          iconClass="la la-plus"
         />{' '}
         {i18n('fileUploader.upload')}
         <input
@@ -145,7 +145,7 @@ class ImagesUploader extends Component {
                         this.doPreviewImage(item)
                       }
                     >
-                      <i className="fas fa-search"></i>
+                      <i className="la la-search"></i>
                     </button>
 
                     {!readonly && (
@@ -156,7 +156,7 @@ class ImagesUploader extends Component {
                           this.handleRemove(item.id)
                         }
                       >
-                        <i className="fas fa-times"></i>
+                        <i className="la la-times"></i>
                       </button>
                     )}
                   </div>

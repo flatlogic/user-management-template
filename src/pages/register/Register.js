@@ -99,9 +99,9 @@ class Register extends React.Component {
             <div className="auth-page">
                 <Container>
                     <h5 className="auth-logo">
-                        <i className="fa fa-circle text-gray"/>
+                        <i className="la la-circle text-gray"/>
                         Sing App
-                        <i className="fa fa-circle text-warning"/>
+                        <i className="la la-circle text-warning"/>
                     </h5>
                     <Widget className="widget-auth mx-auto" title={<h3 className="mt-0">Create an account</h3>}>
                         <p className="widget-auth-info">

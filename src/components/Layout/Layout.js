@@ -6,7 +6,6 @@ import { Switch, Route, withRouter, Redirect } from 'react-router';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Hammer from 'rc-hammerjs';
 
-import Dashboard from '../../pages/dashboard';
 import { SidebarTypes } from '../../reducers/layout';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
@@ -14,9 +13,6 @@ import { openSidebar, closeSidebar, changeActiveSidebarItem, toggleSidebar } fro
 import s from './Layout.module.scss';
 import { DashboardThemes } from '../../reducers/layout';
 import BreadcrumbHistory from '../BreadcrumbHistory';
-import AnotherPage from '../../pages/another-page'
-import Profile from '../../pages/profile';
-import TablesDynamic from '../../pages/tables/dynamic';
 
 import CustomLoadable from 'crud/view/shared/CustomLoadable';
 
@@ -103,17 +99,15 @@ class Layout extends React.Component {
                   timeout={200}
                 >
                   <Switch>
-                    <Route path="/app/tables/dynamic" exact component={TablesDynamic} />
-
+                    <Route path={"/app/main"} exact render={() => <Redirect to="/app/main/dashboard"/>}/>
+                    <Route path={"/app/main/dashboard"} exact component={CustomLoadable({loader: () => import('pages/dashboard')})}/>
+                    <Route path={"/app/profile"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
                     <Route path={"/app/users"} exact component={CustomLoadable({loader: () => import('crud/view/users/list/UsersListPage')})} />
                     <Route path={"/app/users/new"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
-                    <Route path={"/app/profile"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
                     <Route path={"/app/users/:id/edit"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
                     <Route path={"/app/users/:id"} exact component={CustomLoadable({loader: () => import('crud/view/users/view/UsersViewPage')})} />
 
-                    <Route path="/app/main" exact render={() => <Redirect to="/app/main/dashboard" />} />
-                    <Route path="/app/main/dashboard" exact component={Dashboard} />
-                    <Route path={"/app/another-page"} component={AnotherPage}/>
+
                   </Switch>
                 </CSSTransition>
               </TransitionGroup>

@@ -31,7 +31,7 @@ const Profile = () => (
               <img className="img-fluid" src={p19} alt="..." />
             </div>
             <button className="btn btn-outline btn-sm mb-2">
-              <i className="fa fa-twitter mr-2" />
+              <i className="la la-twitter mr-2" />
               Follow
             </button>
           </div>
@@ -45,13 +45,13 @@ const Profile = () => (
                 <p>UI/UX designer</p>
                 <button className="btn btn-success btn-sm mb-3">
                   &nbsp;Send
-                  <i className="fa fa-envelope ml-2" />&nbsp;
+                  <i className="la la-envelope ml-2" />&nbsp;
                 </button>
                 <div>
                   <ul className={cx(s.profileContacts, 'mt-sm')}>
-                    <li><i className="fa fa-lg fa-phone fa-fw mr-2" /><button className="btn-link"> +375 29 555-55-55</button></li>
-                    <li><i className="fa fa-lg fa-envelope fa-fw mr-2" /><button className="btn-link"> psmith@example.com</button></li>
-                    <li><i className="fa fa-lg fa-map-marker fa-fw mr-2" /><button className="btn-link"> Minsk, Belarus</button></li>
+                    <li><i className="la la-lg fa-phone fa-fw mr-2" /><button className="btn-link"> +375 29 555-55-55</button></li>
+                    <li><i className="la la-lg fa-envelope fa-fw mr-2" /><button className="btn-link"> psmith@example.com</button></li>
+                    <li><i className="la la-lg fa-map-marker fa-fw mr-2" /><button className="btn-link"> Minsk, Belarus</button></li>
                   </ul>
                 </div>
               </div>
@@ -106,7 +106,7 @@ const Profile = () => (
             <footer className={s.eventFooter}>
               <ul className="post-links">
                 <li><button className="btn-link">1 hour</button></li>
-                <li><button className="btn-link"><span className="text-danger"><i className="fa fa-heart" /> Like</span></button></li>
+                <li><button className="btn-link"><span className="text-danger"><i className="la la-heart" /> Like</span></button></li>
                 <li><button className="btn-link">Comment</button></li>
               </ul>
             </footer>
@@ -124,7 +124,7 @@ const Profile = () => (
               <div className="clearfix">
                 <ul className="post-links mt-sm pull-left">
                   <li><button className="btn-link">1 hour</button></li>
-                  <li><button className="btn-link"><span className="text-danger"><i className="fa fa-heart-o" /> Like</span></button></li>
+                  <li><button className="btn-link"><span className="text-danger"><i className="la la-heart-o" /> Like</span></button></li>
                   <li><button className="btn-link">Comment</button></li>
                 </ul>
 
@@ -169,10 +169,10 @@ const Profile = () => (
             <div className="btn-toolbar">
               <div className="btn-group">
                 <button className="btn btn-sm btn-default">
-                  <i className="fa fa-camera fa-lg" />
+                  <i className="la la-camera la-lg" />
                 </button>
                 <button className="btn btn-sm btn-default">
-                  <i className="fa fa-map-marker fa-lg" />
+                  <i className="la la-map-marker la-lg" />
                 </button>
               </div>
               <button type="submit" className="btn btn-danger btn-sm ml-auto">Post</button>

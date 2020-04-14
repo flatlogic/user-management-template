@@ -109,7 +109,7 @@ class Widget extends React.Component {
   }
 
   handleExpand = () => {
-    
+
     this.setState({
       height: 'auto',
       collapseWidget: false
@@ -139,9 +139,9 @@ class Widget extends React.Component {
   handleFullscreen = () => {
     this.setState({ fullscreened: !this.state.fullscreened });
   }
-  
+
   render() {
-  
+
     const {
       title,
       className,
@@ -183,12 +183,12 @@ class Widget extends React.Component {
       modal,
     } = this.state;
 
-    
-    
+
+
     return (
     <React.Fragment>
       <section
-        style={{display: hideWidget ? 'none' : ''}}  
+        style={{display: hideWidget ? 'none' : ''}}
         className={
           classNames('widget', {'fullscreened' : !!fullscreened, 'collapsed' : !!collapseWidget}, s.widget, className, (reloading || fetchingData) ? s.reloading : '')
         } {...attributes}
@@ -200,7 +200,7 @@ class Widget extends React.Component {
               : <header className={s.title}>{title}</header>
           )
         }
-        
+
         {
           !customControls && mainControls && (
             <div className={`${s.widgetControls} widget-controls`}>
@@ -227,7 +227,7 @@ class Widget extends React.Component {
               )}
               {fullscreen && (
                 <button onClick={this.handleFullscreen} id={`fullscreenId-${randomId}`}>
-                  <i className={`glyphicon glyphicon-resize-${fullscreened ? 'small' : 'full'}`} />
+                  <i className={`la la-${fullscreened ? 'compress' : 'expand'}`} />
                   {showTooltip && (
                     <UncontrolledTooltip
                       placement={tooltipPlacement}
@@ -236,7 +236,7 @@ class Widget extends React.Component {
                   )}
                 </button>
               )}
-              {!fullscreened && 
+              {!fullscreened &&
                 collapse && (
                   <span>
                     <button onClick={this.handleCollapse} id={`collapseId-${randomId}`}>
@@ -287,7 +287,7 @@ class Widget extends React.Component {
                 data-toggle="dropdown"
 
               >
-                <i className="glyphicon glyphicon-cog" />
+                <i className="la la-cog" />
               </DropdownToggle>
               <DropdownMenu className="bg-widget-transparent" right>
                 <DropdownItem onClick={this.handleReload} title="Reload">
@@ -296,7 +296,7 @@ class Widget extends React.Component {
                     <strong>9</strong>
                   </span>
                 </DropdownItem>
-                
+
                 <DropdownItem onClick={this.handleFullscreen} title={!fullscreened ? "Full Screen" : "Restore"}>{!fullscreened ? "Fullscreen" : "Restore"} </DropdownItem>
                 <DropdownItem divider />
                 {!fullscreened && (!prompt ? <DropdownItem onClick={this.handleClose} title="Close">Close</DropdownItem>
@@ -309,18 +309,18 @@ class Widget extends React.Component {
           customControls && (
             <div className={`${s.widgetControls} widget-controls`}>
               {!fullscreened && ((customClose && !prompt) ? (
-                <button onClick={this.handleClose} id={`closeId-${randomId}`} className={s.customControlItem}><i title="Close" className="glyphicon glyphicon-remove"/></button>
+                <button onClick={this.handleClose} id={`closeId-${randomId}`} className={s.customControlItem}><i title="Close" className="la la-times"/></button>
               ) : (
-                  <button onClick={this.toggleModal} id={`closeId-${randomId}`} className={s.customControlItem}><i title="Close" className="glyphicon glyphicon-remove"/></button>
+                  <button onClick={this.toggleModal} id={`closeId-${randomId}`} className={s.customControlItem}><i title="Close" className="la la-times"/></button>
               ))}
               {!fullscreened && (customCollapse && (
-                  <button onClick={this.handleCollapse} id={`closeId-${randomId}`} className={s.customControlItem}><i title="Collapse" className={`glyphicon glyphicon-chevron-${!collapseWidget ? 'down' : 'up'}`}/></button>
+                  <button onClick={this.handleCollapse} id={`closeId-${randomId}`} className={s.customControlItem}><i title="Collapse" className={`la la-angle-${!collapseWidget ? 'down' : 'up'}`}/></button>
               ))}
               {customFullscreen && (
-                  <button onClick={this.handleFullscreen} id={`closeId-${randomId}`} className={s.customControlItem}><i title="Fullscreen" className={`glyphicon glyphicon-resize-${fullscreened ? 'small' : 'full'}`} /></button>
+                  <button onClick={this.handleFullscreen} id={`closeId-${randomId}`} className={s.customControlItem}><i title="Fullscreen" className={`la la-${fullscreened ? 'compress' : 'expand'}`} /></button>
               )}
               {customReload && (
-                  <button onClick={this.handleReload} id={`closeId-${randomId}`} className={s.customControlItem}><i title="I am spinning!" className="fa fa-refresh" /></button>
+                  <button onClick={this.handleReload} id={`closeId-${randomId}`} className={s.customControlItem}><i title="I am spinning!" className="la la-refresh" /></button>
               )}
             </div>
           )
@@ -340,9 +340,9 @@ class Widget extends React.Component {
                   </p>
                   <p className="text-center">
                     <button onClick={this.handleFullscreen} className="btn btn-danger btn-lg">
-                      {!fullscreened ? 
+                      {!fullscreened ?
                         <React.Fragment>Fullscreen me! &nbsp;
-                          <i className="fa fa-check" />
+                          <i className="la la-check" />
                         </React.Fragment>
                         : 'Go Back'
                       }
@@ -352,9 +352,9 @@ class Widget extends React.Component {
               </div>
             ) : children}
           </div>
-    
+
        </AnimateHeight>
-       
+
       </section>
       {prompt && (
         <Modal isOpen={modal} toggle={this.toggleModal} id="news-close-modal">
@@ -367,7 +367,7 @@ class Widget extends React.Component {
           <Button color="danger" onClick={this.closeWithModal} id="news-widget-remove">Yes,
             remove widget</Button>
         </ModalFooter>
-      </Modal> 
+      </Modal>
       )}
       <div style={{display: fullscreened ? 'block'  : 'none'}} className={s.widgetBackground}></div>
       </React.Fragment>

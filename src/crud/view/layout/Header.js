@@ -33,7 +33,7 @@ class Header extends Component {
           onClick={this.doToggleMenu}
           className="menu-toggle-button"
         >
-          <i className="fas fa-bars" />
+          <i className="la la-bars" />
         </button>
 
         <div>
@@ -66,7 +66,7 @@ class Header extends Component {
                 className="dropdown-item"
                 type="button"
               >
-                <i className="fas fa-user" />{' '}
+                <i className="la la-user" />{' '}
                 {i18n('auth.profile.title')}
               </button>
               <button
@@ -74,7 +74,7 @@ class Header extends Component {
                 className="dropdown-item"
                 type="button"
               >
-                <i className="fas fa-sign-out-alt" />{' '}
+                <i className="la la-sign-out-alt" />{' '}
                 {i18n('auth.signout')}
               </button>
             </div>

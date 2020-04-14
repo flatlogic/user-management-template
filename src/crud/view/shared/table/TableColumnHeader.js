@@ -51,11 +51,11 @@ class TableColumnHeader extends Component {
 
           {sorter.columnKey === name &&
             sorter.order === 'descend' && (
-              <i className="ml-2 fas fa-sort-up" />
+              <i className="ml-2 la la-sort-up" />
             )}
           {sorter.columnKey === name &&
             sorter.order === 'ascend' && (
-              <i className="ml-2 fas fa-sort-down" />
+              <i className="ml-2 la la-sort-down" />
             )}
         </div>
       </TableColumnHeaderStyled>

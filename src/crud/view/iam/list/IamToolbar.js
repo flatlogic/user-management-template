@@ -87,7 +87,7 @@ class IamToolbar extends Component {
         type="button"
         onClick={this.doRemoveAllSelected}
       >
-        <ButtonIcon iconClass="fas fa-user-minus" />{' '}
+        <ButtonIcon iconClass="la la-user-minus" />{' '}
         {i18n('common.remove')}
       </button>
     );
@@ -128,7 +128,7 @@ class IamToolbar extends Component {
         type="button"
         onClick={this.doEnableAllSelected}
       >
-        <ButtonIcon iconClass="fas fa-check" />{' '}
+        <ButtonIcon iconClass="la la-check" />{' '}
         {i18n('iam.enable')}
       </button>
     );
@@ -169,7 +169,7 @@ class IamToolbar extends Component {
         type="button"
         onClick={this.doDisableAllSelected}
       >
-        <ButtonIcon iconClass="fas fa-ban" />{' '}
+        <ButtonIcon iconClass="la la-ban" />{' '}
         {i18n('iam.disable')}
       </button>
     );
@@ -199,7 +199,7 @@ class IamToolbar extends Component {
               className="btn btn-primary"
               type="button"
             >
-              <ButtonIcon iconClass="fas fa-user-plus" />{' '}
+              <ButtonIcon iconClass="la la-user-plus" />{' '}
               {i18n('common.new')}
             </button>
           </Link>
@@ -211,7 +211,7 @@ class IamToolbar extends Component {
               className="btn btn-primary"
               type="button"
             >
-              <ButtonIcon iconClass="fas fa-upload" />{' '}
+              <ButtonIcon iconClass="la la-upload" />{' '}
               {i18n('common.import')}
             </button>
           </Link>
@@ -224,7 +224,7 @@ class IamToolbar extends Component {
         {this.props.hasPermissionToAuditLogs && (
           <Link to="/audit-logs?entityNames=user">
             <button className="btn btn-light" type="button">
-              <ButtonIcon iconClass="fas fa-history" />{' '}
+              <ButtonIcon iconClass="la la-history" />{' '}
               {i18n('auditLog.menu')}
             </button>
           </Link>

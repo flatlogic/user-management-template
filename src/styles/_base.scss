@@ -24,36 +24,6 @@
   animation-duration: 0.5s;
 }
 
-.chat-notification-sing {
-  position: absolute;
-  top: 20px;
-  left: 14px;
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: theme-color('danger');
-}
-
-#notification-buttons {
-  display: flex;
-
-  button {
-    flex: 1;
-    font-family: $font-family-base;
-    font-size: 0.875rem;
-    background-color: #f8f8f8;
-
-    &.active {
-      color: #343434;
-      background-color: #dfdfdf;
-      background-image: none;
-      border-color: #adadad;
-      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.12);
-    }
-  }
-}
-
 .btn-toolbar .btn {
   margin-left: 0.5rem;
 }
@@ -189,7 +159,7 @@ table > thead > tr > th {
   margin: -1px -1px calc(#{$grid-gutter-width} - 1px) -1px;
 }
 
-.sortable-chosen { 
+.sortable-chosen {
   opacity: 1!important
 }
 

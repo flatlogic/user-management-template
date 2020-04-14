@@ -111,7 +111,7 @@ class ProfileFormPage extends Component {
                     onClick={form.handleReset}
                     type="button"
                   >
-                    <i className="fas fa-undo"></i>{' '}
+                    <i className="la la-undo"></i>{' '}
                     {i18n('common.reset')}
                   </button>
 
@@ -122,7 +122,7 @@ class ProfileFormPage extends Component {
                       onClick={() => this.props.onCancel()}
                       type="button"
                     >
-                      <i className="fas fa-times"></i>{' '}
+                      <i className="la la-times"></i>{' '}
                       {i18n('common.cancel')}
                     </button>
                   ) : null}

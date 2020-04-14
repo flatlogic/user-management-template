@@ -27,11 +27,11 @@ import FormValidations from 'crud/view/shared/form/formValidations';
 const { fields } = model;
 
 class UsersForm extends Component {
-  iniValues = () => { 
+  iniValues = () => {
     return IniValues(usersFields, this.props.record || {});
   }
 
-  formValidations = () => { 
+  formValidations = () => {
     return FormValidations(usersFields, this.props.record || {});
   }
 
@@ -121,7 +121,7 @@ class UsersForm extends Component {
                     disabled={saveLoading}
                     onClick={form.handleReset}
                   >
-                    <i className="fas fa-undo"></i>{' '}
+                    <i className="la la-undo"></i>{' '}
                     {i18n('common.reset')}
                   </button>
 
@@ -132,7 +132,7 @@ class UsersForm extends Component {
                       disabled={saveLoading}
                       onClick={() => this.props.onCancel()}
                     >
-                      <i className="fas fa-times"></i>{' '}
+                      <i className="la la-times"></i>{' '}
                       {i18n('common.cancel')}
                     </button>
                   ) : null}

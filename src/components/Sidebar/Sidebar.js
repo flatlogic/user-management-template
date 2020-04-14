@@ -76,7 +76,7 @@ class Sidebar extends React.Component {
             activeItem={this.props.activeItem}
             header="Dashboard"
             isHeader
-            iconName="flaticon-home"
+            iconName="la-home"
             link="/app/main/dashboard"
             index="main"
           />
@@ -85,7 +85,7 @@ class Sidebar extends React.Component {
             activeItem={this.props.activeItem}
             header="Tables"
             isHeader
-            iconName="flaticon-home"
+            iconName="la-home"
             link="/app/tables/dynamic"
             index="main"
           />
@@ -95,7 +95,7 @@ class Sidebar extends React.Component {
             header="Another Page"
             link="/app/another-page"
             isHeader
-            iconName="flaticon-file"
+            iconName="la-file"
             badge="6"
           />
 
@@ -105,7 +105,7 @@ class Sidebar extends React.Component {
             header="Users"
             link="/app/users"
             isHeader
-            iconName="flaticon-file"
+            iconName="la-file"
           />
 
           <LinksGroup
@@ -114,7 +114,7 @@ class Sidebar extends React.Component {
             header="My Profile"
             link="/app/profile"
             isHeader
-            iconName="flaticon-file"
+            iconName="la-file"
           />
 
         </ul>
@@ -122,26 +122,26 @@ class Sidebar extends React.Component {
           LABELS
           {/* eslint-disable-next-line */}
           <a className={s.actionLink}>
-            <i className={`${s.glyphiconSm} glyphicon glyphicon-plus float-right`} />
+            <i className='la la-plus float-right' />
           </a>
         </h5>
         {/* eslint-disable */}
         <ul className={s.sidebarLabels}>
           <li>
             <a href="#">
-              <i className="fa fa-circle text-danger mr-2" />
+              <i className="la la-circle text-danger mr-2" />
               <span className={s.labelName}>My Recent</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i className="fa fa-circle text-info mr-2" />
+              <i className="la la-circle text-info mr-2" />
               <span className={s.labelName}>Starred</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i className="fa fa-circle text-primary mr-2" />
+              <i className="la la-circle text-primary mr-2" />
               <span className={s.labelName}>Background</span>
             </a>
           </li>

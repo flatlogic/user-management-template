@@ -13,7 +13,7 @@ class SettingsFormToolbar extends Component {
         {this.props.hasPermissionToAuditLogs && (
           <Link to={`/audit-logs?entityNames=settings`}>
             <button className="btn btn-light" type="button">
-              <ButtonIcon iconClass="fas fa-history" />{' '}
+              <ButtonIcon iconClass="la la-history" />{' '}
               {i18n('auditLog.menu')}
             </button>
           </Link>

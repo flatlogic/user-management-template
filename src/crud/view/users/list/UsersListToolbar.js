@@ -15,7 +15,7 @@ class UsersToolbar extends Component {
               className="btn btn-primary"
               type="button"
             >
-              <ButtonIcon iconClass="fas fa-plus" />{' '}
+              <ButtonIcon iconClass="la la-plus" />{' '}
               {i18n('common.new')}
             </button>
           </Link>

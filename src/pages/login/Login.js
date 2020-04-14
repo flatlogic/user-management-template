@@ -14,8 +14,10 @@ class Login extends React.Component {
     };
 
     static isAuthenticated(token) {
-        if (!token) return;
-        return jwt.decode(token);
+      if (!token) return;
+      const date = new Date().getTime() / 1000;
+      const data = jwt.decode(token);
+      return date < data.exp;
     }
 
     constructor(props) {
@@ -81,9 +83,9 @@ class Login extends React.Component {
             <div className="auth-page">
                 <Container>
                     <h5 className="auth-logo">
-                        <i className="fa fa-circle text-primary" />
+                        <i className="la la-circle text-primary" />
                         Sing App
-                        <i className="fa fa-circle text-danger" />
+                        <i className="la la-circle text-danger" />
                     </h5>
                     <Widget className="widget-auth mx-auto" title={<h3 className="mt-0">Login to your Web App</h3>}>
                         <p className="widget-auth-info">

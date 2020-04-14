@@ -210,7 +210,7 @@ class AutocompleteInMemoryFormItemNotFast extends Component {
               type="button"
               onClick={this.props.onOpenModal}
             >
-              <i className="fas fa-plus"></i>
+              <i className="la la-plus"></i>
             </button>
           ) : null}
         </div>

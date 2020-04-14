@@ -6,7 +6,7 @@ const permissions = Permissions.values;
 const privateRoutes = [
   {
     path: '/',
-    icon: 'fas fa-home',
+    icon: 'la la-home',
     label: i18n('home.menu'),
     menu: {
       exact: true,
@@ -29,7 +29,7 @@ const privateRoutes = [
     loader: () => import('view/iam/list/IamPage'),
     permissionRequired: permissions.iamRead,
     exact: true,
-    icon: 'fas fa-user-plus',
+    icon: 'la la-user-plus',
     label: i18n('iam.menu'),
     menu: true,
   },
@@ -65,7 +65,7 @@ const privateRoutes = [
 
   {
     path: '/audit-logs',
-    icon: 'fas fa-history',
+    icon: 'la la-history',
     label: i18n('auditLog.menu'),
     loader: () => import('view/auditLog/AuditLogPage'),
     menu: true,
@@ -74,7 +74,7 @@ const privateRoutes = [
 
   {
     path: '/settings',
-    icon: 'fas fa-cog',
+    icon: 'la la-cog',
     label: i18n('settings.menu'),
     loader: () => import('view/settings/SettingsFormPage'),
     permissionRequired: permissions.settingsEdit,
@@ -86,7 +86,7 @@ const privateRoutes = [
     loader: () => import('view/users/list/UsersListPage'),
     permissionRequired: permissions.usersRead,
     exact: true,
-    icon: 'fas fa-chevron-right',
+    icon: 'la la-chevron-right',
     label: i18n('entities.users.menu'),
     menu: true,
   },

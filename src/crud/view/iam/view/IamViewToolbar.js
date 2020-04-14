@@ -49,7 +49,7 @@ class IamViewToolbar extends Component {
               className="btn btn-primary"
               type="button"
             >
-              <ButtonIcon iconClass="fas fa-edit" />{' '}
+              <ButtonIcon iconClass="la la-edit" />{' '}
               {i18n('common.edit')}
             </button>
           </Link>
@@ -65,8 +65,8 @@ class IamViewToolbar extends Component {
             <ButtonIcon
               iconClass={
                 user.disabled
-                  ? 'fas fa-check'
-                  : 'fas fa-ban'
+                  ? 'la la-check'
+                  : 'la la-ban'
               }
             />{' '}
             {user.disabled
@@ -82,7 +82,7 @@ class IamViewToolbar extends Component {
             )}`}
           >
             <button className="btn btn-light" type="button">
-              <ButtonIcon iconClass="fas fa-history" />{' '}
+              <ButtonIcon iconClass="la la-history" />{' '}
               {i18n('auditLog.menu')}
             </button>
           </Link>
