@@ -153,6 +153,14 @@ legend {
   }
 }
 
+.table {
+  th {
+    background: $blue;
+    color: $gray-light;
+    border: none;
+  }
+}
+
 .table-no-border {
   margin-left: -$table-cell-padding;
   margin-right: -$table-cell-padding;

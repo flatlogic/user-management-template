@@ -19,7 +19,6 @@ import {
 } from 'react-bootstrap-table';
 
 import Widget from 'components/Widget';
-import s from 'crud/view/users/list/styles/Tables.modules.scss';
 
 class UsersListTable extends Component {
   constructor(props) {
@@ -51,13 +50,7 @@ class UsersListTable extends Component {
 
   render() {
     const {
-      pagination,
-      rows,
-      loading,
-      isAllSelected,
-      selectedKeys,
-      sorter,
-      hasRows,
+      rows
     } = this.props;
 
     const options = {
@@ -69,42 +62,42 @@ class UsersListTable extends Component {
     return (
         <div>
           <Widget title={<h4>&nbsp;</h4>} collapse close>
-            <BootstrapTable data={rows} version="4" pagination options={options} search tableContainerClass={`table-responsive table-striped table-hover ${s.bootstrapTable}`}>
-              <TableHeaderColumn isKey className={`${s.columnHead}`} dataField="id" dataFormat={dataFormat.actionFormatter}>
+            <BootstrapTable bordered={false} data={rows} version="4" pagination options={options} search tableContainerClass={`table-responsive table-striped table-hover`}>
+              <TableHeaderColumn isKey dataField="id" dataFormat={dataFormat.actionFormatter}>
                 <span className="fs-sm">Actions</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="fullName" dataSort
+              <TableHeaderColumn dataField="fullName" dataSort
 
               >
                 <span className="fs-sm">Full Name</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="firstName" dataSort
+              <TableHeaderColumn dataField="firstName" dataSort
 
               >
                 <span className="fs-sm">First Name</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="lastName" dataSort
+              <TableHeaderColumn dataField="lastName" dataSort
 
               >
                 <span className="fs-sm">Last Name</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="phoneNumber" dataSort
+              <TableHeaderColumn dataField="phoneNumber" dataSort
 
               >
                 <span className="fs-sm">Phone Number</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="email" dataSort
+              <TableHeaderColumn dataField="email" dataSort
 
               >
                 <span className="fs-sm">E-mail</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="disabled" dataSort
+              <TableHeaderColumn dataField="disabled" dataSort
 
                 dataFormat={dataFormat.booleanFormatter}
 
@@ -112,7 +105,7 @@ class UsersListTable extends Component {
                 <span className="fs-sm">Disabled</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn className={`d-md-table-cell ${s.columnHead}`} dataField="avatar" dataSort
+              <TableHeaderColumn dataField="avatar" dataSort
 
                 dataFormat={dataFormat.imageFormatter}
 
