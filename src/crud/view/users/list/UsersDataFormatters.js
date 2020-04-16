@@ -1,7 +1,6 @@
 import moment from 'moment';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { i18n } from 'crud/i18n';
 import { truncate } from 'lodash';
 
 function imageFormatter(cell) {
@@ -33,14 +32,14 @@ function actionFormatter(cell) {
       className="btn btn-link"
       to={`/app/users/${cell}`}
     >
-      {i18n('common.view')}
+    View
     </Link>
     &nbsp;
       <Link
         className="btn btn-link"
         to={`/app/users/${cell}/edit`}
       >
-        {i18n('common.edit')}
+      Edit
     </Link>
       </div>
    )

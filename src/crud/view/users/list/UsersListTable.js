@@ -59,7 +59,7 @@ class UsersListTable extends Component {
 
     return (
         <div>
-          <Widget title={<h4>&nbsp;</h4>} collapse close>
+          <Widget title={<h4>User management</h4>} collapse close>
             <BootstrapTable bordered={false} data={rows} version="4" pagination options={options} search tableContainerClass={`table-responsive table-striped table-hover`}>
               <TableHeaderColumn dataField="fullName" dataSort>
                 <span className="fs-sm">Full Name</span>

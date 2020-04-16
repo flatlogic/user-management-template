@@ -48,22 +48,9 @@ class UsersFormPage extends Component {
     return match.url == '/app/profile';
   };
 
-  title = () => {
-    if(this.isProfile()) {
-      return 'Edit My Profile';
-    }
-
-    return this.isEditing()
-      ? 'Edit User'
-      : 'Add User';
-  };
-
   render() {
     return (
       <React.Fragment>
-        <ContentWrapper>
-          <PageTitle>{this.title()}</PageTitle>
-
           {this.state.dispatched && (
             <UsersForm
               saveLoading={this.props.saveLoading}
@@ -72,11 +59,11 @@ class UsersFormPage extends Component {
                 (this.isEditing() || this.isProfile()) ? this.props.record : {}
               }
               isEditing={this.isEditing()}
+              isProfile={this.isProfile()}
               onSubmit={this.doSubmit}
               onCancel={() => getHistory().push('/app/users')}
             />
           )}
-        </ContentWrapper>
       </React.Fragment>
     );
   }

@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import ViewFormItem from 'crud/view/shared/form/items/ViewFormItem';
 import Spinner from 'crud/view/shared/Spinner';
 import FormWrapper from 'crud/view/shared/styles/FormWrapper';
-import FormSchema from 'crud/view/shared/form/formSchema';
 import ButtonIcon from 'crud/view/shared/ButtonIcon';
 import InputFormItem from 'crud/view/shared/form/items/InputFormItem';
 import InputNumberFormItem from 'crud/view/shared/form/items/InputNumberFormItem';
@@ -18,6 +17,7 @@ import usersFields from 'crud/modules/users/usersFields';
 import IniValues from 'crud/view/shared/form/iniValues';
 import PreparedValues from 'crud/view/shared/form/preparedValues';
 import FormValidations from 'crud/view/shared/form/formValidations';
+import Widget from 'components/Widget';
 
 class UsersForm extends Component {
   iniValues = () => {
@@ -33,11 +33,21 @@ class UsersForm extends Component {
     this.props.onSubmit(id, data);
   };
 
+  title = () => {
+    if(this.props.isProfile) {
+      return 'Edit My Profile';
+    }
+
+    return this.props.isEditing
+      ? 'Edit User'
+      : 'Add User';
+  };
+
   renderForm() {
     const { saveLoading, isEditing } = this.props;
 
     return (
-      <FormWrapper>
+      <Widget title={<h4>{this.title()}</h4>} collapse close>
         <Formik
           onSubmit={this.handleSubmit}
           initialValues={this.iniValues()}
@@ -139,7 +149,7 @@ class UsersForm extends Component {
             );
           }}
         />
-      </FormWrapper>
+      </Widget>
     );
   }
 
