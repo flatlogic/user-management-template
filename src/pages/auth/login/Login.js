@@ -7,6 +7,7 @@ import Widget from '../../../components/Widget';
 import { loginUser, receiveToken } from 'actions/auth';
 import jwt from "jsonwebtoken";
 import microsoft from '../../../images/microsoft.png';
+import { getHistory } from 'crud/modules/store';
 
 class Login extends React.Component {
     static propTypes = {
@@ -67,7 +68,7 @@ class Login extends React.Component {
     }
 
     signUp() {
-        this.props.history.push('/register');
+      getHistory().push('/register');
     }
 
     render() {

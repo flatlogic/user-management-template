@@ -1,12 +1,12 @@
 import { routerMiddleware } from 'connected-react-router';
-import { createBrowserHistory } from 'history';
+import { createHashHistory } from 'history';
 import authActions from 'crud/modules/auth/authActions';
 import createRootReducer from 'crud/modules/reducers';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import thunkMiddleware from 'redux-thunk';
 
-const history = createBrowserHistory();
+const history = createHashHistory();
 
 let store;
 

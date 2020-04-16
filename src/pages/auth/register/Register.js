@@ -68,11 +68,8 @@ class Register extends React.Component {
             this.checkPassword();
         } else {
             this.props.dispatch(registerUser({
-                creds: {
-                    email: this.state.email,
-                    password: this.state.password
-                },
-                history: this.props.history
+              email: this.state.email,
+              password: this.state.password
             }));
         }
     }

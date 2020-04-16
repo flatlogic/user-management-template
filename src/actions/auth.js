@@ -2,6 +2,7 @@ import axios from 'axios';
 import config from '../config';
 import jwt from "jsonwebtoken";
 import { toast } from 'react-toastify';
+import { getHistory } from 'crud/modules/store';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -85,16 +86,16 @@ export function loginUser(creds) {
     };
 }
 
-export function verifyEmail(payload) {
+export function verifyEmail(token) {
   return(dispatch) => {
-    axios.put("/auth/verify-email", {token: payload.token}).then(verified => {
+    axios.put("/auth/verify-email", {token}).then(verified => {
       if (verified) {
         toast.success("Your email was verified");
       }
     }).catch(err => {
       toast.error(err.response.data);
     }).finally(() => {
-      payload.history.push('/login');
+      getHistory().push('/login');
     })
   }
 }

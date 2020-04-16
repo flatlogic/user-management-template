@@ -17,7 +17,7 @@ class Verify extends React.Component {
         const params = new URLSearchParams(this.props.location.search);
         const token = params.get('token');
         if (token) {
-            this.props.dispatch(verifyEmail({token, history: this.props.history}));
+            this.props.dispatch(verifyEmail(token));
         }
     }
 

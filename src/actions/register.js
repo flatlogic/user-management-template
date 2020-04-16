@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import config from '../config';
+import { getHistory } from 'crud/modules/store';
 
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
@@ -25,16 +25,15 @@ export function registerError(payload) {
     };
 }
 
-export function registerUser(payload) {
+export function registerUser(creds) {
     return (dispatch) => {
       dispatch(requestRegister());
-      const creds = payload.creds;
 
       if (creds.email.length > 0 && creds.password.length > 0) {
         axios.post("/auth/signup", creds).then(res => {
           dispatch(receiveRegister());
           toast.success("You've been registered successfully. Please check your email for verification link");
-          payload.history.push('/login');
+          getHistory().push('/login');
         }).catch(err => {
           dispatch(registerError(err.response.data));
         })
