@@ -71,6 +71,8 @@ class Sidebar extends React.Component {
           <a href="https://demo.flatlogic.com/sing-app/"><span className={s.logoStyle}>Sing</span> App</a>
         </header>
         <ul className={s.nav}>
+
+        {this.props.currentUser && this.props.currentUser.role == 'admin' && 
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
             activeItem={this.props.activeItem}
@@ -79,6 +81,7 @@ class Sidebar extends React.Component {
             isHeader
             iconName="la-users"
           />
+        }
 
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
@@ -150,6 +153,7 @@ function mapStateToProps(store) {
     activeItem: store.navigation.activeItem,
     navbarType: store.navigation.navbarType,
     sidebarColor: store.layout.sidebarColor,
+    currentUser: store.authCrud.currentUser,
   };
 }
 

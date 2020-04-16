@@ -1,7 +1,7 @@
 
 import { connectRouter } from 'connected-react-router';
 //import layout from 'crud/modules/layout/layoutReducers';
-//import auth from 'crud/modules/auth/authReducers';
+import authCrud from 'crud/modules/auth/authReducers';
 import iam from 'crud/modules/iam/iamReducers';
 import auditLog from 'crud/modules/auditLog/auditLogReducers';
 import settings from 'crud/modules/settings/settingsReducers';
@@ -15,7 +15,6 @@ import register from 'reducers/register';
 
 import users from 'crud/modules/users/usersReducers';
 
-
 import { combineReducers } from 'redux';
 
 export default (history) =>
@@ -23,6 +22,7 @@ export default (history) =>
     router: connectRouter(history),
     layout,
     auth,
+    authCrud,
     iam,
     auditLog,
     settings,
