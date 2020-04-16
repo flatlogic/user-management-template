@@ -1,6 +1,6 @@
 import { routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
-import initializers from 'crud/modules/initializers';
+import authActions from 'crud/modules/auth/authActions';
 import createRootReducer from 'crud/modules/reducers';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
@@ -22,10 +22,7 @@ export function configureStore(preloadedState) {
     composeWithDevTools(applyMiddleware(...middlewares)),
   );
 
-  for (const initializer of initializers) {
-    initializer(store);
-  }
-
+  store.dispatch(authActions.doInit());
   return store;
 }
 
