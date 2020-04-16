@@ -3,7 +3,6 @@ import UsersService from 'crud/modules/users/usersService';
 import Errors from 'crud/modules/shared/error/errors';
 import Message from 'crud/view/shared/message';
 import { getHistory } from 'crud/modules/store';
-import { i18n } from 'crud/i18n';
 
 const actions = {
   doNew: () => {
@@ -47,7 +46,7 @@ const actions = {
           type: 'USERS_FORM_CREATE_SUCCESS',
         });
 
-        Message.success(i18n('entities.users.create.success'));
+        Message.success('User created');
         getHistory().push('/users');
       })
     } catch (error) {
@@ -73,7 +72,7 @@ const actions = {
           type: 'USERS_FORM_UPDATE_SUCCESS',
         });
 
-        Message.success(i18n('entities.users.update.success'));
+        Message.success('User updated');
         getHistory().push('/app/users');
       })
     } catch (error) {
