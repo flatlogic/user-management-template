@@ -1,10 +1,6 @@
 
 import { connectRouter } from 'connected-react-router';
-//import layout from 'crud/modules/layout/layoutReducers';
 import authCrud from 'crud/modules/auth/authReducers';
-import iam from 'crud/modules/iam/iamReducers';
-import auditLog from 'crud/modules/auditLog/auditLogReducers';
-import settings from 'crud/modules/settings/settingsReducers';
 import reducers from 'reducers';
 import auth from 'reducers/auth';
 import navigation from 'reducers/navigation';
@@ -23,9 +19,6 @@ export default (history) =>
     layout,
     auth,
     authCrud,
-    iam,
-    auditLog,
-    settings,
     alerts,
     navigation,
     register,

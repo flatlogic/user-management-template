@@ -6,7 +6,6 @@ import { i18n } from 'crud/i18n';
 import actions from 'crud/modules/users/view/usersViewActions';
 import { connect } from 'react-redux';
 import selectors from 'crud/modules/users/view/usersViewSelectors';
-import UsersViewToolbar from 'crud/view/users/view/UsersViewToolbar';
 
 class UsersPage extends Component {
   componentDidMount() {
@@ -21,8 +20,6 @@ class UsersPage extends Component {
           <PageTitle>
             {i18n('entities.users.view.title')}
           </PageTitle>
-
-          <UsersViewToolbar match={this.props.match} />
 
           <UsersView
             loading={this.props.loading}
