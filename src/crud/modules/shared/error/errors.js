@@ -36,7 +36,7 @@ export default class Errors {
     }
 
     if (selectErrorCode(error) === 403) {
-      getHistory().push('/403');
+      getHistory().push('/#/403');
       return;
     }
 
@@ -45,7 +45,7 @@ export default class Errors {
       return;
     }
 
-    getHistory().push('/500');
+    getHistory().push('/#/500');
   }
 
   static errorCode(error) {

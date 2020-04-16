@@ -1,9 +1,9 @@
-import authAxios from 'crud/modules/shared/axios/authAxios';
+import axios from 'axios';
 import { AuthToken } from 'crud/modules/auth/authToken';
 
 export default class AuthService {
   static async sendEmailVerification() {
-    const response = await authAxios.post(
+    const response = await axios.post(
       '/auth/send-email-address-verification-email',
     );
 
@@ -11,7 +11,7 @@ export default class AuthService {
   }
 
   static async sendPasswordResetEmail(email) {
-    const response = await authAxios.post(
+    const response = await axios.post(
       '/auth/send-password-reset-email',
       {
         email,
@@ -25,7 +25,7 @@ export default class AuthService {
     email,
     password,
   ) {
-    const response = await authAxios.post('/auth/sign-up', {
+    const response = await axios.post('/auth/sign-up', {
       email,
       password,
     });
@@ -34,7 +34,7 @@ export default class AuthService {
   }
 
   static async signinWithEmailAndPassword(email, password) {
-    const response = await authAxios.post('/auth/sign-in', {
+    const response = await axios.post('/auth/sign-in', {
       email,
       password,
     });
@@ -43,12 +43,12 @@ export default class AuthService {
   }
 
   static async fetchMe() {
-    const response = await authAxios.get('/auth/me');
+    const response = await axios.get('/auth/me');
     return response.data;
   }
 
   static async isEmailConfigured() {
-    const response = await authAxios.get(
+    const response = await axios.get(
       '/auth/email-configured',
     );
     return response.data;
@@ -73,7 +73,7 @@ export default class AuthService {
       },
     };
 
-    const response = await authAxios.put(
+    const response = await axios.put(
       '/auth/profile',
       body,
     );
@@ -82,7 +82,7 @@ export default class AuthService {
   }
 
   static async passwordReset(token, password) {
-    const response = await authAxios.put(
+    const response = await axios.put(
       '/auth/password-reset',
       {
         token,
@@ -94,7 +94,7 @@ export default class AuthService {
   }
 
   static async verifyEmail(token) {
-    const response = await authAxios.put(
+    const response = await axios.put(
       '/auth/verify-email',
       {
         token,

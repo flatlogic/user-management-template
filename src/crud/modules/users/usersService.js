@@ -1,4 +1,4 @@
-import authAxios from 'crud/modules/shared/axios/authAxios';
+import axios from 'axios';
 
 export default class UsersService {
   static async update(id, data) {
@@ -7,7 +7,7 @@ export default class UsersService {
       data,
     };
 
-    const response = await authAxios.put(
+    const response = await axios.put(
       `/users/${id}`,
       body,
     );
@@ -20,7 +20,7 @@ export default class UsersService {
       ids,
     };
 
-    const response = await authAxios.delete(`/users`, {
+    const response = await axios.delete(`/users`, {
       params,
     });
 
@@ -32,7 +32,7 @@ export default class UsersService {
       data,
     };
 
-    const response = await authAxios.post(
+    const response = await axios.post(
       `/users`,
       body,
     );
@@ -46,7 +46,7 @@ export default class UsersService {
       importHash,
     };
 
-    const response = await authAxios.post(
+    const response = await axios.post(
       `/users/import`,
       body,
     );
@@ -55,7 +55,7 @@ export default class UsersService {
   }
 
   static async find(id) {
-    const response = await authAxios.get(`/users/${id}`);
+    const response = await axios.get(`/users/${id}`);
     return response.data;
   }
 
@@ -67,7 +67,7 @@ export default class UsersService {
       offset,
     };
 
-    const response = await authAxios.get(`/users`, {
+    const response = await axios.get(`/users`, {
       params,
     });
 
@@ -80,7 +80,7 @@ export default class UsersService {
       limit,
     };
 
-    const response = await authAxios.get(
+    const response = await axios.get(
       `/users/autocomplete`,
       {
         params,

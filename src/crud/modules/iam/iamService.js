@@ -1,4 +1,4 @@
-import authAxios from 'crud/modules/shared/axios/authAxios';
+import axios from 'axios';
 
 export default class IamService {
   static async enable(ids) {
@@ -15,7 +15,7 @@ export default class IamService {
       disabled: !!disabled,
     };
 
-    const response = await authAxios.put(
+    const response = await axios.put(
       '/iam/status',
       body,
     );
@@ -27,7 +27,7 @@ export default class IamService {
     const body = {
       data,
     };
-    const response = await authAxios.put('/iam', body);
+    const response = await axios.put('/iam', body);
     return response.data;
   }
 
@@ -38,7 +38,7 @@ export default class IamService {
       all,
     };
 
-    const response = await authAxios.delete('/iam', {
+    const response = await axios.delete('/iam', {
       params,
     });
 
@@ -50,7 +50,7 @@ export default class IamService {
       data,
     };
 
-    const response = await authAxios.post('/iam', body);
+    const response = await axios.post('/iam', body);
     return response.data;
   }
 
@@ -62,7 +62,7 @@ export default class IamService {
       importHash,
     };
 
-    const response = await authAxios.post(
+    const response = await axios.post(
       '/iam/import',
       body,
     );
@@ -70,7 +70,7 @@ export default class IamService {
   }
 
   static async find(id) {
-    const response = await authAxios.get(`/iam/${id}`);
+    const response = await axios.get(`/iam/${id}`);
     return response.data;
   }
 
@@ -82,7 +82,7 @@ export default class IamService {
       offset,
     };
 
-    const response = await authAxios.get(`/iam/user`, {
+    const response = await axios.get(`/iam/user`, {
       params,
     });
     return response.data;
@@ -94,7 +94,7 @@ export default class IamService {
       orderBy,
     };
 
-    const response = await authAxios.get(`/iam/role`, {
+    const response = await axios.get(`/iam/role`, {
       params,
     });
 
@@ -110,7 +110,7 @@ export default class IamService {
       limit,
     };
 
-    const response = await authAxios.get(
+    const response = await axios.get(
       `/iam/user/autocomplete`,
       {
         params,

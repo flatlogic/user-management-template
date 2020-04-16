@@ -1,4 +1,4 @@
-import authAxios from 'crud/modules/shared/axios/authAxios';
+import axios from 'axios';
 
 export default class AuditLogService {
   static async fetch(filter, orderBy, limit, offset) {
@@ -9,7 +9,7 @@ export default class AuditLogService {
       offset,
     };
 
-    const response = await authAxios.get('/auditLog', {
+    const response = await axios.get('/auditLog', {
       params: query,
     });
 

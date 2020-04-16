@@ -1,4 +1,4 @@
-import authAxios from 'crud/modules/shared/axios/authAxios';
+import axios from 'axios';
 import AuthService from 'crud/modules/auth/authService';
 
 export default class SettingsService {
@@ -14,7 +14,7 @@ export default class SettingsService {
   }
 
   static async find() {
-    const response = await authAxios.get(`/settings`);
+    const response = await axios.get(`/settings`);
     return response.data;
   }
 
@@ -23,7 +23,7 @@ export default class SettingsService {
       settings,
     };
 
-    const response = await authAxios.put(`/settings`, body);
+    const response = await axios.put(`/settings`, body);
     return response.data;
   }
 

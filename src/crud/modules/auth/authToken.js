@@ -3,16 +3,16 @@ let inMemoryToken = null;
 export class AuthToken {
   static async get() {
     return (
-      inMemoryToken || localStorage.getItem('jwt') || null
+      inMemoryToken || localStorage.getItem('token') || null
     );
   }
 
   static async set(token, rememberMe) {
     if (rememberMe) {
-      localStorage.setItem('jwt', token || '');
+      localStorage.setItem('token', token || '');
     } else {
       inMemoryToken = token;
-      localStorage.setItem('jwt', '');
+      localStorage.setItem('token', '');
     }
   }
 }
