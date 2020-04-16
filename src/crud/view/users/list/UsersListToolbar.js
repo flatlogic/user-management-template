@@ -1,4 +1,3 @@
-import { i18n } from 'crud/i18n';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -16,7 +15,7 @@ class UsersToolbar extends Component {
               type="button"
             >
               <ButtonIcon iconClass="la la-plus" />{' '}
-              {i18n('common.new')}
+              New
             </button>
           </Link>
       </Toolbar>

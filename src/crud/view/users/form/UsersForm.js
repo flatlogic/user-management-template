@@ -21,10 +21,6 @@ import IniValues from 'crud/view/shared/form/iniValues';
 import PreparedValues from 'crud/view/shared/form/preparedValues';
 import FormValidations from 'crud/view/shared/form/formValidations';
 
-
-
-const { fields } = model;
-
 class UsersForm extends Component {
   iniValues = () => {
     return IniValues(usersFields, this.props.record || {});
