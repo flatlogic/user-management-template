@@ -1,7 +1,7 @@
 {
-  "name": "login",
+  "name": "verify",
   "version": "0.0.0",
   "private": true,
-  "main": "./Login.js"
+  "main": "Verify.js"
 
 }

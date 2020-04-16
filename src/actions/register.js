@@ -33,7 +33,7 @@ export function registerUser(payload) {
       if (creds.email.length > 0 && creds.password.length > 0) {
         axios.post("/auth/signup", creds).then(res => {
           dispatch(receiveRegister());
-          toast.success("You've been registered successfully");
+          toast.success("You've been registered successfully. Please check your email for verification link");
           payload.history.push('/login');
         }).catch(err => {
           dispatch(registerError(err.response.data));

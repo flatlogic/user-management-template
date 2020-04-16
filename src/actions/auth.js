@@ -1,13 +1,16 @@
 import axios from 'axios';
 import config from '../config';
 import jwt from "jsonwebtoken";
+import { toast } from 'react-toastify';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
-export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
+export const VERIFY_REQUEST = 'VERIFY_REQUEST';
+export const VERIFY_SUCCESS = 'VERIFY_SUCCESS';
+export const VERIFY_FAILURE = 'VERIFY_FAILURE';
 
 function requestLogin() {
     return {
@@ -80,4 +83,18 @@ export function loginUser(creds) {
         dispatch(loginError('Something was wrong. Try again'));
       }
     };
+}
+
+export function verifyEmail(payload) {
+  return(dispatch) => {
+    axios.put("/auth/verify-email", {token: payload.token}).then(verified => {
+      if (verified) {
+        toast.success("Your email was verified");
+      }
+    }).catch(err => {
+      toast.error(err.response.data);
+    }).finally(() => {
+      payload.history.push('/login');
+    })
+  }
 }

@@ -22,7 +22,7 @@ import {
 } from 'reactstrap';
 import cx from 'classnames';
 import { NavbarTypes } from '../../reducers/layout';
-import { logoutUser } from '../../actions/user';
+import { logoutUser } from 'actions/auth';
 import chroma from 'chroma-js'
 import { toggleSidebar, openSidebar, closeSidebar, changeActiveSidebarItem } from '../../actions/navigation';
 

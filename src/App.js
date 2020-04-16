@@ -10,9 +10,10 @@ import ErrorPage from 'pages/error';
 
 import 'styles/theme.scss';
 import LayoutComponent from 'components/Layout';
-import Login from 'pages/login';
-import Register from 'pages/register';
-import { logoutUser } from 'actions/user';
+import Login from 'pages/auth/login';
+import Verify from 'pages/auth/verify';
+import Register from 'pages/auth/register';
+import { logoutUser } from 'actions/auth';
 
 const PrivateRoute = ({dispatch, component, ...rest }) => {
     if (!Login.isAuthenticated(localStorage.getItem('token'))) {
@@ -44,6 +45,7 @@ class App extends React.PureComponent {
                     <PrivateRoute path="/app" dispatch={this.props.dispatch} component={LayoutComponent}/>
                     <Route path="/register" exact component={Register}/>
                     <Route path="/login" exact component={Login}/>
+                    <Route path="/verify-email" exact component={Verify}/>
                     <Route path="/error" exact component={ErrorPage}/>
                     <Redirect from="*" to="/app/main/analytics"/>
                 </Switch>

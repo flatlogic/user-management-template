@@ -1,6 +1,6 @@
 import {
     LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS,
-} from '../actions/user';
+} from 'actions/auth';
 
 const token = localStorage.getItem('token');
 export default function auth(state = {

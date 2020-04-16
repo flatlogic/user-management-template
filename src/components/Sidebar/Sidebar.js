@@ -9,7 +9,7 @@ import s from './Sidebar.module.scss';
 import LinksGroup from './LinksGroup/LinksGroup';
 import { openSidebar, closeSidebar, changeActiveSidebarItem } from '../../actions/navigation';
 import isScreen from '../../core/screenHelper';
-import { logoutUser } from '../../actions/user';
+import { logoutUser } from 'actions/auth';
 
 class Sidebar extends React.Component {
   static propTypes = {

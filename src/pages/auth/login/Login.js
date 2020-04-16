@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { withRouter, Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Container, Alert, Button } from 'reactstrap';
-import Widget from '../../components/Widget';
-import { loginUser, receiveToken } from '../../actions/user';
+import Widget from '../../../components/Widget';
+import { loginUser, receiveToken } from 'actions/auth';
 import jwt from "jsonwebtoken";
-import microsoft from '../../images/microsoft.png';
+import microsoft from '../../../images/microsoft.png';
 
 class Login extends React.Component {
     static propTypes = {
@@ -17,6 +17,7 @@ class Login extends React.Component {
       if (!token) return;
       const date = new Date().getTime() / 1000;
       const data = jwt.decode(token);
+      if (!data) return;
       return date < data.exp;
     }
 
