@@ -1,8 +1,6 @@
-
 import * as dataFormat from 'crud/view/users/list/UsersDataFormatters';
 import actions from 'crud/modules/users/list/usersListActions';
 import selectors from 'crud/modules/users/list/usersListSelectors';
-import destroySelectors from 'crud/modules/users/destroy/usersDestroySelectors';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -63,62 +61,41 @@ class UsersListTable extends Component {
         <div>
           <Widget title={<h4>&nbsp;</h4>} collapse close>
             <BootstrapTable bordered={false} data={rows} version="4" pagination options={options} search tableContainerClass={`table-responsive table-striped table-hover`}>
-              <TableHeaderColumn isKey dataField="id" dataFormat={dataFormat.actionFormatter}>
-                <span className="fs-sm">Actions</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn dataField="fullName" dataSort
-
-              >
+              <TableHeaderColumn dataField="fullName" dataSort>
                 <span className="fs-sm">Full Name</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="firstName" dataSort
-
-              >
+              <TableHeaderColumn dataField="firstName" dataSort>
                 <span className="fs-sm">First Name</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="lastName" dataSort
-
-              >
+              <TableHeaderColumn dataField="lastName" dataSort>
                 <span className="fs-sm">Last Name</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="phoneNumber" dataSort
-
-              >
+              <TableHeaderColumn dataField="phoneNumber" dataSort>
                 <span className="fs-sm">Phone Number</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="email" dataSort
-
-              >
+              <TableHeaderColumn dataField="email" dataSort>
                 <span className="fs-sm">E-mail</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="role" dataSort
-
-              >
+              <TableHeaderColumn dataField="role" dataSort>
                 <span className="fs-sm">Role</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="disabled" dataSort
-
-                dataFormat={dataFormat.booleanFormatter}
-
-              >
+              <TableHeaderColumn dataField="disabled" dataSort dataFormat={dataFormat.booleanFormatter}>
                 <span className="fs-sm">Disabled</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="avatar" dataSort
-
-                dataFormat={dataFormat.imageFormatter}
-
-              >
+              <TableHeaderColumn dataField="avatar" dataSort dataFormat={dataFormat.imageFormatter}>
                 <span className="fs-sm">Avatar</span>
               </TableHeaderColumn>
 
+              <TableHeaderColumn isKey dataField="id" dataFormat={dataFormat.actionFormatter}>
+                <span className="fs-sm">Actions</span>
+              </TableHeaderColumn>
             </BootstrapTable>
           </Widget>
 
@@ -130,9 +107,8 @@ class UsersListTable extends Component {
 function select(state) {
   return {
     loading:
-      selectors.selectLoading(state) ||
-      destroySelectors.selectLoading(state),
-    rows: selectors.selectRows(state),
+      selectors.selectLoading(state),
+      rows: selectors.selectRows(state),
   };
 }
 
