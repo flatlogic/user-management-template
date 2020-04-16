@@ -1,6 +1,4 @@
-
 import { Formik } from 'formik';
-import { i18n } from 'crud/i18n';
 import model from 'crud/modules/users/usersModel';
 import React, { Component } from 'react';
 import ViewFormItem from 'crud/view/shared/form/items/ViewFormItem';
@@ -112,7 +110,7 @@ class UsersForm extends Component {
                       loading={saveLoading}
                       iconClass="far fa-save"
                     />{' '}
-                    {i18n('common.save')}
+                    Save
                   </button>
 
                   <button
@@ -122,7 +120,7 @@ class UsersForm extends Component {
                     onClick={form.handleReset}
                   >
                     <i className="la la-undo"></i>{' '}
-                    {i18n('common.reset')}
+                    Reset
                   </button>
 
                   {this.props.onCancel ? (
@@ -133,7 +131,7 @@ class UsersForm extends Component {
                       onClick={() => this.props.onCancel()}
                     >
                       <i className="la la-times"></i>{' '}
-                      {i18n('common.cancel')}
+                      Cancel
                     </button>
                   ) : null}
                 </div>
