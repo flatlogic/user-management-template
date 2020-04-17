@@ -2,7 +2,6 @@ import { Formik } from 'formik';
 import React, { Component } from 'react';
 import ViewFormItem from 'crud/view/shared/form/items/ViewFormItem';
 import Spinner from 'crud/view/shared/Spinner';
-import FormWrapper from 'crud/view/shared/styles/FormWrapper';
 import ButtonIcon from 'crud/view/shared/ButtonIcon';
 import InputFormItem from 'crud/view/shared/form/items/InputFormItem';
 import InputNumberFormItem from 'crud/view/shared/form/items/InputNumberFormItem';
