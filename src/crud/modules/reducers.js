@@ -1,14 +1,11 @@
 
 import { connectRouter } from 'connected-react-router';
 import authCrud from 'crud/modules/auth/authReducers';
-import reducers from 'reducers';
 import auth from 'reducers/auth';
 import navigation from 'reducers/navigation';
 import alerts from 'reducers/alerts';
 import layout from 'reducers/layout';
 import register from 'reducers/register';
-
-
 import users from 'crud/modules/users/usersReducers';
 
 import { combineReducers } from 'redux';
@@ -22,6 +19,5 @@ export default (history) =>
     alerts,
     navigation,
     register,
-users,
-
+    users,
 });

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import UsersForm from 'crud/view/users/form/UsersForm';
 import { getHistory } from 'crud/modules/store';
 import actions from 'crud/modules/users/form/usersFormActions';
-import selectors from 'crud/modules/users/form/usersFormSelectors';
 import { connect } from 'react-redux';
 
 class UsersFormPage extends Component {
@@ -67,12 +66,12 @@ class UsersFormPage extends Component {
   }
 }
 
-function select(state) {
+function mapStateToProps(store) {
   return {
-    findLoading: selectors.selectFindLoading(state),
-    saveLoading: selectors.selectSaveLoading(state),
-    record: selectors.selectRecord(state),
+    findLoading: store.users.form.findLoading,
+    saveLoading: store.users.form.saveLoading,
+    record: store.users.form.record,
   };
 }
 
-export default connect(select)(UsersFormPage);
+export default connect(mapStateToProps)(UsersFormPage);

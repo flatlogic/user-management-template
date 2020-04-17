@@ -1,4 +1,3 @@
-import selectors from 'crud/modules/users/list/usersListSelectors';
 import Errors from 'crud/modules/shared/error/errors';
 import axios from 'axios';
 

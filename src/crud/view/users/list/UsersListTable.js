@@ -1,6 +1,5 @@
 import * as dataFormat from 'crud/view/users/list/UsersDataFormatters';
 import actions from 'crud/modules/users/list/usersListActions';
-import selectors from 'crud/modules/users/list/usersListSelectors';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -104,12 +103,11 @@ class UsersListTable extends Component {
   }
 }
 
-function select(state) {
+function mapStateToProps(store) {
   return {
-    loading:
-      selectors.selectLoading(state),
-      rows: selectors.selectRows(state),
+    loading: store.users.list.selectLoading,
+    rows: store.users.list.rows,
   };
 }
 
-export default connect(select)(UsersListTable);
+export default connect(mapStateToProps)(UsersListTable);
