@@ -119,7 +119,7 @@ class UsersForm extends Component {
                       iconClass="far fa-save"
                     />{' '}
                     Save
-                  </button>
+                  </button>{' '}{' '}
 
                   <button
                     className="btn btn-light"
@@ -129,9 +129,8 @@ class UsersForm extends Component {
                   >
                     <i className="la la-undo"></i>{' '}
                     Reset
-                  </button>
+                  </button>{' '}{' '}
 
-                  {this.props.onCancel ? (
                     <button
                       className="btn btn-light"
                       type="button"
@@ -141,7 +140,6 @@ class UsersForm extends Component {
                       <i className="la la-times"></i>{' '}
                       Cancel
                     </button>
-                  ) : null}
                 </div>
               </form>
             );

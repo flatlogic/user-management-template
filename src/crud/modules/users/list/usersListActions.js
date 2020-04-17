@@ -1,13 +1,13 @@
-import axios from 'axios';
 import selectors from 'crud/modules/users/list/usersListSelectors';
 import Errors from 'crud/modules/shared/error/errors';
+import axios from 'axios';
 
-const prefix = 'USERS_LIST';
+async function list() {
+  const response = await axios.get(`/users`);
+  return response.data;
+}
 
 const actions = {
-  FETCH_STARTED: `${prefix}_FETCH_STARTED`,
-  FETCH_SUCCESS: `${prefix}_FETCH_SUCCESS`,
-  FETCH_ERROR: `${prefix}_FETCH_ERROR`,
 
   doFetch: (filter, keepPagination = false) => async (
     dispatch,
@@ -15,14 +15,14 @@ const actions = {
   ) => {
     try {
       dispatch({
-        type: actions.FETCH_STARTED,
+        type: 'USERS_LIST_FETCH_STARTED',
         payload: { filter, keepPagination },
       });
 
-      const response = axios.get(`/users`).data;
+      const response = await list();
 
       dispatch({
-        type: actions.FETCH_SUCCESS,
+        type: 'USERS_LIST_FETCH_SUCCESS',
         payload: {
           rows: response.rows,
           count: response.count,
@@ -32,7 +32,7 @@ const actions = {
       Errors.handle(error);
 
       dispatch({
-        type: actions.FETCH_ERROR,
+        type: 'USERS_LIST_FETCH_ERROR',
       });
     }
   },
