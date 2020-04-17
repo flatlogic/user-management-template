@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ContentWrapper from 'crud/view/layout/styles/ContentWrapper';
-import PageTitle from 'crud/view/shared/styles/PageTitle';
 import UsersForm from 'crud/view/users/form/UsersForm';
 import { getHistory } from 'crud/modules/store';
 import actions from 'crud/modules/users/form/usersFormActions';

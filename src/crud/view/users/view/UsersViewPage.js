@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ContentWrapper from 'crud/view/layout/styles/ContentWrapper';
 import PageTitle from 'crud/view/shared/styles/PageTitle';
 import UsersView from 'crud/view/users/view/UsersView';
 import { i18n } from 'crud/i18n';
@@ -16,7 +15,6 @@ class UsersPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <ContentWrapper>
           <PageTitle>
             {i18n('entities.users.view.title')}
           </PageTitle>
@@ -25,7 +23,6 @@ class UsersPage extends Component {
             loading={this.props.loading}
             record={this.props.record}
           />
-        </ContentWrapper>
       </React.Fragment>
     );
   }
