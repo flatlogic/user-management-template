@@ -1,4 +1,4 @@
-import UsersService from 'crud/modules/users/usersService';
+import axios from 'axios';
 import selectors from 'crud/modules/users/list/usersListSelectors';
 import Errors from 'crud/modules/shared/error/errors';
 
@@ -19,13 +19,7 @@ const actions = {
         payload: { filter, keepPagination },
       });
 
-      const response = await UsersService.list(
-        filter,
-        selectors.selectOrderBy(getState()),
-        1000, 0
-//        selectors.selectLimit(getState()),
-//        selectors.selectOffset(getState()),
-      );
+      const response = axios.get(`/users`).data;
 
       dispatch({
         type: actions.FETCH_SUCCESS,

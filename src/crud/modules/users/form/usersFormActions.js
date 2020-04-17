@@ -1,5 +1,4 @@
 import axios from 'axios';
-import UsersService from 'crud/modules/users/usersService';
 import Errors from 'crud/modules/shared/error/errors';
 import Message from 'crud/view/shared/message';
 import { getHistory } from 'crud/modules/store';

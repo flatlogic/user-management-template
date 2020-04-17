@@ -1,5 +1,4 @@
 import { Formik } from 'formik';
-import model from 'crud/modules/users/usersModel';
 import React, { Component } from 'react';
 import ViewFormItem from 'crud/view/shared/form/items/ViewFormItem';
 import Spinner from 'crud/view/shared/Spinner';

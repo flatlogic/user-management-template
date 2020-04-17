@@ -6,7 +6,7 @@ const initialData = {
 };
 
 export default (state = initialData, { type, payload }) => {
-  if (type === actions.FIND_STARTED) {
+  if (type === 'USERS_VIEW_FIND_STARTED') {
     return {
       ...state,
       record: null,
@@ -14,7 +14,7 @@ export default (state = initialData, { type, payload }) => {
     };
   }
 
-  if (type === actions.FIND_SUCCESS) {
+  if (type === 'USERS_VIEW_FIND_SUCCESS') {
     return {
       ...state,
       record: payload,
@@ -22,7 +22,7 @@ export default (state = initialData, { type, payload }) => {
     };
   }
 
-  if (type === actions.FIND_ERROR) {
+  if (type === 'USERS_VIEW_FIND_ERROR') {
     return {
       ...state,
       record: null,
