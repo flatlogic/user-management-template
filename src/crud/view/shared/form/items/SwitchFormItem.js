@@ -36,7 +36,7 @@ export class SwitchFormItemNotFast extends Component {
           </label>
         )}
 
-        <div className="abc-checkbox">
+        <div>
           <input
             type="checkbox"
             id={name}

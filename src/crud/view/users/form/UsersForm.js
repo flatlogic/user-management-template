@@ -55,17 +55,10 @@ class UsersForm extends Component {
               <form onSubmit={form.handleSubmit}>
 
                 <InputFormItem
-                  name={'fullName'}
-                  schema={usersFields}
-
-                  autoFocus
-
-                />
-
-                <InputFormItem
                   name={'firstName'}
                   schema={usersFields}
 
+                  autoFocus
                 />
 
                 <InputFormItem
