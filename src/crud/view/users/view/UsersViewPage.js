@@ -27,11 +27,12 @@ class UsersPage extends Component {
   }
 }
 
-function select(state) {
+function mapStateToProps(store) {
   return {
-    loading: selectors.selectLoading(state),
-    record: selectors.selectRecord(state),
+    loading: store.users.form.loading,
+    record: store.users.form.record,
+    currentUser: store.authCrud.currentUser,    
   };
 }
 
-export default connect(select)(UsersPage);
+export default connect(mapStateToProps)(UsersPage);

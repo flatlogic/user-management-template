@@ -78,6 +78,7 @@ class UsersForm extends Component {
                   schema={usersFields}
 
                 />
+
                 { this.props.currentUser && this.props.currentUser.role == 'admin' &&
                   <RadioFormItem
                     name={'role'}

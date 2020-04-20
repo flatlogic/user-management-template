@@ -81,7 +81,7 @@ export default class FileUploader {
       {
         headers: {
           'Content-Type': 'multipart/form-data',
-//          authorization: token ? `Bearer ${token}` : '',
+          authorization: token ? `Bearer ${token}` : '',
         },
       },
     );
