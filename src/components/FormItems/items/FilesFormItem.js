@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import FilesUploader from 'crud/view/shared/uploaders/FilesUploader';
-import FormErrors from 'crud/view/shared/form/formErrors';
+import FilesUploader from 'components/FormItems/uploaders/FilesUploader';
+import FormErrors from 'components/FormItems/formErrors';
 import { FastField } from 'formik';
 
 class FilesFormItemNotFast extends Component {

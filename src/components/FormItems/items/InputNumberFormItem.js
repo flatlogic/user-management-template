@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FormErrors from 'crud/view/shared/form/formErrors';
+import FormErrors from 'components/FormItems/formErrors';
 import { FastField } from 'formik';
 
-export class InputFormItemNotFast extends Component {
+export class InputNumberFormItemNotFast extends Component {
   render() {
     const {
       name,
@@ -47,7 +47,7 @@ export class InputFormItemNotFast extends Component {
         )}
         <input
           id={name}
-          type={'text'}
+          type={type}
           onChange={(event) => {
             form.setFieldValue(name, event.target.value);
             form.setFieldTouched(name);
@@ -80,15 +80,17 @@ export class InputFormItemNotFast extends Component {
   }
 }
 
-InputFormItemNotFast.defaultProps = {
+InputNumberFormItemNotFast.defaultProps = {
+  type: 'number',
   required: false,
 };
 
-InputFormItemNotFast.propTypes = {
+InputNumberFormItemNotFast.propTypes = {
   form: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   required: PropTypes.bool,
   type: PropTypes.string,
+  label: PropTypes.string,
   hint: PropTypes.string,
   autoFocus: PropTypes.bool,
   size: PropTypes.string,
@@ -98,13 +100,13 @@ InputFormItemNotFast.propTypes = {
   inputProps: PropTypes.object,
 };
 
-class InputFormItem extends Component {
+class InputNumberFormItem extends Component {
   render() {
     return (
       <FastField
         name={this.props.name}
         render={({ form }) => (
-          <InputFormItemNotFast
+          <InputNumberFormItemNotFast
             {...this.props}
             form={form}
           />
@@ -114,4 +116,4 @@ class InputFormItem extends Component {
   }
 }
 
-export default InputFormItem;
+export default InputNumberFormItem;

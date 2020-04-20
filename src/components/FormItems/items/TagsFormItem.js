@@ -1,47 +1,55 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FormErrors from 'crud/view/shared/form/formErrors';
+import FormErrors from 'components/FormItems/formErrors';
 import { FastField } from 'formik';
-import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
+import { i18n } from 'crud/i18n';
 
-class SelectFormItemNotFast extends Component {
-  value = () => {
+class TagsFormItemNotFast extends Component {
+  handleChange = (data) => {
     const { form, name } = this.props;
-    const options = this.props.schema[name].options;
 
-    if (form.values[name]) {
-      return options.find(
-        (option) => option.value === form.values[name],
-      );
-    }
-    return '';
-  };
-
-  handleSelect = (data) => {
-    const { form, name } = this.props;
     form.setFieldTouched(name);
 
-    if (!data) {
+    if (!data || !data.length) {
       form.setFieldValue(name, undefined);
       return;
     }
 
-    form.setFieldValue(name, data.value);
+    const commaSplittedValues = data
+      .map((item) => item.value)
+      .join(',')
+      .split(',');
+
+    form.setFieldValue(name, commaSplittedValues);
+  };
+
+  value = () => {
+    const { form, name } = this.props;
+    const value = form.values[name];
+
+    if (!value || !value.length) {
+      return [];
+    }
+
+    return value.map((item) => ({
+      value: item,
+      label: item,
+    }));
   };
 
   render() {
     const {
-      form,
+      label,
       name,
+      form,
       hint,
       errorMessage,
       required,
-      mode,
       placeholder,
       isClearable,
+      notFoundContent,
     } = this.props;
-
-    const { label, options } = this.props.schema[name];
 
     const isInvalid = !!FormErrors.displayableError(
       form,
@@ -72,23 +80,21 @@ class SelectFormItemNotFast extends Component {
 
         <br />
 
-        <Select
+        <CreatableSelect
           className="w-100"
           value={this.value()}
-          onChange={this.handleSelect}
+          onChange={this.handleChange}
           id={name}
           name={name}
-          options={options}
-          isMulti={false}
           placeholder={placeholder || ''}
           isClearable={isClearable}
           styles={controlStyles}
+          isMulti
+          formatCreateLabel={(inputValue) => inputValue}
           loadingMessage={() =>
-            'Loading'
+            i18n('autocomplete.loading')
           }
-          noOptionsMessage={() =>
-            'No options'
-          }
+          noOptionsMessage={() => notFoundContent || ''}
         />
 
         <div className="invalid-feedback">
@@ -109,30 +115,30 @@ class SelectFormItemNotFast extends Component {
   }
 }
 
-SelectFormItemNotFast.defaultProps = {
+TagsFormItemNotFast.defaultProps = {
   required: false,
   isClearable: true,
 };
 
-SelectFormItemNotFast.propTypes = {
+TagsFormItemNotFast.propTypes = {
   form: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
-  schema: PropTypes.object.isRequired,
   label: PropTypes.string,
   hint: PropTypes.string,
   required: PropTypes.bool,
   errorMessage: PropTypes.string,
   mode: PropTypes.string,
   isClearable: PropTypes.bool,
+  notFoundContent: PropTypes.string,
 };
 
-class SelectFormItem extends Component {
+class TagsFormItem extends Component {
   render() {
     return (
       <FastField
         name={this.props.name}
         render={({ form }) => (
-          <SelectFormItemNotFast
+          <TagsFormItemNotFast
             {...this.props}
             form={form}
           />
@@ -142,4 +148,4 @@ class SelectFormItem extends Component {
   }
 }
 
-export default SelectFormItem;
+export default TagsFormItem;

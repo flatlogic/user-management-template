@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import ImagesUploader from 'crud/view/shared/uploaders/ImagesUploader';
+import ImagesUploader from 'components/FormItems/uploaders/ImagesUploader';
 
 class ImagesViewItem extends Component {
   valueAsArray = () => {

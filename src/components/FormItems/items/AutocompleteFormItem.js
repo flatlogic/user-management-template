@@ -2,7 +2,7 @@ import { FastField } from 'formik';
 import { i18n } from 'crud/i18n';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import FormErrors from 'crud/view/shared/form/formErrors';
+import FormErrors from 'components/FormItems/formErrors';
 import AsyncSelect from 'react-select/async';
 
 const AUTOCOMPLETE_SERVER_FETCH_SIZE = 100;

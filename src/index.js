@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
 import * as serviceWorker from 'serviceWorker';
 import axios from 'axios';
 import { configureStore } from 'crud/modules/store';
-
-import App from 'App';
+import reducers from './reducers';
 import config from 'config';
+import App from 'App';
+import authActions from 'crud/modules/auth/authActions';
 
 axios.defaults.baseURL = config.baseURLApi;
 axios.defaults.headers.common['Content-Type'] = "application/json";
@@ -15,7 +18,12 @@ if (token) {
     axios.defaults.headers.common['Authorization'] = "Bearer " + token;
 }
 
-const store = configureStore();
+const store = createStore(
+  reducers,
+  applyMiddleware(ReduxThunk)
+);
+
+store.dispatch(authActions.doInit());
 
 ReactDOM.render(
     <Provider store={store}>

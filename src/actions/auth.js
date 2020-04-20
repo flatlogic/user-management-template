@@ -79,7 +79,6 @@ export function loginUser(creds) {
         }).catch(err => {
           dispatch(loginError(err.response.data));
         })
-
       } else {
         dispatch(loginError('Something was wrong. Try again'));
       }

@@ -1,20 +1,20 @@
 import { Formik } from 'formik';
 import React, { Component } from 'react';
-import ViewFormItem from 'crud/view/shared/form/items/ViewFormItem';
+import ViewFormItem from 'components/FormItems/items/ViewFormItem';
 import Spinner from 'crud/view/shared/Spinner';
 import ButtonIcon from 'crud/view/shared/ButtonIcon';
-import InputFormItem from 'crud/view/shared/form/items/InputFormItem';
-import InputNumberFormItem from 'crud/view/shared/form/items/InputNumberFormItem';
-import SwitchFormItem from 'crud/view/shared/form/items/SwitchFormItem';
-import RadioFormItem from 'crud/view/shared/form/items/RadioFormItem';
-import SelectFormItem from 'crud/view/shared/form/items/SelectFormItem';
-import DatePickerFormItem from 'crud/view/shared/form/items/DatePickerFormItem';
-import ImagesFormItem from 'crud/view/shared/form/items/ImagesFormItem';
-import FilesFormItem from 'crud/view/shared/form/items/FilesFormItem';
+import InputFormItem from 'components/FormItems/items/InputFormItem';
+import InputNumberFormItem from 'components/FormItems/items/InputNumberFormItem';
+import SwitchFormItem from 'components/FormItems/items/SwitchFormItem';
+import RadioFormItem from 'components/FormItems/items/RadioFormItem';
+import SelectFormItem from 'components/FormItems/items/SelectFormItem';
+import DatePickerFormItem from 'components/FormItems/items/DatePickerFormItem';
+import ImagesFormItem from 'components/FormItems/items/ImagesFormItem';
+import FilesFormItem from 'components/FormItems/items/FilesFormItem';
 import usersFields from 'crud/modules/users/usersFields';
-import IniValues from 'crud/view/shared/form/iniValues';
-import PreparedValues from 'crud/view/shared/form/preparedValues';
-import FormValidations from 'crud/view/shared/form/formValidations';
+import IniValues from 'components/FormItems/iniValues';
+import PreparedValues from 'components/FormItems/preparedValues';
+import FormValidations from 'components/FormItems/formValidations';
 import Widget from 'components/Widget';
 
 class UsersForm extends Component {

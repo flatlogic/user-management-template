@@ -1,14 +1,19 @@
+import { connectRouter } from 'connected-react-router';
+import authCrud from 'crud/modules/auth/authReducers';
+import auth from 'reducers/auth';
+import navigation from 'reducers/navigation';
+import alerts from 'reducers/alerts';
+import layout from 'reducers/layout';
+import register from 'reducers/register';
+import users from 'reducers/usersReducers';
 import { combineReducers } from 'redux';
-import auth from './auth';
-import navigation from './navigation';
-import alerts from './alerts';
-import layout from './layout';
-import register from './register';
 
 export default combineReducers({
-  alerts,
-  auth,
-  navigation,
-  layout,
-  register,
+    layout,
+    auth,
+    authCrud,
+    alerts,
+    navigation,
+    register,
+    users,
 });

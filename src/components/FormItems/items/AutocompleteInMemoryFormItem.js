@@ -1,7 +1,7 @@
 import { FastField } from 'formik';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import FormErrors from 'crud/view/shared/form/formErrors';
+import FormErrors from 'components/FormItems/formErrors';
 import Select from 'react-select';
 import { i18n } from 'crud/i18n';
 

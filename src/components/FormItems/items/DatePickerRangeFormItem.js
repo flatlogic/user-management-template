@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FormErrors from 'crud/view/shared/form/formErrors';
+import FormErrors from 'components/FormItems/formErrors';
 import { FastField } from 'formik';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-class InputRangeFormItemNotFast extends Component {
+class DatePickerRangeFormItemNotFast extends Component {
   handleStartChanged = (value) => {
     const { form, name } = this.props;
     form.setFieldTouched(name);
@@ -55,7 +57,6 @@ class InputRangeFormItemNotFast extends Component {
 
   render() {
     const {
-      label,
       name,
       form,
       hint,
@@ -66,7 +67,10 @@ class InputRangeFormItemNotFast extends Component {
       inputProps,
       errorMessage,
       required,
+      showTimeInput,
     } = this.props;
+
+    const { label } = this.props.schema[name];
 
     const sizeLabelClassName =
       {
@@ -99,22 +103,34 @@ class InputRangeFormItemNotFast extends Component {
             alignItems: 'baseline',
           }}
         >
-          <input
-            style={{ width: '100%' }}
-            type="text"
+          <DatePicker
             id={`${name}Start`}
-            onChange={(e) =>
-              this.handleStartChanged(e.target.value)
+            onChange={(value) =>
+              this.handleStartChanged(value)
             }
-            value={this.startValue()}
-            placeholder={placeholder || undefined}
-            autoFocus={autoFocus || undefined}
-            autoComplete={autoComplete || undefined}
+            selected={this.startValue()}
             className={`form-control ${sizeInputClassName} ${FormErrors.validateStatus(
               form,
               name,
               errorMessage,
             )}`}
+            showTimeInput={showTimeInput}
+            popperModifiers={{
+              preventOverflow: {
+                enabled: true,
+                escapeWithReference: false,
+                boundariesElement: 'viewport',
+              },
+            }}
+            placeholderText={placeholder || ''}
+            autoFocus={autoFocus || undefined}
+            autoComplete={autoComplete || undefined}
+            dateFormat={
+              showTimeInput
+                ? 'yyyy-MM-dd HH:mm'
+                : 'yyyy-MM-dd'
+            }
+            timeIntervals={15}
             {...inputProps}
           />
 
@@ -128,22 +144,34 @@ class InputRangeFormItemNotFast extends Component {
             ~
           </div>
 
-          <input
-            style={{ width: '100%' }}
-            type="text"
+          <DatePicker
             id={`${name}End`}
-            onChange={(e) =>
-              this.handleEndChanged(e.target.value)
+            onChange={(value) =>
+              this.handleEndChanged(value)
             }
-            value={this.endValue()}
-            placeholder={placeholder || undefined}
-            autoFocus={autoFocus || undefined}
-            autoComplete={autoComplete || undefined}
+            selected={this.endValue()}
             className={`form-control ${sizeInputClassName} ${FormErrors.validateStatus(
               form,
               name,
               errorMessage,
             )}`}
+            showTimeInput={showTimeInput}
+            placeholderText={placeholder || ''}
+            autoFocus={autoFocus || undefined}
+            autoComplete={autoComplete || undefined}
+            dateFormat={
+              showTimeInput
+                ? 'yyyy-MM-dd HH:mm'
+                : 'yyyy-MM-dd'
+            }
+            timeIntervals={15}
+            popperModifiers={{
+              preventOverflow: {
+                enabled: true,
+                escapeWithReference: false,
+                boundariesElement: 'viewport',
+              },
+            }}
             {...inputProps}
           />
         </div>
@@ -164,14 +192,13 @@ class InputRangeFormItemNotFast extends Component {
   }
 }
 
-InputRangeFormItemNotFast.defaultProps = {
+DatePickerRangeFormItemNotFast.defaultProps = {
   required: false,
 };
 
-InputRangeFormItemNotFast.propTypes = {
+DatePickerRangeFormItemNotFast.propTypes = {
   form: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
-  label: PropTypes.string,
   hint: PropTypes.string,
   autoFocus: PropTypes.bool,
   required: PropTypes.bool,
@@ -183,13 +210,13 @@ InputRangeFormItemNotFast.propTypes = {
   inputProps: PropTypes.object,
 };
 
-class InputRangeFormItem extends Component {
+class DatePickerRangeFormItem extends Component {
   render() {
     return (
       <FastField
         name={this.props.name}
         render={({ form }) => (
-          <InputRangeFormItemNotFast
+          <DatePickerRangeFormItemNotFast
             {...this.props}
             form={form}
           />
@@ -199,4 +226,4 @@ class InputRangeFormItem extends Component {
   }
 }
 
-export default InputRangeFormItem;
+export default DatePickerRangeFormItem;

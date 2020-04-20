@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FormErrors from 'crud/view/shared/form/formErrors';
+import FormErrors from 'components/FormItems/formErrors';
 import { FastField } from 'formik';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
-export class DatePickerFormItemNotFast extends Component {
+export class InputFormItemNotFast extends Component {
   render() {
     const {
       name,
       form,
       hint,
       size,
+      type,
       placeholder,
       autoFocus,
       autoComplete,
       inputProps,
       errorMessage,
       required,
-      showTimeInput,
     } = this.props;
 
     const { label } = this.props.schema[name];
@@ -46,36 +44,23 @@ export class DatePickerFormItemNotFast extends Component {
           >
             {label}
           </label>
-        )}{' '}
-        <br />
-        <DatePicker
+        )}
+        <input
           id={name}
+          type={'text'}
+          onChange={(event) => {
+            form.setFieldValue(name, event.target.value);
+            form.setFieldTouched(name);
+          }}
+          value={form.values[name] || ''}
+          placeholder={placeholder || undefined}
+          autoFocus={autoFocus || undefined}
+          autoComplete={autoComplete || undefined}
           className={`form-control ${sizeInputClassName} ${FormErrors.validateStatus(
             form,
             name,
             errorMessage,
           )}`}
-          selected={form.values[name]}
-          onChange={(value) => {
-            form.setFieldValue(name, value);
-            form.setFieldTouched(name);
-          }}
-          showTimeInput={showTimeInput}
-          popperModifiers={{
-            preventOverflow: {
-              enabled: true,
-              escapeWithReference: false,
-            },
-          }}
-          placeholderText={placeholder || ''}
-          autoFocus={autoFocus || undefined}
-          autoComplete={autoComplete || undefined}
-          dateFormat={
-            showTimeInput
-              ? 'yyyy-MM-dd HH:mm'
-              : 'yyyy-MM-dd'
-          }
-          timeIntervals={15}
           {...inputProps}
         />
         <div className="invalid-feedback">
@@ -95,14 +80,15 @@ export class DatePickerFormItemNotFast extends Component {
   }
 }
 
-DatePickerFormItemNotFast.defaultProps = {
+InputFormItemNotFast.defaultProps = {
   required: false,
 };
 
-DatePickerFormItemNotFast.propTypes = {
+InputFormItemNotFast.propTypes = {
   form: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   required: PropTypes.bool,
+  type: PropTypes.string,
   hint: PropTypes.string,
   autoFocus: PropTypes.bool,
   size: PropTypes.string,
@@ -112,13 +98,13 @@ DatePickerFormItemNotFast.propTypes = {
   inputProps: PropTypes.object,
 };
 
-class DatePickerFormItem extends Component {
+class InputFormItem extends Component {
   render() {
     return (
       <FastField
         name={this.props.name}
         render={({ form }) => (
-          <DatePickerFormItemNotFast
+          <InputFormItemNotFast
             {...this.props}
             form={form}
           />
@@ -128,4 +114,4 @@ class DatePickerFormItem extends Component {
   }
 }
 
-export default DatePickerFormItem;
+export default InputFormItem;

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FormErrors from 'crud/view/shared/form/formErrors';
+import FormErrors from 'components/FormItems/formErrors';
 import { FastField } from 'formik';
 
-export class InputNumberFormItemNotFast extends Component {
+export class TextAreaFormItemNotFast extends Component {
   render() {
     const {
+      label,
       name,
       form,
       hint,
@@ -18,8 +19,6 @@ export class InputNumberFormItemNotFast extends Component {
       errorMessage,
       required,
     } = this.props;
-
-    const { label } = this.props.schema[name];
 
     const sizeLabelClassName =
       {
@@ -45,7 +44,7 @@ export class InputNumberFormItemNotFast extends Component {
             {label}
           </label>
         )}
-        <input
+        <textarea
           id={name}
           type={type}
           onChange={(event) => {
@@ -80,12 +79,12 @@ export class InputNumberFormItemNotFast extends Component {
   }
 }
 
-InputNumberFormItemNotFast.defaultProps = {
-  type: 'number',
+TextAreaFormItemNotFast.defaultProps = {
+  type: 'text',
   required: false,
 };
 
-InputNumberFormItemNotFast.propTypes = {
+TextAreaFormItemNotFast.propTypes = {
   form: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   required: PropTypes.bool,
@@ -100,13 +99,13 @@ InputNumberFormItemNotFast.propTypes = {
   inputProps: PropTypes.object,
 };
 
-class InputNumberFormItem extends Component {
+class TextAreaFormItem extends Component {
   render() {
     return (
       <FastField
         name={this.props.name}
         render={({ form }) => (
-          <InputNumberFormItemNotFast
+          <TextAreaFormItemNotFast
             {...this.props}
             form={form}
           />
@@ -116,4 +115,4 @@ class InputNumberFormItem extends Component {
   }
 }
 
-export default InputNumberFormItem;
+export default TextAreaFormItem;
