@@ -9,7 +9,7 @@ class UsersToolbar extends Component {
   render() {
     return (
       <Toolbar>
-          <Link to="/app/users/new">
+          <Link to="/admin/users/new">
             <button
               className="btn btn-primary"
               type="button"

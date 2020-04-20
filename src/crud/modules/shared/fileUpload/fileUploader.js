@@ -1,5 +1,4 @@
 import * as uuid from 'uuid/v4';
-import { i18n } from 'crud/i18n';
 import filesize from 'filesize';
 import { AuthToken } from 'crud/modules/auth/authToken';
 import Axios from 'axios';
@@ -22,13 +21,13 @@ export default class FileUploader {
 
     if (schema.image) {
       if (!file.type.startsWith('image')) {
-        throw new Error(i18n('fileUploader.image'));
+        throw new Error('You must upload an image');
       }
     }
 
     if (schema.size && file.size > schema.size) {
       throw new Error(
-        i18n('fileUploader.size', filesize(schema.size)),
+        'File is too big.'
       );
     }
 
@@ -38,12 +37,7 @@ export default class FileUploader {
       schema.formats &&
       !schema.formats.includes(extension)
     ) {
-      throw new Error(
-        i18n(
-          'fileUploader.formats',
-          schema.formats.join('/'),
-        ),
-      );
+      throw new Error('Invalid format');
     }
   }
 

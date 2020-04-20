@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import FormErrors from 'crud/view/shared/form/formErrors';
 import { FastField } from 'formik';
 import Select from 'react-select';
-import { i18n } from 'crud/i18n';
 
 class SelectFormItemNotFast extends Component {
   value = () => {
@@ -85,10 +84,10 @@ class SelectFormItemNotFast extends Component {
           isClearable={isClearable}
           styles={controlStyles}
           loadingMessage={() =>
-            i18n('autocomplete.loading')
+            'Loading'
           }
           noOptionsMessage={() =>
-            i18n('autocomplete.noOptions')
+            'No options'
           }
         />
 

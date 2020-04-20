@@ -1,7 +1,6 @@
 import GenericField from 'crud/modules/shared/fields/genericField';
 import * as yup from 'yup';
 import moment from 'moment';
-import { i18n } from 'crud/i18n';
 
 export default class DateRangeField extends GenericField {
   forFilter() {
@@ -14,7 +13,7 @@ export default class DateRangeField extends GenericField {
           .label(this.label)
           .test(
             'is-date',
-            i18n('validation.mixed.default'),
+            'Invalid path',
             (value) => {
               if (!value) {
                 return true;

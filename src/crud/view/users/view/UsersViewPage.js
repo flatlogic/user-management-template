@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PageTitle from 'crud/view/shared/styles/PageTitle';
 import UsersView from 'crud/view/users/view/UsersView';
-import { i18n } from 'crud/i18n';
 import actions from 'crud/modules/users/view/usersViewActions';
 import { connect } from 'react-redux';
 import selectors from 'crud/modules/users/view/usersViewSelectors';
@@ -16,7 +15,7 @@ class UsersPage extends Component {
     return (
       <React.Fragment>
           <PageTitle>
-            {i18n('entities.users.view.title')}
+            View users
           </PageTitle>
 
           <UsersView

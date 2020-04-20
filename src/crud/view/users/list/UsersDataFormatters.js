@@ -30,14 +30,14 @@ function actionFormatter(cell) {
       <div>
     <Link
       className="btn btn-link"
-      to={`/app/users/${cell}`}
+      to={`/admin/users/${cell}`}
     >
     View
     </Link>
     &nbsp;
       <Link
         className="btn btn-link"
-        to={`/app/users/${cell}/edit`}
+        to={`/admin/users/${cell}/edit`}
       >
       Edit
     </Link>

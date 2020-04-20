@@ -2,6 +2,7 @@ import axios from 'axios';
 import Errors from 'crud/modules/shared/error/errors';
 import Message from 'crud/view/shared/message';
 import { getHistory } from 'crud/modules/store';
+import authActions from 'crud/modules/auth/authActions';
 
 const actions = {
   doNew: () => {
@@ -18,6 +19,7 @@ const actions = {
 
       axios.get(`/users/${id}`).then(res => {
         const record = res.data;
+
         dispatch({
           type: 'USERS_FORM_FIND_SUCCESS',
           payload: record,
@@ -30,7 +32,7 @@ const actions = {
         type: 'USERS_FORM_FIND_ERROR',
       });
 
-      getHistory().push('/users');
+      getHistory().push('/admin/users');
     }
   },
 
@@ -46,7 +48,7 @@ const actions = {
         });
 
         Message.success('User created');
-        getHistory().push('/users');
+        getHistory().push('/admin/users');
       })
     } catch (error) {
       Errors.handle(error);
@@ -67,12 +69,14 @@ const actions = {
       });
 
       axios.put(`/users/${id}`, {id, data: values}).then(res => {
+        dispatch(authActions.doInit());
+
         dispatch({
           type: 'USERS_FORM_UPDATE_SUCCESS',
         });
 
         Message.success('User updated');
-        getHistory().push('/app/users');
+        getHistory().push('/admin/users');
       })
     } catch (error) {
       Errors.handle(error);

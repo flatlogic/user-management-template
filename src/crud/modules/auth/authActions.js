@@ -2,7 +2,6 @@ import selectors from 'crud/modules/auth/authSelectors';
 import service from 'crud/modules/auth/authService';
 import Errors from 'crud/modules/shared/error/errors';
 import Message from 'crud/view/shared/message';
-import { i18n } from 'crud/i18n';
 import { getHistory } from 'crud/modules/store';
 import { AuthToken } from 'crud/modules/auth/authToken';
 
@@ -58,7 +57,7 @@ const actions = {
         selectors.selectAuthenticationUser(getState()),
       );
       Message.success(
-        i18n('auth.verificationEmailSuccess'),
+        'E-mail verified',
       );
       dispatch({
         type: actions.EMAIL_CONFIRMATION_SUCCESS,
@@ -76,7 +75,7 @@ const actions = {
       });
       await service.sendPasswordResetEmail(email);
       Message.success(
-        i18n('auth.passwordResetEmailSuccess'),
+        'Password e-mail sent',
       );
       dispatch({
         type: actions.PASSWORD_RESET_EMAIL_SUCCESS,
@@ -263,7 +262,7 @@ const actions = {
         type: actions.UPDATE_PROFILE_SUCCESS,
       });
       dispatch(actions.doRefreshCurrentUser());
-      Message.success(i18n('auth.profile.success'));
+      Message.success('Profile updated');
       getHistory().push('/');
     } catch (error) {
       Errors.handle(error);
@@ -283,7 +282,7 @@ const actions = {
       await service.verifyEmail(token);
 
       dispatch(actions.doRefreshCurrentUser());
-      Message.success(i18n('auth.verifyEmail.success'));
+      Message.success('E-mail verified');
       dispatch({
         type: actions.EMAIL_VERIFY_SUCCESS,
       });
@@ -309,7 +308,7 @@ const actions = {
 
       await service.passwordReset(token, password);
 
-      Message.success(i18n('auth.passwordResetSuccess'));
+      Message.success('Password reset');
       dispatch({
         type: actions.PASSWORD_RESET_SUCCESS,
       });

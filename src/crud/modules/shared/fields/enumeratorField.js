@@ -1,7 +1,6 @@
 import GenericField from 'crud/modules/shared/fields/genericField';
 import { isString } from 'lodash';
 import * as yup from 'yup';
-import { i18n } from 'crud/i18n';
 
 export default class EnumeratorField extends GenericField {
   constructor(
@@ -76,9 +75,7 @@ export default class EnumeratorField extends GenericField {
       ]);
 
     if (this.required) {
-      yupChain = yupChain.required(
-        i18n('validation.string.selected'),
-      );
+      yupChain = yupChain.required('Please choose an option');
     }
 
     return yupChain;
@@ -99,9 +96,7 @@ export default class EnumeratorField extends GenericField {
       ]);
 
     if (this.required) {
-      yupChain = yupChain.required(
-        i18n('validation.string.selected'),
-      );
+      yupChain = yupChain.required('Please choose an option');
     }
 
     return yupChain;

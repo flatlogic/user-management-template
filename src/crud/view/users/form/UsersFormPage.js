@@ -14,15 +14,16 @@ class UsersFormPage extends Component {
     if (this.isEditing()) {
       dispatch(actions.doFind(match.params.id));
     }
-    else if(this.isProfile()) {
-      const currentUser = JSON.parse(localStorage.getItem('user'));
-      const currentUserId = currentUser.user.id;
-      dispatch(actions.doFind(currentUserId));
-    }
     else {
-      dispatch(actions.doNew());
+      if (this.isProfile()) {
+        const currentUser = JSON.parse(localStorage.getItem('user'));
+        const currentUserId = currentUser.user.id;
+        dispatch(actions.doFind(currentUserId));
+      }
+      else {
+        dispatch(actions.doNew());
+      }
     }
-
     this.setState({ dispatched: true });
   }
 
@@ -52,13 +53,14 @@ class UsersFormPage extends Component {
             <UsersForm
               saveLoading={this.props.saveLoading}
               findLoading={this.props.findLoading}
+              currentUser={this.props.currentUser}
               record={
                 (this.isEditing() || this.isProfile()) ? this.props.record : {}
               }
               isEditing={this.isEditing()}
               isProfile={this.isProfile()}
               onSubmit={this.doSubmit}
-              onCancel={() => getHistory().push('/app/users')}
+              onCancel={() => getHistory().push('/admin/users')}
             />
           )}
       </React.Fragment>
@@ -71,6 +73,7 @@ function mapStateToProps(store) {
     findLoading: store.users.form.findLoading,
     saveLoading: store.users.form.saveLoading,
     record: store.users.form.record,
+    currentUser: store.authCrud.currentUser,    
   };
 }
 

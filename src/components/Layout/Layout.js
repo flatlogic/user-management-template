@@ -100,12 +100,10 @@ class Layout extends React.Component {
                 >
                   <Switch>
                     <Route path={"/app/profile"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
-                    <Route path={"/app/users"} exact component={CustomLoadable({loader: () => import('crud/view/users/list/UsersListPage')})} />
-                    <Route path={"/app/users/new"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
-                    <Route path={"/app/users/:id/edit"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
-                    <Route path={"/app/users/:id"} exact component={CustomLoadable({loader: () => import('crud/view/users/view/UsersViewPage')})} />
-
-
+                    <Route path={"/admin/users"} exact component={CustomLoadable({loader: () => import('crud/view/users/list/UsersListPage')})} />
+                    <Route path={"/admin/users/new"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
+                    <Route path={"/admin/users/:id/edit"} exact component={CustomLoadable({loader: () => import('crud/view/users/form/UsersFormPage')})} />
+                    <Route path={"/admin/users/:id"} exact component={CustomLoadable({loader: () => import('crud/view/users/view/UsersViewPage')})} />
                   </Switch>
                 </CSSTransition>
               </TransitionGroup>
@@ -125,7 +123,8 @@ function mapStateToProps(store) {
     sidebarOpened: store.navigation.sidebarOpened,
     sidebarStatic: store.navigation.sidebarStatic,
     dashboardTheme: store.layout.dashboardTheme,
-    sidebarType: store.layout.sidebarType
+    sidebarType: store.layout.sidebarType,
+    currentUser: store.authCrud.currentUser,
   };
 }
 

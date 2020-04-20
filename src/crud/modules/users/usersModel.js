@@ -1,5 +1,4 @@
 
-import { i18n } from 'crud/i18n';
 import IdField from 'crud/modules/shared/fields/idField';
 import DateTimeField from 'crud/modules/shared/fields/dateTimeField';
 import DateTimeRangeField from 'crud/modules/shared/fields/dateTimeRangeField';
@@ -18,11 +17,11 @@ import FilesField from 'crud/modules/shared/fields/filesField';
 import ImagesField from 'crud/modules/shared/fields/imagesField';
 
 function label(name) {
-  return i18n(`entities.users.fields.${name}`);
+  return null;
 }
 
 function enumeratorLabel(name, value) {
-  return i18n(`entities.users.enumerators.${name}.${value}`);
+  return null;
 }
 
 const fields = {

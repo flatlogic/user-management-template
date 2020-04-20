@@ -1,7 +1,6 @@
 import GenericField from 'crud/modules/shared/fields/genericField';
 import * as yup from 'yup';
 import moment from 'moment';
-import { i18n } from 'crud/i18n';
 
 export default class DateField extends GenericField {
   constructor(name, label, { required = false } = {}) {
@@ -27,7 +26,7 @@ export default class DateField extends GenericField {
       .label(this.label)
       .test(
         'is-date',
-        i18n('validation.mixed.default'),
+        'Invalid path',
         (value) => {
           if (!value) {
             return true;
@@ -52,7 +51,7 @@ export default class DateField extends GenericField {
       .label(this.label)
       .test(
         'is-date',
-        i18n('validation.mixed.default'),
+        'Invalid path',
         (value) => {
           if (!value) {
             return true;
@@ -83,7 +82,7 @@ export default class DateField extends GenericField {
       .label(this.label)
       .test(
         'is-date',
-        i18n('validation.mixed.default'),
+        'Invalid path',
         (value) => {
           if (!value) {
             return true;

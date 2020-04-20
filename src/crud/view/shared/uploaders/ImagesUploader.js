@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FileUploader from 'crud/modules/shared/fileUpload/fileUploader';
 import Errors from 'crud/modules/shared/error/errors';
-import { i18n } from 'crud/i18n';
 import ImagesUploaderWrapper from 'crud/view/shared/styles/ImagesUploaderWrapper';
 import ButtonIcon from 'crud/view/shared/ButtonIcon';
 
@@ -99,7 +98,7 @@ class ImagesUploader extends Component {
           loading={loading}
           iconClass="la la-plus"
         />{' '}
-        {i18n('fileUploader.upload')}
+        {'Upload an image'}
         <input
           style={{ display: 'none' }}
           disabled={loading || readonly}

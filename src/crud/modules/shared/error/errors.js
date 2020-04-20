@@ -1,10 +1,7 @@
 import Message from 'crud/view/shared/message';
 import { getHistory } from 'crud/modules/store';
-import { i18n } from 'crud/i18n';
 
-const DEFAULT_ERROR_MESSAGE = i18n(
-  'errors.defaultErrorMessage',
-);
+const DEFAULT_ERROR_MESSAGE = 'Error';
 
 function selectErrorMessage(error) {
   if (error && error.response && error.response.data) {
