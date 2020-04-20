@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import UsersListTable from 'crud/view/users/list/UsersListTable';
-import UsersListToolbar from 'crud/view/users/list/UsersListToolbar';
-import PageTitle from 'crud/view/shared/styles/PageTitle';
+import UsersListTable from 'components/Users/list/UsersListTable';
+import UsersListToolbar from 'components/Users/list/UsersListToolbar';
 
 class UsersListPage extends Component {
   render() {

@@ -6,7 +6,7 @@ import navigation from 'reducers/navigation';
 import alerts from 'reducers/alerts';
 import layout from 'reducers/layout';
 import register from 'reducers/register';
-import users from 'crud/modules/users/usersReducers';
+import users from 'reducers/usersReducers';
 
 import { combineReducers } from 'redux';
 

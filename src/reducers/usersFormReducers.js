@@ -1,4 +1,4 @@
-import actions from 'crud/modules/users/form/usersFormActions';
+import actions from 'actions/usersFormActions';
 
 const initialData = {
   findLoading: false,

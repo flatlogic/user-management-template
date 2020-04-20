@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PageTitle from 'crud/view/shared/styles/PageTitle';
-import UsersView from 'crud/view/users/view/UsersView';
-import actions from 'crud/modules/users/view/usersViewActions';
+import UsersView from 'components/Users/view/UsersView';
+import actions from 'actions/usersViewActions';
 import { connect } from 'react-redux';
-import selectors from 'crud/modules/users/view/usersViewSelectors';
 
 class UsersPage extends Component {
   componentDidMount() {

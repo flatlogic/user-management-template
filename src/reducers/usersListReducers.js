@@ -1,4 +1,4 @@
-import actions from 'crud/modules/users/list/usersListActions';
+import actions from 'actions/usersListActions';
 
 const initialData = {
   rows: [],

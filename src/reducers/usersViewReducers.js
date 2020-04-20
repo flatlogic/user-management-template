@@ -1,4 +1,4 @@
-import actions from 'crud/modules/users/view/usersViewActions';
+import actions from 'actions/usersViewActions';
 
 const initialData = {
   loading: false,

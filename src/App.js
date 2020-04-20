@@ -52,8 +52,8 @@ class App extends React.PureComponent {
                 <Switch>
                     <Route path="/" exact render={() => <Redirect to="/app"/>}/>
                     <Route path="/app" exact render={() => <Redirect to="/app/profile"/>}/>
-                    <AdminRoute path="/admin" currentUser={this.props.currentUser} dispatch={this.props.dispatch} component={LayoutComponent}/>
                     <PrivateRoute path="/app" dispatch={this.props.dispatch} component={LayoutComponent}/>
+                    <PrivateRoute path="/admin" dispatch={this.props.dispatch} component={LayoutComponent}/>
                     <Route path="/register" exact component={Register}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/verify-email" exact component={Verify}/>

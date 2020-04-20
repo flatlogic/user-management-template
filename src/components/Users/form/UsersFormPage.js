@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import UsersForm from 'crud/view/users/form/UsersForm';
+import UsersForm from 'components/Users/form/UsersForm';
 import { getHistory } from 'crud/modules/store';
-import actions from 'crud/modules/users/form/usersFormActions';
+import actions from 'actions/usersFormActions';
 import { connect } from 'react-redux';
 
 class UsersFormPage extends Component {
