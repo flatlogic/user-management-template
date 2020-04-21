@@ -105,9 +105,9 @@ class Header extends React.Component {
     const { focus } = this.state;
     const { navbarType, navbarColor, openUsersList } = this.props;
 
-    const user = JSON.parse(localStorage.getItem('user') || {}).user || {};
-
-    const firstUserLetter = (user.name|| user.email || "P")[0].toUpperCase();
+    const user = this.props.currentUser;
+    const avatar = user && user.avatar && user.avatar.length && user.avatar[0].publicUrl;
+    const firstUserLetter = user && (user.firstName|| user.email)[0].toUpperCase();
 
     return (
       <Navbar className={`${s.root} d-print-none ${navbarType === NavbarTypes.FLOATING ? s.navbarFloatingType : ''}`} style={{backgroundColor: navbarColor, zIndex: !openUsersList ? 100 : 0}}>
@@ -160,13 +160,13 @@ class Header extends React.Component {
         <Nav className="ml-auto">
           <NavbarText>
             <span className={`${s.avatar} rounded-circle thumb-sm float-left mr-2`}>
-              {user.avatar ? (
-                <img src={user.avatar} alt="..."/>
+              {avatar ? (
+                <img src={avatar} alt="..."/>
               ) : (
                 <span>{firstUserLetter}</span>
               )}
             </span>
-            <span className={`${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`}>{user.name || user.email || "Philip smith"}</span>
+            <span>{user && (user.firstName || user.email)}</span>
           </NavbarText>
           <Dropdown nav isOpen={this.state.menuOpen} toggle={this.toggleMenu} className="d-sm-down-none tutorial-dropdown pr-4">
             <DropdownToggle nav>
@@ -189,6 +189,7 @@ function mapStateToProps(store) {
     sidebarStatic: store.navigation.sidebarStatic,
     navbarType: store.layout.navbarType,
     navbarColor: store.layout.navbarColor,
+    currentUser: store.authCrud.currentUser,
   };
 }
 

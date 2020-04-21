@@ -1,6 +1,4 @@
 import * as uuid from 'uuid/v4';
-import filesize from 'filesize';
-import { AuthToken } from 'crud/modules/auth/authToken';
 import Axios from 'axios';
 import config from 'config';
 
@@ -70,24 +68,20 @@ export default class FileUploader {
   }
 
   static async uploadToServer(file, path, filename) {
-    const token = await AuthToken.get();
-
     const formData = new FormData();
     formData.append('file', file);
     formData.append('filename', filename);
-    await Axios.post(
-      `${config.baseURLApi}/upload/${path}`,
-      formData,
+    const uri = `${config.baseURLApi}/file/upload/${path}`;
+    await Axios.post(uri, formData,
       {
         headers: {
           'Content-Type': 'multipart/form-data',
-          authorization: token ? `Bearer ${token}` : '',
         },
       },
     );
 
     const privateUrl = `${path}/${filename}`;
 
-    return `${config.baseURLApi}/download?privateUrl=${privateUrl}`;
+    return `${config.baseURLApi}/file/download?privateUrl=${privateUrl}`;
   }
 }
