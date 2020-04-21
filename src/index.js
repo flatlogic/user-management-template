@@ -8,7 +8,7 @@ import axios from 'axios';
 import reducers from 'reducers';
 import config from 'config';
 import App from 'App';
-import authActions from 'crud/modules/auth/authActions';
+import authActions from 'actions/authActions';
 
 axios.defaults.baseURL = config.baseURLApi;
 axios.defaults.headers.common['Content-Type'] = "application/json";

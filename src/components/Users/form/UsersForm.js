@@ -64,21 +64,19 @@ class UsersForm extends Component {
                 <InputFormItem
                   name={'lastName'}
                   schema={usersFields}
-
                 />
 
                 <InputFormItem
                   name={'phoneNumber'}
                   schema={usersFields}
-
                 />
 
                 <InputFormItem
                   name={'email'}
                   schema={usersFields}
-
                 />
 
+                { this.props.currentUser && this.props.currentUser.role == 'admin' &&
                   <>
                     <RadioFormItem
                       name={'role'}
@@ -90,6 +88,7 @@ class UsersForm extends Component {
                       schema={usersFields}
                     />
                   </>
+                }
 
                 <ImagesFormItem
                   name={'avatar'}

@@ -1,5 +1,5 @@
 import { connectRouter } from 'connected-react-router';
-import authCrud from 'crud/modules/auth/authReducers';
+import authCrud from 'reducers/authReducers';
 import auth from 'reducers/auth';
 import navigation from 'reducers/navigation';
 import alerts from 'reducers/alerts';

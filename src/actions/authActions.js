@@ -1,7 +1,5 @@
 import Errors from 'crud/modules/shared/error/errors';
 import Message from 'crud/view/shared/message';
-import { getHistory } from 'crud/modules/store';
-import { AuthToken } from 'crud/modules/auth/authToken';
 import axios from 'axios';
 
 async function findMe() {
@@ -17,13 +15,8 @@ const actions = {
 
   doInit: () => async (dispatch) => {
     try {
-      const token = await AuthToken.get();
       let currentUser = null;
-
-      if (token) {
-        currentUser = await findMe();
-      }
-
+      currentUser = await findMe();
       dispatch({
         type: actions.AUTH_INIT_SUCCESS,
         payload: {

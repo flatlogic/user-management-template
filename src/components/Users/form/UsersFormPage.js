@@ -30,7 +30,7 @@ class UsersFormPage extends Component {
   doSubmit = (id, data) => {
     const { dispatch } = this.props;
     if (this.isEditing() || this.isProfile()) {
-      dispatch(actions.doUpdate(id, data));
+      dispatch(actions.doUpdate(id, data, this.isProfile()));
     } else {
       dispatch(actions.doCreate(data));
     }

@@ -3,6 +3,7 @@ import config from '../config';
 import jwt from "jsonwebtoken";
 import { toast } from 'react-toastify';
 import { getHistory } from 'crud/modules/store';
+import authActions from 'actions/authActions';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -76,6 +77,7 @@ export function loginUser(creds) {
         axios.post("/auth/signin/local", creds).then(res => {
           const token = res.data;
           dispatch(receiveToken(token));
+          dispatch(authActions.doInit());
         }).catch(err => {
           dispatch(loginError(err.response.data));
         })

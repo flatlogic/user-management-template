@@ -41,7 +41,6 @@ const CloseButton = ({closeToast}) => <i onClick={closeToast} className="la la-c
 
 class App extends React.PureComponent {
   render() {
-    console.log(this.props.currentUser);
     return (
         <div>
             <ToastContainer
@@ -49,12 +48,13 @@ class App extends React.PureComponent {
                 hideProgressBar
                 closeButton={<CloseButton/>}
             />
+            { this.props.currentUser &&
             <HashRouter>
                 <Switch>
                     <Route path="/" exact render={() => <Redirect to="/app"/>}/>
                     <Route path="/app" exact render={() => <Redirect to="/app/profile"/>}/>
                     <PrivateRoute path="/app" dispatch={this.props.dispatch} component={LayoutComponent}/>
-                    <PrivateRoute path="/admin" dispatch={this.props.dispatch} component={LayoutComponent}/>
+                    <AdminRoute path="/admin" currentUser={this.props.currentUser} dispatch={this.props.dispatch} component={LayoutComponent}/>
                     <Route path="/register" exact component={Register}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/verify-email" exact component={Verify}/>
@@ -62,6 +62,7 @@ class App extends React.PureComponent {
                     <Redirect from="*" to="/app/profile"/>
                 </Switch>
             </HashRouter>
+            }
         </div>
 
     );

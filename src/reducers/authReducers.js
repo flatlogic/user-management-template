@@ -1,4 +1,4 @@
-import actions from 'crud/modules/auth/authActions';
+import actions from 'actions/authActions';
 
 const initialData = {
   currentUser: null,

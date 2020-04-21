@@ -2,7 +2,7 @@ import axios from 'axios';
 import Errors from 'crud/modules/shared/error/errors';
 import Message from 'crud/view/shared/message';
 import { getHistory } from 'crud/modules/store';
-import authActions from 'crud/modules/auth/authActions';
+import authActions from 'actions/authActions';
 
 const actions = {
   doNew: () => {
@@ -59,7 +59,7 @@ const actions = {
     }
   },
 
-  doUpdate: (id, values) => async (
+  doUpdate: (id, values, isProfile) => async (
     dispatch,
     getState,
   ) => {
@@ -75,8 +75,13 @@ const actions = {
           type: 'USERS_FORM_UPDATE_SUCCESS',
         });
 
-        Message.success('User updated');
-        getHistory().push('/admin/users');
+        if (isProfile) {
+          Message.success('Profile updated');
+        }
+        else {
+          Message.success('User updated');
+          getHistory().push('/admin/users');
+        }
       })
     } catch (error) {
       Errors.handle(error);
