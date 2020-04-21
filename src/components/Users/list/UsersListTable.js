@@ -60,6 +60,10 @@ class UsersListTable extends Component {
         <div>
           <Widget title={<h4>User management</h4>} collapse close>
             <BootstrapTable bordered={false} data={rows} version="4" pagination options={options} search tableContainerClass={`table-responsive table-striped table-hover`}>
+              <TableHeaderColumn dataField="avatars" dataSort dataFormat={dataFormat.imageFormatter}>
+                <span className="fs-sm">Avatar</span>
+              </TableHeaderColumn>
+
               <TableHeaderColumn dataField="firstName" dataSort>
                 <span className="fs-sm">First Name</span>
               </TableHeaderColumn>
@@ -82,10 +86,6 @@ class UsersListTable extends Component {
 
               <TableHeaderColumn dataField="disabled" dataSort dataFormat={dataFormat.booleanFormatter}>
                 <span className="fs-sm">Disabled</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn dataField="avatar" dataSort dataFormat={dataFormat.imageFormatter}>
-                <span className="fs-sm">Avatar</span>
               </TableHeaderColumn>
 
               <TableHeaderColumn isKey dataField="id" dataFormat={dataFormat.actionFormatter}>
