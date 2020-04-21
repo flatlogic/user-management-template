@@ -71,7 +71,7 @@ class Sidebar extends React.Component {
         </header>
         <ul className={s.nav}>
 
-        {this.props.currentUser && this.props.currentUser.role == 'admin' && 
+        {this.props.currentUser && this.props.currentUser.role === 'admin' && 
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
             activeItem={this.props.activeItem}

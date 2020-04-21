@@ -16,7 +16,7 @@ import Register from 'pages/auth/register';
 import { logoutUser } from 'actions/auth';
 
 const AdminRoute = ({currentUser, dispatch, component, ...rest }) => {
-    if (!currentUser || currentUser.role != 'admin' || !Login.isAuthenticated(localStorage.getItem('token'))) {
+    if (currentUser.role != 'admin' || !Login.isAuthenticated(localStorage.getItem('token'))) {
         dispatch(logoutUser());
         return (<Redirect to="/login"/>)
     } else if (currentUser && currentUser.role == 'admin') {
@@ -41,6 +41,7 @@ const CloseButton = ({closeToast}) => <i onClick={closeToast} className="la la-c
 
 class App extends React.PureComponent {
   render() {
+    console.log(this.props.currentUser);
     return (
         <div>
             <ToastContainer

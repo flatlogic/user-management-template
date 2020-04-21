@@ -79,20 +79,17 @@ class UsersForm extends Component {
 
                 />
 
-                { this.props.currentUser && this.props.currentUser.role == 'admin' &&
-                  <RadioFormItem
-                    name={'role'}
-                    schema={usersFields}
-                  />
-                }
+                  <>
+                    <RadioFormItem
+                      name={'role'}
+                      schema={usersFields}
+                    />
 
-                { this.props.currentUser && this.props.currentUser.role == 'admin' &&
-
-                  <SwitchFormItem
-                    name={'disabled'}
-                    schema={usersFields}
-                  />
-                }
+                    <SwitchFormItem
+                      name={'disabled'}
+                      schema={usersFields}
+                    />
+                  </>
 
                 <ImagesFormItem
                   name={'avatar'}
