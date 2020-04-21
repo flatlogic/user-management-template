@@ -99,6 +99,7 @@ class Layout extends React.Component {
                   timeout={200}
                 >
                   <Switch>
+                    <Route path={"/app/dashboard"} exact component={CustomLoadable({loader: () => import('pages/dashboard/Dashboard')})} />
                     <Route path={"/app/profile"} exact component={CustomLoadable({loader: () => import('components/Users/form/UsersFormPage')})} />
                     <Route path={"/admin/users"} exact component={CustomLoadable({loader: () => import('components/Users/list/UsersListPage')})} />
                     <Route path={"/admin/users/new"} exact component={CustomLoadable({loader: () => import('components/Users/form/UsersFormPage')})} />

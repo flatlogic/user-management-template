@@ -17,8 +17,7 @@ import { logoutUser } from 'actions/auth';
 
 const AdminRoute = ({currentUser, dispatch, component, ...rest }) => {
     if (currentUser.role != 'admin' || !Login.isAuthenticated(localStorage.getItem('token'))) {
-        dispatch(logoutUser());
-        return (<Redirect to="/login"/>)
+        return (<Redirect to="/app/dashboard"/>)
     } else if (currentUser && currentUser.role == 'admin') {
         return ( // eslint-disable-line
             <Route {...rest} render={props => (React.createElement(component, props))}/>
@@ -51,15 +50,15 @@ class App extends React.PureComponent {
             { this.props.currentUser &&
             <HashRouter>
                 <Switch>
-                    <Route path="/" exact render={() => <Redirect to="/app"/>}/>
-                    <Route path="/app" exact render={() => <Redirect to="/app/profile"/>}/>
+                    <Route path="/" exact render={() => <Redirect to="/app/dashboard"/>}/>
+                    <Route path="/app" exact render={() => <Redirect to="/app/dashboard"/>}/>
                     <PrivateRoute path="/app" dispatch={this.props.dispatch} component={LayoutComponent}/>
                     <AdminRoute path="/admin" currentUser={this.props.currentUser} dispatch={this.props.dispatch} component={LayoutComponent}/>
                     <Route path="/register" exact component={Register}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/verify-email" exact component={Verify}/>
                     <Route path="/error" exact component={ErrorPage}/>
-                    <Redirect from="*" to="/app/profile"/>
+                    <Redirect from="*" to="/app/dashboard"/>
                 </Switch>
             </HashRouter>
             }
