@@ -26,13 +26,15 @@ class App extends React.PureComponent {
                 hideProgressBar
                 closeButton={<CloseButton/>}
             />
-            { this.props.currentUser &&
+
             <HashRouter>
                 <Switch>
                     <Route path="/" exact render={() => <Redirect to="/app"/>}/>
-                    <Route path="/app" exact render={() => <Redirect to="/app/profile"/>}/>
+                    <Route path="/app" exact render={() => <Redirect to="/app/dashboard"/>}/>
                     <UserRoute path="/app" dispatch={this.props.dispatch} component={LayoutComponent}/>
-                    <AdminRoute path="/admin" dispatch={this.props.dispatch} component={LayoutComponent}/>
+                    {this.props.currentUser &&
+                        <AdminRoute path="/admin" currentUser={this.props.currentUser} dispatch={this.props.dispatch} component={LayoutComponent}/>
+                    }
                     <AuthRoute path="/register" exact component={Register}/>
                     <AuthRoute path="/login" exact component={Login}/>
                     <AuthRoute path="/verify-email" exact component={Verify}/>
@@ -42,7 +44,7 @@ class App extends React.PureComponent {
                     <Redirect from="*" to="/app/dashboard"/>
                 </Switch>
             </HashRouter>
-            }
+
         </div>
 
     );

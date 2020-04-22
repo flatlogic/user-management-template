@@ -35,7 +35,10 @@ export function doInit() {
   return async (dispatch) => {
     try {
       let currentUser = null;
-      currentUser = await findMe();
+      let token = localStorage.getItem('token');
+      if (token) {
+        currentUser = await findMe();
+      }
       dispatch({
         type: AUTH_INIT_SUCCESS,
         payload: {
