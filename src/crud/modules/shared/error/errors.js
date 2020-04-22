@@ -1,5 +1,6 @@
 import Message from 'crud/view/shared/message';
-import { getHistory } from 'crud/modules/store';
+import { push } from 'connected-react-router';
+import { store } from 'index';
 
 const DEFAULT_ERROR_MESSAGE = 'Error';
 
@@ -33,7 +34,7 @@ export default class Errors {
     }
 
     if (selectErrorCode(error) === 403) {
-      getHistory().push('/403');
+      store.dispatch(push('/403'));
       return;
     }
 
@@ -42,7 +43,7 @@ export default class Errors {
       return;
     }
 
-    getHistory().push('/500');
+    store.dispatch(push('/500'));
   }
 
   static errorCode(error) {

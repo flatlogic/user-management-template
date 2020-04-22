@@ -3,7 +3,7 @@ import ContentWrapper from 'crud/view/layout/styles/ContentWrapper';
 import PageTitle from 'crud/view/shared/styles/PageTitle';
 import ProfileForm from 'crud/view/auth/ProfileForm';
 import { i18n } from 'crud/i18n';
-import { getHistory } from 'crud/modules/store';
+import { push } from 'connected-react-router';
 
 class ProfileFormPage extends Component {
   render() {
@@ -15,7 +15,7 @@ class ProfileFormPage extends Component {
           </PageTitle>
 
           <ProfileForm
-            onCancel={() => getHistory().push('/')}
+            onCancel={() => this.props.dispatch(push('/'))}
           />
         </ContentWrapper>
       </React.Fragment>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Errors from 'crud/modules/shared/error/errors';
 import Message from 'crud/view/shared/message';
-import { getHistory } from 'crud/modules/store';
+import { push } from 'connected-react-router';
 import { doInit } from 'actions/auth';
 
 const actions = {
@@ -32,7 +32,7 @@ const actions = {
         type: 'USERS_FORM_FIND_ERROR',
       });
 
-      getHistory().push('/admin/users');
+      dispatch(push('/admin/users'));
     }
   },
 
@@ -48,7 +48,7 @@ const actions = {
         });
 
         Message.success('User created');
-        getHistory().push('/admin/users');
+        dispatch(push('/admin/users'));
       })
     } catch (error) {
       Errors.handle(error);
@@ -80,7 +80,7 @@ const actions = {
         }
         else {
           Message.success('User updated');
-          getHistory().push('/admin/users');
+          dispatch(push('/admin/users'));
         }
       })
     } catch (error) {

@@ -4,7 +4,7 @@ import { Redirect, Route } from 'react-router';
 import React from 'react';
 
 export const AdminRoute = ({currentUser, dispatch, component, ...rest}) => {
-  if (currentUser.role !== 'admin' || !Login.isAuthenticated(localStorage.getItem('token'))) {
+  if (!currentUser || currentUser.role !== 'admin' || !Login.isAuthenticated(localStorage.getItem('token'))) {
     return (<Redirect to="/app/dashboard"/>)
   } else if (currentUser && currentUser.role === 'admin') {
     return (

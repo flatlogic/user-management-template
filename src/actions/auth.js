@@ -2,7 +2,7 @@ import axios from 'axios';
 import config from '../config';
 import jwt from "jsonwebtoken";
 import { toast } from 'react-toastify';
-import { getHistory } from 'crud/modules/store';
+import { push } from 'connected-react-router';
 import Errors from '../crud/modules/shared/error/errors';
 
 export const AUTH_FAILURE = 'AUTH_FAILURE';
@@ -67,7 +67,7 @@ export function logoutUser() {
         dispatch({
           type: LOGOUT_SUCCESS,
         });
-        getHistory().push('/login');
+      dispatch(push('/login'));
     };
 }
 
@@ -96,7 +96,7 @@ export function loginUser(creds) {
           const token = res.data;
           dispatch(receiveToken(token));
           dispatch(doInit());
-          getHistory().push('/app');
+          dispatch(push('/app'));
         }).catch(err => {
           dispatch(authError(err.response.data));
         })
@@ -115,7 +115,7 @@ export function verifyEmail(token) {
     }).catch(err => {
       toast.error(err.response.data);
     }).finally(() => {
-      getHistory().push('/login');
+      dispatch(push('/login'));
     })
   }
 }
@@ -130,7 +130,7 @@ export function resetPassword(token, password) {
           type: RESET_SUCCESS,
         });
         toast.success("Password has been updated");
-        getHistory().push('/login');
+      dispatch(push('/login'));
     }).catch(err => {
       dispatch(authError(err.response.data));
     })
@@ -147,7 +147,7 @@ export function sendPasswordResetEmail(email) {
         type: PASSWORD_RESET_EMAIL_SUCCESS,
       });
       toast.success("Email with resetting instructions has been sent");
-      getHistory().push('/login');
+      dispatch(push('/login'));
     }).catch(err => {
       dispatch(authError(err.response.data));
     })
@@ -166,7 +166,7 @@ export function registerUser(creds) {
           type: REGISTER_SUCCESS
         });
         toast.success("You've been registered successfully. Please check your email for verification link");
-        getHistory().push('/login');
+        dispatch(push('/login'));
       }).catch(err => {
         dispatch(authError(err.response.data));
       })

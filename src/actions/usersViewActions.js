@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Errors from 'crud/modules/shared/error/errors';
-import { getHistory } from 'crud/modules/store';
+import { push } from 'connected-react-router';
 
 const actions = {
   doFind: (id) => async (dispatch) => {

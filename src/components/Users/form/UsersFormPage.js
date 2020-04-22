@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import UsersForm from 'components/Users/form/UsersForm';
-import { getHistory } from 'crud/modules/store';
+import { push } from 'connected-react-router';
 import actions from 'actions/usersFormActions';
 import { connect } from 'react-redux';
+import { store } from '../../../index';
 
 class UsersFormPage extends Component {
   state = {
@@ -60,7 +61,7 @@ class UsersFormPage extends Component {
               isEditing={this.isEditing()}
               isProfile={this.isProfile()}
               onSubmit={this.doSubmit}
-              onCancel={() => getHistory().push('/admin/users')}
+              onCancel={() => this.props.dispatch(push('/admin/users'))}
             />
           )}
       </React.Fragment>
