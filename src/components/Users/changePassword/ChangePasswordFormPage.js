@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ChangePasswordForm from 'components/Users/changePassword/ChangePasswordForm';
-import { getHistory } from 'crud/modules/store';
+import { push } from 'connected-react-router';
 import actions from 'actions/usersFormActions';
 import { connect } from 'react-redux';
 
@@ -21,7 +21,7 @@ class ChangePasswordFormPage extends Component {
           saveLoading={this.props.saveLoading}
           findLoading={this.props.findLoading}
           onSubmit={this.doSubmit}
-          onCancel={() => getHistory().push('/app/dashboard')}
+          onCancel={() => this.props.dispatch(push('/app/dashboard'))}
         />
       </React.Fragment>
     );

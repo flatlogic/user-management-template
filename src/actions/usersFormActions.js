@@ -104,7 +104,7 @@ const actions = {
         });
 
         Message.success('User created');
-        getHistory().push('/app/dashboard');
+        dispatch(push('/app/dashboard'));
       })
     } catch (error) {
       Errors.handle(error);
