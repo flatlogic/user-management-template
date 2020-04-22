@@ -14,7 +14,8 @@ class Login extends React.Component {
         dispatch: PropTypes.func.isRequired,
     };
 
-    static isAuthenticated(token) {
+    static isAuthenticated() {
+      const token = localStorage.getItem('token');
       if (!token) return;
       const date = new Date().getTime() / 1000;
       const data = jwt.decode(token);
@@ -72,15 +73,6 @@ class Login extends React.Component {
     }
 
     render() {
-        const { from } = this.props.location.state || { from: { pathname: '/app' } }; // eslint-disable-line
-
-        // cant access login page while logged in
-        if (Login.isAuthenticated(localStorage.getItem('token'))) {
-            return (
-                <Redirect to={from} />
-            );
-        }
-
         return (
             <div className="auth-page">
                 <Container>
@@ -104,9 +96,10 @@ class Login extends React.Component {
                             <div className="form-group">
                                 <input className="form-control no-border" value={this.state.email} onChange={this.changeEmail} type="email" required name="email" placeholder="Email" />
                             </div>
-                            <div className="form-group">
+                            <div className="form-group mb-0">
                                 <input className="form-control no-border" value={this.state.password} onChange={this.changePassword} type="password" required name="password" placeholder="Password" />
                             </div>
+                            <Link className="d-block text-right mb-3 mt-1 fs-sm" to="forgot">Forgot password?</Link>
                             <Button type="submit" color="info" className="auth-btn mb-3" size="sm">{this.props.isFetching ? 'Loading...' : 'Login'}</Button>
                             <p className="widget-auth-info">or sign in with</p>
                             <div className="social-buttons">

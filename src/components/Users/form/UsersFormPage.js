@@ -73,7 +73,7 @@ function mapStateToProps(store) {
     findLoading: store.users.form.findLoading,
     saveLoading: store.users.form.saveLoading,
     record: store.users.form.record,
-    currentUser: store.authCrud.currentUser,    
+    currentUser: store.auth.currentUser,
   };
 }
 

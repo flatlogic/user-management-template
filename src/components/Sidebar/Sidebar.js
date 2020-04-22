@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Progress, Alert } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
-import { dismissAlert } from '../../actions/alerts';
 import s from './Sidebar.module.scss';
 import LinksGroup from './LinksGroup/LinksGroup';
 import { openSidebar, closeSidebar, changeActiveSidebarItem } from '../../actions/navigation';
@@ -51,10 +49,6 @@ class Sidebar extends React.Component {
     }
   }
 
-  dismissAlert(id) {
-    this.props.dispatch(dismissAlert(id));
-  }
-
   doLogout() {
     this.props.dispatch(logoutUser());
   }
@@ -62,14 +56,14 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div className={`${(!this.props.sidebarOpened && !this.props.sidebarStatic ) ? s.sidebarClose : ''} ${s.sidebarWrapper}`}>
-      <nav
-        onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}
-        className={s.root}
-      >
-        <header className={s.logo}>
-          <a href="https://demo.flatlogic.com/sing-app/"><span className={s.logoStyle}>Sing</span> App</a>
-        </header>
-        <ul className={s.nav}>
+        <nav
+          onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}
+          className={s.root}
+        >
+          <header className={s.logo}>
+            <a href="https://demo.flatlogic.com/sing-app/"><span className={s.logoStyle}>Sing</span> App</a>
+          </header>
+          <ul className={s.nav}>
 
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
@@ -80,74 +74,28 @@ class Sidebar extends React.Component {
             iconName="la-home"
           />
 
-        {this.props.currentUser && this.props.currentUser.role === 'admin' && 
-          <LinksGroup
-            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
-            activeItem={this.props.activeItem}
-            header="Users"
-            link="/admin/users"
-            isHeader
-            iconName="la-users"
-          />
-        }
+          {this.props.currentUser && this.props.currentUser.role === 'admin' &&
+            <LinksGroup
+              onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+              activeItem={this.props.activeItem}
+              header="Users"
+              link="/admin/users"
+              isHeader
+              iconName="la-users"
+            />
+          }
 
-          <LinksGroup
-            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
-            activeItem={this.props.activeItem}
-            header="My Profile"
-            link="/app/profile"
-            isHeader
-            iconName="la-user"
-          />
+            <LinksGroup
+              onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+              activeItem={this.props.activeItem}
+              header="My Profile"
+              link="/app/profile"
+              isHeader
+              iconName="la-user"
+            />
 
-        </ul>
-        <h5 className={s.navTitle}>
-          LABELS
-          {/* eslint-disable-next-line */}
-          <a className={s.actionLink}>
-            <i className='la la-plus float-right' />
-          </a>
-        </h5>
-        {/* eslint-disable */}
-        <ul className={s.sidebarLabels}>
-          <li>
-            <a href="#">
-              <i className="la la-circle text-danger mr-2" />
-              <span className={s.labelName}>My Recent</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="la la-circle text-info mr-2" />
-              <span className={s.labelName}>Starred</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="la la-circle text-primary mr-2" />
-              <span className={s.labelName}>Background</span>
-            </a>
-          </li>
-        </ul>
-        {/* eslint-enable */}
-        <h5 className={s.navTitle}>
-          PROJECTS
-        </h5>
-        <div className={s.sidebarAlerts}>
-          {this.props.alertsList.map(alert => // eslint-disable-line
-            <Alert
-              key={alert.id}
-              className={s.sidebarAlert} color="transparent"
-              isOpen={true} // eslint-disable-line
-              toggle={() => { this.dismissAlert(alert.id); }}
-            >
-              <span>{alert.title}</span><br />
-              <Progress className={`${s.sidebarProgress} progress-xs mt-1`} color={alert.color} value={alert.value} />
-              <small>{alert.footer}</small>
-            </Alert>,
-          )}
-        </div>
-      </nav >
+          </ul>
+        </nav >
       </div>
     );
   }
@@ -157,11 +105,10 @@ function mapStateToProps(store) {
   return {
     sidebarOpened: store.navigation.sidebarOpened,
     sidebarStatic: store.navigation.sidebarStatic,
-    alertsList: store.alerts.alertsList,
     activeItem: store.navigation.activeItem,
     navbarType: store.navigation.navbarType,
     sidebarColor: store.layout.sidebarColor,
-    currentUser: store.authCrud.currentUser,
+    currentUser: store.auth.currentUser,
   };
 }
 

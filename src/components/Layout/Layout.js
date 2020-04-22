@@ -125,7 +125,7 @@ function mapStateToProps(store) {
     sidebarStatic: store.navigation.sidebarStatic,
     dashboardTheme: store.layout.dashboardTheme,
     sidebarType: store.layout.sidebarType,
-    currentUser: store.authCrud.currentUser,
+    currentUser: store.auth.currentUser,
   };
 }
 

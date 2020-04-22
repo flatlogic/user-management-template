@@ -4,10 +4,9 @@ import { withRouter, Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Container, Alert, Button } from 'reactstrap';
 import Widget from '../../../components/Widget';
-import { registerUser, registerError } from '../../../actions/register';
+import { registerUser, authError } from '../../../actions/auth';
 import { loginUser } from 'actions/auth';
 import microsoft from '../../../images/microsoft.png';
-import Login from '../login';
 
 class Register extends React.Component {
     static propTypes = {
@@ -48,12 +47,12 @@ class Register extends React.Component {
     checkPassword() {
         if (!this.isPasswordValid()) {
             if (!this.state.password) {
-                this.props.dispatch(registerError("Password field is empty"));
+                this.props.dispatch(authError("Password field is empty"));
             } else {
-                this.props.dispatch(registerError("Passwords are not equal"));
+                this.props.dispatch(authError("Passwords are not equal"));
             }
             setTimeout(() => {
-                this.props.dispatch(registerError());
+                this.props.dispatch(authError());
             }, 3 * 1000)
         }
     }
@@ -83,15 +82,6 @@ class Register extends React.Component {
     }
 
     render() {
-        const {from} = this.props.location.state || {from: {pathname: '/app'}}; // eslint-disable-line
-
-        // cant access login page while logged in
-        if (Login.isAuthenticated(localStorage.getItem('token'))) {
-            return (
-                <Redirect to={from}/>
-            );
-        }
-
         return (
             <div className="auth-page">
                 <Container>
@@ -157,8 +147,8 @@ class Register extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        isFetching: state.register.isFetching,
-        errorMessage: state.register.errorMessage,
+        isFetching: state.auth.isFetching,
+        errorMessage: state.auth.errorMessage,
     };
 }
 

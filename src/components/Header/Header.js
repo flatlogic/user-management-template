@@ -189,7 +189,7 @@ function mapStateToProps(store) {
     sidebarStatic: store.navigation.sidebarStatic,
     navbarType: store.layout.navbarType,
     navbarColor: store.layout.navbarColor,
-    currentUser: store.authCrud.currentUser,
+    currentUser: store.auth.currentUser,
   };
 }
 

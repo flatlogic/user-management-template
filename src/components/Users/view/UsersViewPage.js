@@ -30,7 +30,7 @@ function mapStateToProps(store) {
   return {
     loading: store.users.form.loading,
     record: store.users.form.record,
-    currentUser: store.authCrud.currentUser,    
+    currentUser: store.auth.currentUser,
   };
 }
 

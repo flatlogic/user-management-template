@@ -2,7 +2,7 @@ import axios from 'axios';
 import Errors from 'crud/modules/shared/error/errors';
 import Message from 'crud/view/shared/message';
 import { getHistory } from 'crud/modules/store';
-import authActions from 'actions/authActions';
+import { doInit } from 'actions/auth';
 
 const actions = {
   doNew: () => {
@@ -69,7 +69,7 @@ const actions = {
       });
 
       axios.put(`/users/${id}`, {id, data: values}).then(res => {
-        dispatch(authActions.doInit());
+        dispatch(doInit());
 
         dispatch({
           type: 'USERS_FORM_UPDATE_SUCCESS',

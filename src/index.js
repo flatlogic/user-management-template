@@ -8,7 +8,7 @@ import axios from 'axios';
 import reducers from 'reducers';
 import config from 'config';
 import App from 'App';
-import authActions from 'actions/authActions';
+import { doInit } from 'actions/auth';
 
 axios.defaults.baseURL = config.baseURLApi;
 axios.defaults.headers.common['Content-Type'] = "application/json";
@@ -22,7 +22,7 @@ const store = createStore(
   applyMiddleware(ReduxThunk)
 );
 
-store.dispatch(authActions.doInit());
+store.dispatch(doInit());
 
 ReactDOM.render(
     <Provider store={store}>
