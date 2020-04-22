@@ -11,6 +11,7 @@ export class InputFormItemNotFast extends Component {
       hint,
       size,
       type,
+      password,
       placeholder,
       autoFocus,
       autoComplete,
@@ -47,7 +48,7 @@ export class InputFormItemNotFast extends Component {
         )}
         <input
           id={name}
-          type={'text'}
+          type={password ? 'password' : 'text'}
           onChange={(event) => {
             form.setFieldValue(name, event.target.value);
             form.setFieldTouched(name);

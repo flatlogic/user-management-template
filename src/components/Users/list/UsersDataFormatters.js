@@ -1,7 +1,7 @@
 import moment from 'moment';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { truncate } from 'lodash';
+import actions from 'actions/usersListActions';
 
 function imageFormatter(cell) {
   const imageUrl =
@@ -23,26 +23,6 @@ function dateTimeFormatter(cell) {
     return cell
       ? moment(cell).format('YYYY-MM-DD HH:mm')
       : null;
-};
-
-function actionFormatter(cell) {
-  return (
-      <div>
-    <Link
-      className="btn btn-link"
-      to={`/admin/users/${cell}`}
-    >
-    View
-    </Link>
-    &nbsp;
-      <Link
-        className="btn btn-link"
-        to={`/admin/users/${cell}/edit`}
-      >
-      Edit
-    </Link>
-      </div>
-   )
 };
 
 function filesFormatter(cell) {
@@ -92,4 +72,4 @@ function listFormatter(cell) {
 	);
 };
 
-export { actionFormatter, booleanFormatter, imageFormatter, dateTimeFormatter, listFormatter, filesFormatter };
+export { booleanFormatter, imageFormatter, dateTimeFormatter, listFormatter, filesFormatter };

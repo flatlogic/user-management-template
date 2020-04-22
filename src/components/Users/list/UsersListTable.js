@@ -1,4 +1,5 @@
 import * as dataFormat from 'components/Users/list/UsersDataFormatters';
+import { Link } from 'react-router-dom';
 import actions from 'actions/usersListActions';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -20,6 +21,38 @@ import Widget from 'components/Widget';
 class UsersListTable extends Component {
   constructor(props) {
     super(props);
+  }
+
+  handleDelete(cell, props) {
+      props.dispatch(actions.doDelete(cell));
+  }
+
+  actionFormatter(cell, row, obj) {
+    return (
+        <div>
+      <Link
+        className="btn btn-link"
+        to={`/admin/users/${cell}`}
+      >
+      View
+      </Link>
+      &nbsp;
+        <Link
+          className="btn btn-link"
+          to={`/admin/users/${cell}/edit`}
+        >
+        Edit
+      </Link>
+      &nbsp;
+        <Link
+          className="btn btn-link"
+          to="/admin/users"
+          onClick={obj.handleDelete.bind(this, cell, obj.props)}
+        >
+        Delete
+      </Link>
+        </div>
+     )
   }
 
   componentDidMount() {
@@ -88,7 +121,9 @@ class UsersListTable extends Component {
                 <span className="fs-sm">Disabled</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn isKey dataField="id" dataFormat={dataFormat.actionFormatter}>
+              <TableHeaderColumn isKey dataField="id" dataFormat={this.actionFormatter}
+                formatExtraData={this}
+              >
                 <span className="fs-sm">Actions</span>
               </TableHeaderColumn>
             </BootstrapTable>

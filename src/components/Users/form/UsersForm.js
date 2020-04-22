@@ -11,7 +11,7 @@ import SelectFormItem from 'components/FormItems/items/SelectFormItem';
 import DatePickerFormItem from 'components/FormItems/items/DatePickerFormItem';
 import ImagesFormItem from 'components/FormItems/items/ImagesFormItem';
 import FilesFormItem from 'components/FormItems/items/FilesFormItem';
-import usersFields from 'crud/modules/users/usersFields';
+import usersFields from 'components/Users/usersFields';
 import IniValues from 'components/FormItems/iniValues';
 import PreparedValues from 'components/FormItems/preparedValues';
 import FormValidations from 'components/FormItems/formValidations';

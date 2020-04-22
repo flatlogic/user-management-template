@@ -35,6 +35,26 @@ const actions = {
       });
     }
   },
+
+  doDelete: (id) => async (dispatch) => {
+    try {
+      dispatch({
+        type: 'USERS_LIST_DELETE_STARTED',
+      });
+
+      axios.delete(`/users/${id}`).then(res => {
+        dispatch({
+          type: 'USERS_LIST_DELETE_SUCCESS',
+        });
+      })
+    } catch (error) {
+      Errors.handle(error);
+
+      dispatch({
+        type: 'USERS_LIST_DELETE_ERROR',
+      });
+    }
+  },
 };
 
 export default actions;

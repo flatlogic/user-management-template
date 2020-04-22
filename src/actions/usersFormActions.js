@@ -91,6 +91,29 @@ const actions = {
       });
     }
   },
+
+  doChangePassword: (values) => async (dispatch) => {
+    try {
+      dispatch({
+        type: 'USERS_FORM_CREATE_STARTED',
+      });
+
+      axios.post('/users', { data: values }).then(res => {
+        dispatch({
+          type: 'USERS_FORM_CREATE_SUCCESS',
+        });
+
+        Message.success('User created');
+        getHistory().push('/app/dashboard');
+      })
+    } catch (error) {
+      Errors.handle(error);
+
+      dispatch({
+        type: 'USERS_FORM_CREATE_ERROR',
+      });
+    }
+  },
 };
 
 export default actions;
