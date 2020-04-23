@@ -1,16 +1,11 @@
 import { Formik } from 'formik';
 import React, { Component } from 'react';
-import ViewFormItem from 'components/FormItems/items/ViewFormItem';
-import Spinner from 'crud/view/shared/Spinner';
+import Loader from 'components/Loader';
 import ButtonIcon from 'crud/view/shared/ButtonIcon';
 import InputFormItem from 'components/FormItems/items/InputFormItem';
-import InputNumberFormItem from 'components/FormItems/items/InputNumberFormItem';
 import SwitchFormItem from 'components/FormItems/items/SwitchFormItem';
 import RadioFormItem from 'components/FormItems/items/RadioFormItem';
-import SelectFormItem from 'components/FormItems/items/SelectFormItem';
-import DatePickerFormItem from 'components/FormItems/items/DatePickerFormItem';
 import ImagesFormItem from 'components/FormItems/items/ImagesFormItem';
-import FilesFormItem from 'components/FormItems/items/FilesFormItem';
 import usersFields from 'components/Users/usersFields';
 import IniValues from 'components/FormItems/iniValues';
 import PreparedValues from 'components/FormItems/preparedValues';
@@ -147,11 +142,11 @@ class UsersForm extends Component {
     const { isEditing, findLoading, record } = this.props;
 
     if (findLoading) {
-      return <Spinner />;
+      return <Loader />;
     }
 
     if (isEditing && !record) {
-      return <Spinner />;
+      return <Loader />;
     }
 
     return this.renderForm();

@@ -2,6 +2,7 @@ import * as dataFormat from 'components/Users/list/UsersDataFormatters';
 import { Link } from 'react-router-dom';
 import actions from 'actions/usersListActions';
 import React, { Component } from 'react';
+import ButtonIcon from 'crud/view/shared/ButtonIcon';
 import { connect } from 'react-redux';
 
 import {
@@ -19,9 +20,6 @@ import {
 import Widget from 'components/Widget';
 
 class UsersListTable extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   handleDelete(cell, props) {
       props.dispatch(actions.doDelete(cell));
@@ -92,6 +90,16 @@ class UsersListTable extends Component {
     return (
         <div>
           <Widget title={<h4>User management</h4>} collapse close>
+            <Link to="/admin/users/new">
+              <button
+                className="btn btn-primary"
+                type="button"
+              >
+                <ButtonIcon iconClass="la la-plus" />{' '}
+                New
+              </button>
+            </Link>
+
             <BootstrapTable bordered={false} data={rows} version="4" pagination options={options} search tableContainerClass={`table-responsive table-striped table-hover`}>
               <TableHeaderColumn dataField="avatars" dataSort dataFormat={dataFormat.imageFormatter}>
                 <span className="fs-sm">Avatar</span>
@@ -136,7 +144,7 @@ class UsersListTable extends Component {
 
 function mapStateToProps(store) {
   return {
-    loading: store.users.list.selectLoading,
+    loading: store.users.list.loading,
     rows: store.users.list.rows,
   };
 }

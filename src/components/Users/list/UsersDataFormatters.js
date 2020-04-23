@@ -1,7 +1,6 @@
 import moment from 'moment';
 import React, { Component } from 'react';
 import { truncate } from 'lodash';
-import actions from 'actions/usersListActions';
 
 function imageFormatter(cell) {
   const imageUrl =

@@ -1,5 +1,3 @@
-import actions from 'actions/usersListActions';
-
 const initialData = {
   rows: [],
   loading: false,

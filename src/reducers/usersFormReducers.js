@@ -1,5 +1,3 @@
-import actions from 'actions/usersFormActions';
-
 const initialData = {
   findLoading: false,
   saveLoading: false,

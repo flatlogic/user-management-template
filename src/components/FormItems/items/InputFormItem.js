@@ -10,7 +10,6 @@ export class InputFormItemNotFast extends Component {
       form,
       hint,
       size,
-      type,
       password,
       placeholder,
       autoFocus,

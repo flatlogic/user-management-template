@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Spinner from 'crud/view/shared/Spinner';
+import Loader from 'components/Loader';
 import TextViewItem from 'components/FormItems/items/TextViewItem';
 import ImagesViewItem from 'components/FormItems/items/ImagesViewItem';
 import Widget from 'components/Widget';
@@ -48,7 +48,7 @@ class UsersView extends Component {
     const { record, loading } = this.props;
 
     if (loading || !record) {
-      return <Spinner />;
+      return <Loader />;
     }
 
     return this.renderView();
