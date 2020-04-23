@@ -1,8 +1,8 @@
 import axios from 'axios';
-import Errors from 'crud/modules/shared/error/errors';
-import Message from 'crud/view/shared/message';
+import Errors from 'components/FormItems/error/errors';
 import { push } from 'connected-react-router';
 import { doInit } from 'actions/auth';
+import { toast } from 'react-toastify';
 
 const actions = {
   doNew: () => {
@@ -47,7 +47,7 @@ const actions = {
           type: 'USERS_FORM_CREATE_SUCCESS',
         });
 
-        Message.success('User created');
+        toast.success('User created');
         dispatch(push('/admin/users'));
       })
     } catch (error) {
@@ -76,10 +76,10 @@ const actions = {
         });
 
         if (isProfile) {
-          Message.success('Profile updated');
+          toast.success('Profile updated');
         }
         else {
-          Message.success('User updated');
+          toast.success('User updated');
           dispatch(push('/admin/users'));
         }
       })
@@ -103,7 +103,7 @@ const actions = {
           type: 'USERS_FORM_CREATE_SUCCESS',
         });
 
-        Message.success('User created');
+        toast.success('User created');
         dispatch(push('/app/dashboard'));
       })
     } catch (error) {

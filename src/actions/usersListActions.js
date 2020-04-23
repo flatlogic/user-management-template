@@ -1,4 +1,4 @@
-import Errors from 'crud/modules/shared/error/errors';
+import Errors from 'components/FormItems/error/errors';
 import axios from 'axios';
 
 async function list() {

@@ -1,4 +1,4 @@
-import Message from 'crud/view/shared/message';
+import { toast } from 'react-toastify';
 import { push } from 'connected-react-router';
 import { store } from 'index';
 
@@ -39,7 +39,7 @@ export default class Errors {
     }
 
     if (selectErrorCode(error) === 400) {
-      Message.error(selectErrorMessage(error));
+      toast.error(selectErrorMessage(error));
       return;
     }
 
@@ -55,6 +55,6 @@ export default class Errors {
   }
 
   static showMessage(error) {
-    Message.error(selectErrorMessage(error));
+    toast.error(selectErrorMessage(error));
   }
 }

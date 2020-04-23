@@ -3,7 +3,7 @@ import config from '../config';
 import jwt from "jsonwebtoken";
 import { toast } from 'react-toastify';
 import { push } from 'connected-react-router';
-import Errors from '../crud/modules/shared/error/errors';
+import Errors from 'components/FormItems/error/errors';
 
 export const AUTH_FAILURE = 'AUTH_FAILURE';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FileUploader from 'crud/modules/shared/fileUpload/fileUploader';
-import Errors from 'crud/modules/shared/error/errors';
+import FileUploader from 'components/FormItems/uploaders/UploadService';
+import Errors from 'components/FormItems/error/errors';
 import ButtonIcon from 'crud/view/shared/ButtonIcon';
 
 class FilesUploader extends Component {
