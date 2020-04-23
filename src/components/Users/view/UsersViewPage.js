@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PageTitle from 'crud/view/shared/styles/PageTitle';
 import UsersView from 'components/Users/view/UsersView';
-import actions from 'actions/usersViewActions';
+import actions from 'actions/usersFormActions';
 import { connect } from 'react-redux';
 
 class UsersPage extends Component {
@@ -13,10 +12,6 @@ class UsersPage extends Component {
   render() {
     return (
       <React.Fragment>
-          <PageTitle>
-            View users
-          </PageTitle>
-
           <UsersView
             loading={this.props.loading}
             record={this.props.record}
@@ -30,7 +25,6 @@ function mapStateToProps(store) {
   return {
     loading: store.users.form.loading,
     record: store.users.form.record,
-    currentUser: store.auth.currentUser,
   };
 }
 

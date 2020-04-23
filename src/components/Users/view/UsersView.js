@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import Spinner from 'crud/view/shared/Spinner';
-import ViewWrapper from 'crud/view/shared/styles/ViewWrapper';
-import TextViewItem from 'crud/view/shared/view/TextViewItem';
-import ImagesViewItem from 'crud/view/shared/view/ImagesViewItem';
-import FilesViewItem from 'crud/view/shared/view/FilesViewItem';
+import TextViewItem from 'components/FormItems/items/TextViewItem';
+import ImagesViewItem from 'components/FormItems/items/ImagesViewItem';
+import Widget from 'components/Widget';
 
 class UsersView extends Component {
   renderView() {
     const { record } = this.props;
 
     return (
-      <ViewWrapper>
+      <Widget title={<h4>{'View User'}</h4>} collapse close>
+        <ImagesViewItem
+          label={'Avatar'}
+          value={record.avatar}
+        />
+
         <TextViewItem
           label={'First name'}
           value={record.firstName}
@@ -36,12 +40,7 @@ class UsersView extends Component {
           value={record.disabled}
         />
 
-        <ImagesViewItem
-          label={'Avatar'}
-          value={record.avatar}
-        />
-
-      </ViewWrapper>
+      </Widget>
     );
   }
 
