@@ -81,6 +81,7 @@ export function receiveToken(token) {
         dispatch({
           type: LOGIN_SUCCESS
         });
+        dispatch(push('/app'));
     }
 }
 

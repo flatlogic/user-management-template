@@ -42,11 +42,11 @@ const actions = {
         type: 'USERS_LIST_DELETE_STARTED',
       });
 
-      axios.delete(`/users/${id}`).then(res => {
-        dispatch({
-          type: 'USERS_LIST_DELETE_SUCCESS',
-        });
-      })
+      await axios.delete(`/users/${id}`)
+
+      dispatch({
+        type: 'USERS_LIST_DELETE_SUCCESS',
+      });
     } catch (error) {
       Errors.handle(error);
 

@@ -4,7 +4,7 @@ import { withRouter, Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Container, Alert, Button } from 'reactstrap';
 import Widget from '../../../components/Widget';
-import { loginUser, receiveToken } from 'actions/auth';
+import { loginUser, receiveToken, doInit } from 'actions/auth';
 import jwt from "jsonwebtoken";
 import microsoft from '../../../images/microsoft.png';
 import { push } from 'connected-react-router';
@@ -65,6 +65,7 @@ class Login extends React.Component {
         const token = params.get('token');
         if (token) {
             this.props.dispatch(receiveToken(token));
+            this.props.dispatch(doInit());
         }
     }
 
