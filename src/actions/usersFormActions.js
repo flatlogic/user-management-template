@@ -91,18 +91,17 @@ const actions = {
     }
   },
 
-  doChangePassword: (values) => async (dispatch) => {
+  doChangePassword: ({newPassword, currentPassword}) => async (dispatch) => {
     try {
       dispatch({
         type: 'USERS_FORM_CREATE_STARTED',
       });
-
-      await axios.post('/users', { data: values })
+      await axios.put('/auth/password-update', {newPassword, currentPassword})
       dispatch({
-        type: 'USERS_FORM_CREATE_SUCCESS',
+        type: 'USERS_PASSWORD_UPDATE_SUCCESS',
       });
 
-      toast.success('User created');
+      toast.success('Password has been updated');
       dispatch(push('/app/dashboard'));
 
     } catch (error) {
