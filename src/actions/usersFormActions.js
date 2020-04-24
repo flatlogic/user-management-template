@@ -68,21 +68,20 @@ const actions = {
         type: 'USERS_FORM_UPDATE_STARTED',
       });
 
-      axios.put(`/users/${id}`, {id, data: values}).then(res => {
-        dispatch(doInit());
+      await axios.put(`/users/${id}`, {id, data: values});
 
-        dispatch({
-          type: 'USERS_FORM_UPDATE_SUCCESS',
-        });
+      dispatch(doInit());
 
-        if (isProfile) {
-          toast.success('Profile updated');
-        }
-        else {
-          toast.success('User updated');
-          dispatch(push('/admin/users'));
-        }
-      })
+      dispatch({
+        type: 'USERS_FORM_UPDATE_SUCCESS',
+      });
+
+      if (isProfile) {
+        toast.success('Profile updated');
+      } else {
+        toast.success('User updated');
+        dispatch(push('/admin/users'));
+      }
     } catch (error) {
       Errors.handle(error);
 
@@ -98,14 +97,14 @@ const actions = {
         type: 'USERS_FORM_CREATE_STARTED',
       });
 
-      axios.post('/users', { data: values }).then(res => {
-        dispatch({
-          type: 'USERS_FORM_CREATE_SUCCESS',
-        });
+      await axios.post('/users', { data: values })
+      dispatch({
+        type: 'USERS_FORM_CREATE_SUCCESS',
+      });
 
-        toast.success('User created');
-        dispatch(push('/app/dashboard'));
-      })
+      toast.success('User created');
+      dispatch(push('/app/dashboard'));
+
     } catch (error) {
       Errors.handle(error);
 
