@@ -15,7 +15,6 @@
     "filesize": "4.1.2",
     "formik": "1.5.1",
     "history": "4.7.2",
-    "jquery": "3.4.1",
     "jsonwebtoken": "^8.5.1",
     "line-awesome": "github:icons8/line-awesome",
     "lodash": "4.17.11",
