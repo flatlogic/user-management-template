@@ -8,7 +8,7 @@ function imageFormatter(cell) {
       ? cell[0].publicUrl
       : undefined;
   return (
-      <span>{imageUrl ? <img width="60" height="60" className="rounded-circle" src={imageUrl} alt="image" /> : null}</span>
+      <span>{imageUrl ? <img width="60" height="60" className="rounded-circle" src={imageUrl} alt="avatar" /> : null}</span>
   );
 };
 
