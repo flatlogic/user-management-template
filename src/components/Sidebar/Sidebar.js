@@ -115,8 +115,6 @@ function mapStateToProps(store) {
     sidebarOpened: store.navigation.sidebarOpened,
     sidebarStatic: store.navigation.sidebarStatic,
     activeItem: store.navigation.activeItem,
-    navbarType: store.navigation.navbarType,
-    sidebarColor: store.layout.sidebarColor,
     currentUser: store.auth.currentUser,
   };
 }

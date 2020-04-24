@@ -10,7 +10,6 @@
   background-color: var(--sidebar-bg-color);
   color: var(--sidebar-color);
   overflow-y: auto;
-  position: absolute;
   @include scroll-bar($sidebar-scrollbar-bg);
 }
 
@@ -28,7 +27,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   width: $sidebar-width-open;
-  transition: width $sidebar-transition-time ease-in-out;
+  transition: all $sidebar-transition-time ease-in-out;
 }
 
 .sidebarClose.sidebarWrapper {

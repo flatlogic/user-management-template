@@ -52,8 +52,6 @@ class UsersForm extends Component {
                 <InputFormItem
                   name={'firstName'}
                   schema={usersFields}
-
-                  autoFocus
                 />
 
                 <InputFormItem

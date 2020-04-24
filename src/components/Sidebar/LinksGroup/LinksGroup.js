@@ -147,10 +147,4 @@ class LinksGroup extends Component {
   }
 }
 
-function mapStateToProps(store) {
-  return {
-    sidebarColor: store.layout.sidebarColor,
-  };
-}
-
-export default withRouter(connect(mapStateToProps)(LinksGroup));
+export default withRouter(connect()(LinksGroup));

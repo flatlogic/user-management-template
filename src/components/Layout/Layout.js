@@ -4,12 +4,10 @@ import { connect } from 'react-redux';
 import { Switch, Route, withRouter, Redirect } from 'react-router';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Hammer from 'rc-hammerjs';
-import { SidebarTypes } from '../../reducers/layout';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
 import { openSidebar, closeSidebar, changeActiveSidebarItem, toggleSidebar } from '../../actions/navigation';
 import s from './Layout.module.scss';
-import { DashboardThemes } from '../../reducers/layout';
 import BreadcrumbHistory from '../BreadcrumbHistory';
 import LazyLoad from './LazyLoad';
 
@@ -17,15 +15,9 @@ class Layout extends React.Component {
   static propTypes = {
     sidebarStatic: PropTypes.bool,
     sidebarOpened: PropTypes.bool,
-    dashboardTheme: PropTypes.string,
     dispatch: PropTypes.func.isRequired,
   };
 
-  static defaultProps = {
-    sidebarStatic: false,
-    sidebarOpened: false,
-    dashboardTheme: DashboardThemes.DARK
-  };
   constructor(props) {
     super(props);
 
@@ -33,16 +25,6 @@ class Layout extends React.Component {
   }
 
   componentDidMount() {
-    const staticSidebar = JSON.parse(localStorage.getItem('staticSidebar'));
-    if (staticSidebar && window.innerWidth > 768) {
-      this.props.dispatch(toggleSidebar());
-    } else if (this.props.sidebarOpened) {
-      setTimeout(() => {
-        this.props.dispatch(closeSidebar());
-        this.props.dispatch(changeActiveSidebarItem(null));
-      }, 2500);
-    }
-
     this.handleResize();
     window.addEventListener('resize', this.handleResize.bind(this));
   }
@@ -53,7 +35,7 @@ class Layout extends React.Component {
 
   handleResize() {
     if (window.innerWidth <= 768 && this.props.sidebarStatic) {
-      this.props.dispatch(toggleSidebar());
+      this.props.dispatch(toggleSidebar(false));
     }
   }
 
@@ -78,8 +60,7 @@ class Layout extends React.Component {
           s.root,
           this.props.sidebarStatic ? `${s.sidebarStatic}` : '',
           !this.props.sidebarOpened ? s.sidebarClose : '',
-          'sing-dashboard',
-          `dashboard-${(this.props.sidebarType === SidebarTypes.TRANSPARENT) ? "light" : this.props.dashboardTheme}`,
+          'sing-dashboard'
         ].join(' ')}
       >
         <Sidebar />
@@ -121,8 +102,6 @@ function mapStateToProps(store) {
   return {
     sidebarOpened: store.navigation.sidebarOpened,
     sidebarStatic: store.navigation.sidebarStatic,
-    dashboardTheme: store.layout.dashboardTheme,
-    sidebarType: store.layout.sidebarType,
     currentUser: store.auth.currentUser,
   };
 }

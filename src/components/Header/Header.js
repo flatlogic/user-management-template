@@ -21,17 +21,15 @@ import {
   FormGroup,
 } from 'reactstrap';
 import cx from 'classnames';
-import { NavbarTypes } from '../../reducers/layout';
 import { logoutUser } from 'actions/auth';
-import chroma from 'chroma-js'
 import { toggleSidebar, openSidebar, closeSidebar, changeActiveSidebarItem } from '../../actions/navigation';
 
 import s from './Header.module.scss';
 
 class Header extends React.Component {
   static propTypes = {
-    sidebarOpened: PropTypes.bool.isRequired,
-    sidebarStatic: PropTypes.bool.isRequired,
+    sidebarOpened: PropTypes.bool,
+    sidebarStatic: PropTypes.bool,
     dispatch: PropTypes.func.isRequired,
     location: PropTypes.shape({
       pathname: PropTypes.string,
@@ -84,7 +82,7 @@ class Header extends React.Component {
 
   // static/non-static
   toggleSidebar() {
-    this.props.dispatch(toggleSidebar());
+    this.props.dispatch(toggleSidebar(!this.props.sidebarStatic));
     if (this.props.sidebarStatic) {
       localStorage.setItem('staticSidebar', 'false');
       this.props.dispatch(changeActiveSidebarItem(null));
@@ -103,18 +101,18 @@ class Header extends React.Component {
   }
   render() {
     const { focus } = this.state;
-    const { navbarType, navbarColor, openUsersList } = this.props;
+    const { openUsersList } = this.props;
 
     const user = this.props.currentUser;
     const avatar = user && user.avatar && user.avatar.length && user.avatar[0].publicUrl;
     const firstUserLetter = user && (user.firstName|| user.email)[0].toUpperCase();
 
     return (
-      <Navbar className={`${s.root} d-print-none ${navbarType === NavbarTypes.FLOATING ? s.navbarFloatingType : ''}`} style={{backgroundColor: navbarColor, zIndex: !openUsersList ? 100 : 0}}>
+      <Navbar className={`${s.root} d-print-none`} style={{zIndex: !openUsersList ? 100 : 0}}>
         <Nav>
           <NavItem>
             <NavLink className="d-md-down-none ml-5" id="toggleSidebar" onClick={this.toggleSidebar}>
-              <i className={`la la-bars ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`}/>
+              <i className={`la la-bars`}/>
             </NavLink>
             <UncontrolledTooltip placement="bottom" target="toggleSidebar">
               Turn on/off<br />sidebar<br />collapsing
@@ -124,12 +122,10 @@ class Header extends React.Component {
               className={`rounded rounded-lg d-md-none d-sm-down-block`}>
                 <i
                   className="la la-bars"
-                  style={{fontSize: 30, color: navbarColor === "#ffffff"
-                  ? "#ffffff"
-                  : chroma(navbarColor).luminance() < 0.4 ? "#ffffff" : ""}}
+                  style={{fontSize: 30}}
                 />
               </span>
-              <i className={`la la-bars ml-3 d-sm-down-none ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`}/>
+              <i className={`la la-bars ml-3 d-sm-down-none`}/>
             </NavLink>
           </NavItem>
         </Nav>
@@ -147,7 +143,7 @@ class Header extends React.Component {
           </FormGroup>
         </Form>
 
-        <NavLink className={`${s.navbarBrand} d-md-none ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`}>
+        <NavLink className={`${s.navbarBrand} d-md-none`}>
           <i className="la la-circle text-primary mr-n-sm" />
           <i className="la la-circle text-danger" />
           &nbsp;
@@ -170,7 +166,7 @@ class Header extends React.Component {
           </NavbarText>
           <Dropdown nav isOpen={this.state.menuOpen} toggle={this.toggleMenu} className="d-sm-down-none tutorial-dropdown pr-4">
             <DropdownToggle nav>
-              <i className={`la la-cog ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`} />
+              <i className={`la la-cog`} />
             </DropdownToggle>
             <DropdownMenu right className={`super-colors`}>
               <DropdownItem href="/#/app/profile"><i className="la la-user" /> My Account</DropdownItem>
@@ -187,8 +183,6 @@ function mapStateToProps(store) {
   return {
     sidebarOpened: store.navigation.sidebarOpened,
     sidebarStatic: store.navigation.sidebarStatic,
-    navbarType: store.layout.navbarType,
-    navbarColor: store.layout.navbarColor,
     currentUser: store.auth.currentUser,
   };
 }
