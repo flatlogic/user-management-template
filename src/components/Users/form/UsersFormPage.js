@@ -3,7 +3,6 @@ import UsersForm from 'components/Users/form/UsersForm';
 import { push } from 'connected-react-router';
 import actions from 'actions/usersFormActions';
 import { connect } from 'react-redux';
-import { store } from '../../../index';
 
 class UsersFormPage extends Component {
   state = {
@@ -44,7 +43,7 @@ class UsersFormPage extends Component {
 
   isProfile = () => {
     const { match } = this.props;
-    return match.url == '/app/profile';
+    return match.url === '/app/profile';
   };
 
   render() {

@@ -37,7 +37,7 @@ class UsersForm extends Component {
   };
 
   renderForm() {
-    const { saveLoading, isEditing } = this.props;
+    const { saveLoading } = this.props;
 
     return (
       <Widget title={<h4>{this.title()}</h4>} collapse close>
@@ -71,7 +71,7 @@ class UsersForm extends Component {
                   schema={usersFields}
                 />
 
-                { this.props.currentUser && this.props.currentUser.role == 'admin' &&
+                { this.props.currentUser && this.props.currentUser.role === 'admin' &&
                   <>
                     <RadioFormItem
                       name={'role'}

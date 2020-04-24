@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React, { Component } from 'react';
+import React from 'react';
 import { truncate } from 'lodash';
 
 function imageFormatter(cell) {

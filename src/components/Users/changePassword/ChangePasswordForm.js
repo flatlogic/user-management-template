@@ -1,6 +1,5 @@
 import { Formik } from 'formik';
 import React, { Component } from 'react';
-import ViewFormItem from 'components/FormItems/items/ViewFormItem';
 import Loader from 'components/Loader';
 import ButtonIcon from 'crud/view/shared/ButtonIcon';
 import InputFormItem from 'components/FormItems/items/InputFormItem';
@@ -23,7 +22,7 @@ class UsersForm extends Component {
   };
 
   renderForm() {
-    const { saveLoading, isEditing } = this.props;
+    const { saveLoading } = this.props;
 
     return (
       <Widget title={<h4>{this.title()}</h4>} collapse close>
