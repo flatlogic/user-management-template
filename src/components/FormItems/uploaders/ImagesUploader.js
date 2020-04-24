@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FileUploader from 'components/FormItems/uploaders/UploadService';
 import Errors from 'components/FormItems/error/errors';
-import ImagesUploaderWrapper from 'crud/view/shared/styles/ImagesUploaderWrapper';
-import ButtonIcon from 'crud/view/shared/ButtonIcon';
+import ImagesUploaderWrapper from 'components/FormItems/style/ImagesUploaderWrapper';
+import ButtonIcon from 'components/FormItems/style/ButtonIcon';
 
 class ImagesUploader extends Component {
   constructor(props) {

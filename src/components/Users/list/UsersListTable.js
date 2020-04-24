@@ -2,7 +2,7 @@ import * as dataFormat from 'components/Users/list/UsersDataFormatters';
 import { Link } from 'react-router-dom';
 import actions from 'actions/usersListActions';
 import React, { Component } from 'react';
-import ButtonIcon from 'crud/view/shared/ButtonIcon';
+import ButtonIcon from 'components/FormItems/style/ButtonIcon';
 import { connect } from 'react-redux';
 
 import {

@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import React, { Component } from 'react';
 import Loader from 'components/Loader';
-import ButtonIcon from 'crud/view/shared/ButtonIcon';
+import ButtonIcon from 'components/FormItems/style/ButtonIcon';
 import InputFormItem from 'components/FormItems/items/InputFormItem';
 import SwitchFormItem from 'components/FormItems/items/SwitchFormItem';
 import RadioFormItem from 'components/FormItems/items/RadioFormItem';
