@@ -36,7 +36,6 @@ class UsersForm extends Component {
                   name={'currentPassword'}
                   password
                   schema={this.passwordSchema}
-                  autoFocus
                 />
 
                 <InputFormItem
