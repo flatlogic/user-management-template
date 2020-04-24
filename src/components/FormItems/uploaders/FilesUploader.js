@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FileUploader from 'components/FormItems/uploaders/UploadService';
 import Errors from 'components/FormItems/error/errors';
-import ButtonIcon from 'crud/view/shared/ButtonIcon';
 
 class FilesUploader extends Component {
   constructor(props) {
@@ -91,10 +90,6 @@ class FilesUploader extends Component {
         className="btn btn-outline-secondary px-4 mb-2"
         style={{ cursor: 'pointer' }}
       >
-        <ButtonIcon
-          loading={loading}
-          iconClass="la la-plus"
-        />{' '}
         {'Upload a file'}
         <input
           style={{ display: 'none' }}

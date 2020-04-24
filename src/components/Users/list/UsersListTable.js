@@ -2,14 +2,19 @@ import * as dataFormat from 'components/Users/list/UsersDataFormatters';
 import { Link } from 'react-router-dom';
 import actions from 'actions/usersListActions';
 import React, { Component } from 'react';
-import ButtonIcon from 'components/FormItems/style/ButtonIcon';
 import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 
 import {
   Dropdown,
   DropdownMenu,
   DropdownToggle,
   DropdownItem,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
 } from 'reactstrap';
 
 import {
@@ -20,35 +25,51 @@ import {
 import Widget from 'components/Widget';
 
 class UsersListTable extends Component {
-
-  handleDelete(cell, props) {
-      props.dispatch(actions.doDelete(cell));
+  state = {
+    modalOpen: false,
+    idToDelete: null
   }
 
-  actionFormatter(cell, row, obj) {
+  handleDelete() {
+    const userId = this.props.idToDelete;
+    this.props.dispatch(actions.doDelete(userId));
+  }
+
+  openModal(cell) {
+    const userId = cell;
+    this.props.dispatch(actions.doOpenConfirm(userId));
+  }
+
+  closeModal() {
+    this.props.dispatch(actions.doCloseConfirm());
+  }
+
+  actionFormatter(cell) {
     return (
         <div>
-      <Link
-        className="btn btn-link"
-        to={`/admin/users/${cell}`}
-      >
+        <Button
+          color="default"
+          size="xs"
+          onClick={() => this.props.dispatch(push(`/admin/users/${cell}`))}
+        >
       View
-      </Link>
-      &nbsp;
-        <Link
-          className="btn btn-link"
-          to={`/admin/users/${cell}/edit`}
+      </Button>
+      &nbsp;&nbsp;
+        <Button
+          color="default"
+          size="xs"
+          onClick={() => this.props.dispatch(push(`/admin/users/${cell}/edit`))}
         >
         Edit
-      </Link>
-      &nbsp;
-        <Link
-          className="btn btn-link"
-          to="/admin/users"
-          onClick={obj.handleDelete.bind(this, cell, obj.props)}
+      </Button>
+      <br/>
+        <Button
+          color="default"
+          size="xs"
+          onClick={() => this.openModal(cell)}
         >
         Delete
-      </Link>
+        </Button>
         </div>
      )
   }
@@ -95,7 +116,6 @@ class UsersListTable extends Component {
                 className="btn btn-primary"
                 type="button"
               >
-                <ButtonIcon iconClass="la la-plus" />{' '}
                 New
               </button>
             </Link>
@@ -129,13 +149,22 @@ class UsersListTable extends Component {
                 <span className="fs-sm">Disabled</span>
               </TableHeaderColumn>
 
-              <TableHeaderColumn isKey dataField="id" dataFormat={this.actionFormatter}
-                formatExtraData={this}
-              >
+              <TableHeaderColumn isKey dataField="id" dataFormat={this.actionFormatter.bind(this)}>
                 <span className="fs-sm">Actions</span>
               </TableHeaderColumn>
             </BootstrapTable>
           </Widget>
+
+          <Modal size="sm" isOpen={this.props.modalOpen} toggle={() => this.closeModal()}>
+            <ModalHeader toggle={() => this.closeModal()}>Confirm delete</ModalHeader>
+            <ModalBody className="bg-white">
+              Are you sure you want to delete this item?
+            </ModalBody>
+            <ModalFooter>
+              <Button color="secondary" onClick={() => this.closeModal()}>Cancel</Button>
+              <Button color="primary" onClick={() => this.handleDelete()}>Delete</Button>
+            </ModalFooter>
+          </Modal>
 
         </div>
     );
@@ -146,6 +175,8 @@ function mapStateToProps(store) {
   return {
     loading: store.users.list.loading,
     rows: store.users.list.rows,
+    modalOpen: store.users.list.modalOpen,
+    idToDelete: store.users.list.idToDelete,
   };
 }
 

@@ -1,7 +1,6 @@
 import { Formik } from 'formik';
 import React, { Component } from 'react';
 import Loader from 'components/Loader';
-import ButtonIcon from 'components/FormItems/style/ButtonIcon';
 import InputFormItem from 'components/FormItems/items/InputFormItem';
 import Widget from 'components/Widget';
 
@@ -57,10 +56,7 @@ class UsersForm extends Component {
                     type="button"
                     onClick={form.handleSubmit}
                   >
-                    <ButtonIcon
-                      loading={saveLoading}
-                      iconClass="far fa-save"
-                    />{' '}
+                    {' '}
                     Change Password
                   </button>{' '}
 
@@ -70,7 +66,7 @@ class UsersForm extends Component {
                     disabled={saveLoading}
                     onClick={() => this.props.onCancel()}
                   >
-                    <i className="la la-times"></i>{' '}
+                    {' '}
                     Cancel
                   </button>
                 </div>

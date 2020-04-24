@@ -1,7 +1,6 @@
 import { Formik } from 'formik';
 import React, { Component } from 'react';
 import Loader from 'components/Loader';
-import ButtonIcon from 'components/FormItems/style/ButtonIcon';
 import InputFormItem from 'components/FormItems/items/InputFormItem';
 import SwitchFormItem from 'components/FormItems/items/SwitchFormItem';
 import RadioFormItem from 'components/FormItems/items/RadioFormItem';
@@ -69,7 +68,7 @@ class UsersForm extends Component {
                   schema={usersFields}
                 />
 
-                { this.props.currentUser && this.props.currentUser.role === 'admin' &&
+                { this.props.currentUser && this.props.currentUser.role === 'admin' && !this.props.isProfile &&
                   <>
                     <RadioFormItem
                       name={'role'}
@@ -101,10 +100,6 @@ class UsersForm extends Component {
                     type="button"
                     onClick={form.handleSubmit}
                   >
-                    <ButtonIcon
-                      loading={saveLoading}
-                      iconClass="far fa-save"
-                    />{' '}
                     Save
                   </button>{' '}{' '}
 
@@ -114,7 +109,6 @@ class UsersForm extends Component {
                     disabled={saveLoading}
                     onClick={form.handleReset}
                   >
-                    <i className="la la-undo"></i>{' '}
                     Reset
                   </button>{' '}{' '}
 
@@ -124,7 +118,6 @@ class UsersForm extends Component {
                       disabled={saveLoading}
                       onClick={() => this.props.onCancel()}
                     >
-                      <i className="la la-times"></i>{' '}
                       Cancel
                     </button>
                 </div>

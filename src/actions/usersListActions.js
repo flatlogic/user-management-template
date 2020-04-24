@@ -47,6 +47,16 @@ const actions = {
       dispatch({
         type: 'USERS_LIST_DELETE_SUCCESS',
       });
+
+      const response = await list();
+      dispatch({
+        type: 'USERS_LIST_FETCH_SUCCESS',
+        payload: {
+          rows: response.rows,
+          count: response.count,
+        },
+      });
+
     } catch (error) {
       Errors.handle(error);
 
@@ -55,6 +65,20 @@ const actions = {
       });
     }
   },
+  doOpenConfirm: (id) => async (dispatch) => {
+      dispatch({
+        type: 'USERS_LIST_OPEN_CONFIRM',
+        payload: {
+          id: id
+        },
+      });
+  },
+  doCloseConfirm: () => async (dispatch) => {
+      dispatch({
+        type: 'USERS_LIST_CLOSE_CONFIRM',
+      });
+  },
 };
+
 
 export default actions;

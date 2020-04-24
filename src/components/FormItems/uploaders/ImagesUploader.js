@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import FileUploader from 'components/FormItems/uploaders/UploadService';
 import Errors from 'components/FormItems/error/errors';
 import ImagesUploaderWrapper from 'components/FormItems/style/ImagesUploaderWrapper';
-import ButtonIcon from 'components/FormItems/style/ButtonIcon';
 
 class ImagesUploader extends Component {
   constructor(props) {
@@ -94,10 +93,6 @@ class ImagesUploader extends Component {
         className="btn btn-outline-secondary px-4 mb-2"
         style={{ cursor: 'pointer' }}
       >
-        <ButtonIcon
-          loading={loading}
-          iconClass="la la-plus"
-        />{' '}
         {'Upload an image'}
         <input
           style={{ display: 'none' }}

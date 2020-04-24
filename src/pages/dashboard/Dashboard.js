@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
     Row,
     Col,
@@ -51,9 +52,9 @@ class Dashboard extends React.Component {
     render() {
         return (
             <div className={s.root}>
-                <h1 className="page-title">Dashboard &nbsp;
+                <h1 className="page-title">Welcome, {this.props.currentUser.firstName}! <br/>
                     <small>
-                        <small>The Lucky One</small>
+                        <small>Your role is {this.props.currentUser.role}</small>
                     </small>
                 </h1>
 
@@ -81,4 +82,10 @@ class Dashboard extends React.Component {
     }
 }
 
-export default Dashboard;
+function mapStateToProps(store) {
+  return {
+    currentUser: store.auth.currentUser,
+  };
+}
+
+export default connect(mapStateToProps)(Dashboard);
