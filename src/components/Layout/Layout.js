@@ -1,11 +1,9 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter, Redirect } from 'react-router';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Hammer from 'rc-hammerjs';
-
 import { SidebarTypes } from '../../reducers/layout';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
@@ -13,8 +11,7 @@ import { openSidebar, closeSidebar, changeActiveSidebarItem, toggleSidebar } fro
 import s from './Layout.module.scss';
 import { DashboardThemes } from '../../reducers/layout';
 import BreadcrumbHistory from '../BreadcrumbHistory';
-
-import CustomLoadable from 'crud/view/shared/CustomLoadable';
+import LazyLoad from './LazyLoad';
 
 class Layout extends React.Component {
   static propTypes = {
@@ -99,13 +96,13 @@ class Layout extends React.Component {
                   timeout={200}
                 >
                   <Switch>
-                    <Route path={"/app/dashboard"} exact component={CustomLoadable({loader: () => import('pages/dashboard/Dashboard')})} />
-                    <Route path={"/app/profile"} exact component={CustomLoadable({loader: () => import('components/Users/form/UsersFormPage')})} />
-                    <Route path={"/app/password"} exact component={CustomLoadable({loader: () => import('components/Users/changePassword/ChangePasswordFormPage')})} />
-                    <Route path={"/admin/users"} exact component={CustomLoadable({loader: () => import('components/Users/list/UsersListPage')})} />
-                    <Route path={"/admin/users/new"} exact component={CustomLoadable({loader: () => import('components/Users/form/UsersFormPage')})} />
-                    <Route path={"/admin/users/:id/edit"} exact component={CustomLoadable({loader: () => import('components/Users/form/UsersFormPage')})} />
-                    <Route path={"/admin/users/:id"} exact component={CustomLoadable({loader: () => import('components/Users/view/UsersViewPage')})} />
+                    <Route path={"/app/dashboard"} exact component={LazyLoad({loader: () => import('pages/dashboard/Dashboard')})} />
+                    <Route path={"/app/profile"} exact component={LazyLoad({loader: () => import('components/Users/form/UsersFormPage')})} />
+                    <Route path={"/app/password"} exact component={LazyLoad({loader: () => import('components/Users/changePassword/ChangePasswordFormPage')})} />
+                    <Route path={"/admin/users"} exact component={LazyLoad({loader: () => import('components/Users/list/UsersListPage')})} />
+                    <Route path={"/admin/users/new"} exact component={LazyLoad({loader: () => import('components/Users/form/UsersFormPage')})} />
+                    <Route path={"/admin/users/:id/edit"} exact component={LazyLoad({loader: () => import('components/Users/form/UsersFormPage')})} />
+                    <Route path={"/admin/users/:id"} exact component={LazyLoad({loader: () => import('components/Users/view/UsersViewPage')})} />
                   </Switch>
                 </CSSTransition>
               </TransitionGroup>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function CustomLoadable(opts) {
+export default function LazyLoad(opts) {
   const LazyComponent = React.lazy(opts.loader);
 
   return (props) => (
