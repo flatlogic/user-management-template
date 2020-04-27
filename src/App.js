@@ -11,6 +11,7 @@ import 'styles/theme.scss';
 
 import ErrorPage from 'pages/error';
 import LayoutComponent from 'components/Layout';
+import DocumentationLayoutComponent from 'documentation/DocumentationLayout';
 import Login from 'pages/auth/login';
 import Verify from 'pages/auth/verify';
 import Register from 'pages/auth/register';
@@ -35,6 +36,9 @@ class App extends React.PureComponent {
             <ConnectedRouter history={getHistory()}>
               <HashRouter>
                 <Switch>
+                  <Route path="/documentation" exact
+                    render={() => <Redirect to="/documentation/getting-started/overview"/>}/>
+                  <Route path="/documentation" component={DocumentationLayoutComponent}/>
                   <Route path="/" exact render={() => <Redirect to="/app"/>}/>
                   <Route path="/app" exact render={() => <Redirect to="/app/dashboard"/>}/>
                   <UserRoute path="/app" dispatch={this.props.dispatch} component={LayoutComponent}/>

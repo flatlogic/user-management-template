@@ -61,7 +61,7 @@ class Sidebar extends React.Component {
           className={s.root}
         >
           <header className={s.logo}>
-            <a href="https://demo.flatlogic.com/sing-app/"><span className={s.logoStyle}>Sing</span> App</a>
+            <a href="/"><span className={s.logoStyle}>Sing</span> App</a>
           </header>
           <ul className={s.nav}>
 
@@ -102,6 +102,18 @@ class Sidebar extends React.Component {
               isHeader
               iconName="la-key"
             />
+
+          <LinksGroup
+            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+            activeItem={this.props.activeItem}
+            header="Documentation"
+            link="/documentation"
+            isHeader
+            iconName="la-book"
+            index="documentation"
+            labelColor="success"
+            target="_blank"
+          />
 
           </ul>
         </nav >
