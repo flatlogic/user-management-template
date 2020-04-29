@@ -4,7 +4,7 @@ import {
   CLOSE_SIDEBAR,
   CHANGE_ACTIVE_SIDEBAR_ITEM,
 } from '../actions/navigation';
-console.log(!!JSON.parse(localStorage.getItem('staticSidebar')));
+
 const initialState = {
   sidebarOpened: false,
   sidebarStatic: !!JSON.parse(localStorage.getItem('staticSidebar')),
