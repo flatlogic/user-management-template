@@ -54,7 +54,7 @@ class Dashboard extends React.Component {
             <div className={s.root}>
                 <h1 className="page-title">Welcome, {this.props.currentUser ? this.props.currentUser.firstName : "User"}! <br/>
                     <small>
-                        <small>Your role is {this.props.currentUser.role}</small>
+                        <small>Your role is {this.props.currentUser && this.props.currentUser.role}</small>
                     </small>
                 </h1>
 
