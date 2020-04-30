@@ -9,7 +9,11 @@ import Sidebar from '../Sidebar';
 import { openSidebar, closeSidebar, changeActiveSidebarItem, toggleSidebar } from '../../actions/navigation';
 import s from './Layout.module.scss';
 import BreadcrumbHistory from '../BreadcrumbHistory';
-import LazyLoad from './LazyLoad';
+import UserFormPage from '../Users/form/UsersFormPage';
+import UserListPage from '../Users/list/UsersListPage';
+import UserViewPage from '../Users/view/UsersViewPage';
+import ChangePasswordFormPage from '../Users/changePassword/ChangePasswordFormPage';
+import Dashboard from '../../pages/dashboard';
 
 class Layout extends React.Component {
   static propTypes = {
@@ -77,13 +81,13 @@ class Layout extends React.Component {
                   timeout={200}
                 >
                   <Switch>
-                    <Route path={"/app/dashboard"} exact component={LazyLoad({loader: () => import('pages/dashboard/Dashboard')})} />
-                    <Route path={"/app/profile"} exact component={LazyLoad({loader: () => import('components/Users/form/UsersFormPage')})} />
-                    <Route path={"/app/password"} exact component={LazyLoad({loader: () => import('components/Users/changePassword/ChangePasswordFormPage')})} />
-                    <Route path={"/admin/users"} exact component={LazyLoad({loader: () => import('components/Users/list/UsersListPage')})} />
-                    <Route path={"/admin/users/new"} exact component={LazyLoad({loader: () => import('components/Users/form/UsersFormPage')})} />
-                    <Route path={"/admin/users/:id/edit"} exact component={LazyLoad({loader: () => import('components/Users/form/UsersFormPage')})} />
-                    <Route path={"/admin/users/:id"} exact component={LazyLoad({loader: () => import('components/Users/view/UsersViewPage')})} />
+                    <Route path={"/app/dashboard"} exact component={Dashboard} />
+                    <Route path={"/app/profile"} exact component={UserFormPage} />
+                    <Route path={"/app/password"} exact component={ChangePasswordFormPage} />
+                    <Route path={"/admin/users"} exact component={UserListPage} />
+                    <Route path={"/admin/users/new"} exact component={UserFormPage} />
+                    <Route path={"/admin/users/:id/edit"} exact component={UserFormPage} />
+                    <Route path={"/admin/users/:id"} exact component={UserViewPage} />
                   </Switch>
                 </CSSTransition>
               </TransitionGroup>
