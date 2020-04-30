@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Switch, Route, withRouter, Redirect } from 'react-router';
+import { Switch, Route, withRouter } from 'react-router';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Hammer from 'rc-hammerjs';
 import Header from '../Header';
 import Sidebar from '../Sidebar';
-import { openSidebar, closeSidebar, changeActiveSidebarItem, toggleSidebar } from '../../actions/navigation';
+import { openSidebar, closeSidebar, toggleSidebar } from '../../actions/navigation';
 import s from './Layout.module.scss';
 import BreadcrumbHistory from '../BreadcrumbHistory';
 import UserFormPage from '../Users/form/UsersFormPage';

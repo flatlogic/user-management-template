@@ -9,7 +9,6 @@ import {
   NavItem,
   NavLink,
   NavbarText,
-  Badge,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,

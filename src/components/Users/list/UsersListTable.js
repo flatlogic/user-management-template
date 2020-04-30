@@ -1,5 +1,4 @@
 import * as dataFormat from 'components/Users/list/UsersDataFormatters';
-import { Link } from 'react-router-dom';
 import actions from 'actions/usersListActions';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';

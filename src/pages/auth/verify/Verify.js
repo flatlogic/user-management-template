@@ -9,10 +9,6 @@ class Verify extends React.Component {
         dispatch: PropTypes.func.isRequired,
     };
 
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         const params = new URLSearchParams(this.props.location.search);
         const token = params.get('token');

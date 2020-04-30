@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Col, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import dashboard from '../../../images/documentation/sing-screenshot.jpg';
 import Widget from "../../../components/Widget/Widget";
 import Scrollspy from "../ScrollSpyComponent";
 
