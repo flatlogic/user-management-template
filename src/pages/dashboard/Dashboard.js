@@ -52,7 +52,7 @@ class Dashboard extends React.Component {
     render() {
         return (
             <div className={s.root}>
-                <h1 className="page-title">Welcome, {this.props.currentUser ? this.props.currentUser.firstName : "User"}! <br/>
+                <h1 className="page-title">Welcome, {this.props.currentUser ? (this.props.currentUser.firstName || "User") : "User"}! <br/>
                     <small>
                         <small>Your role is {this.props.currentUser && this.props.currentUser.role}</small>
                     </small>
@@ -60,17 +60,10 @@ class Dashboard extends React.Component {
 
                 <Row>
                     <Col lg={6}>
-                        <Widget title={"Widget Example"}>
+                        <Widget>
                             <Row className={"align-items-center"}>
                                 <Col md={6}>
                                     <img src={reactLogo} alt="react"/>
-                                </Col>
-                                <Col md={6}>
-                                    Sing App React Template is an dashboard template built with React 16.5.2. Sing App
-                                    goes beyond usual admin templates and provides you entire intuitive programming
-                                    framework. Server Side Rendering and Node.js backend will even further speed up your
-                                    development. You can use Sing App React to build any type of web applications like
-                                    SAAS, CMS, financial dashboards, project management tools, etc.
                                 </Col>
                             </Row>
                         </Widget>

@@ -61,7 +61,7 @@ class Sidebar extends React.Component {
           className={s.root}
         >
           <header className={s.logo}>
-            <a href="/"><span className={s.logoStyle}>Sing</span> App</a>
+            <a href="/"><span className={`${s.logoStyle} mx-1`}>UM</span> React</a>
           </header>
           <ul className={s.nav}>
 

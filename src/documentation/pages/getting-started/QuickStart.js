@@ -28,7 +28,7 @@ const QuickStart = () => (
         <ol>
           <li>1. Go to <code>backend</code> folder</li>
           <li>2. Edit <code>config.js</code> to setup DB access and e-mail client credentials</li>
-          <li>3. Run PostgreSQL server and create a DB for your app, e.g. via <code>createdb</code>. 
+          <li>3. Run PostgreSQL server and create a DB for your app, e.g. via <code>createdb</code>.
           Originally the DB is called <code>development</code> unless you change its name in <code>config.js</code></li>
           <li>4. Run <code>yarn reset</code> to create <code>users</code> table. Note: running this script
           again will delete all the users records.</li>
@@ -47,7 +47,7 @@ const QuickStart = () => (
           <li><code>yarn lint</code>: to check the source code for syntax errors and potential issues</li>
         </ul>
       </Widget>
-      <p>For more instruction please refer to Sing App React readme.md.</p>
+      <p>For more instruction please refer to React UM readme.md.</p>
     </Col>
   </Row>
 );

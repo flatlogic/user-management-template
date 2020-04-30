@@ -15,7 +15,6 @@ import sd from './styles.module.scss';
 import Overview from './pages/getting-started/Overview'
 import Licences from './pages/getting-started/Licences';
 import QuickStart from './pages/getting-started/QuickStart';
-import Pages from './pages/Pages';
 
 class Layout extends React.Component {
   static propTypes = {
@@ -101,7 +100,6 @@ class Layout extends React.Component {
                       <Route path="/documentation/getting-started/overview" exact component={Overview} />
                       <Route path="/documentation/getting-started/licences" exact component={Licences} />
                       <Route path="/documentation/getting-started/quick-start" exact component={QuickStart} />
-                      <Route path="/documentation/pages" exact component={Pages} />
                     </Switch>
                   </Col>
                 </div>

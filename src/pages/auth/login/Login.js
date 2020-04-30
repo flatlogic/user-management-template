@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter, Redirect, Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Container, Alert, Button } from 'reactstrap';
 import Widget from '../../../components/Widget';
@@ -79,7 +79,7 @@ class Login extends React.Component {
                 <Container>
                     <h5 className="auth-logo">
                         <i className="la la-circle text-primary" />
-                        Sing App
+                        React UM
                         <i className="la la-circle text-danger" />
                     </h5>
                     <Widget className="widget-auth mx-auto" title={<h3 className="mt-0">Login to your Web App</h3>}>
@@ -122,7 +122,7 @@ class Login extends React.Component {
                     </Widget>
                 </Container>
                 <footer className="auth-footer">
-                    2019 &copy; Sing App - React Admin Dashboard Template.
+                  {new Date().getFullYear()} &copy; React User Management.
                 </footer>
             </div>
         );

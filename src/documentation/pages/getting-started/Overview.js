@@ -20,17 +20,16 @@ const Overview = () => (
       <Widget id="Overview">
         <h1>Overview</h1>
         <p className="lead">
-          Sing App React User Management is an admin dashboard template built with React 16.5.2. Sing App UM goes beyond usual admin
+          React User Management is an admin dashboard template built with React 16.5.2. React UM goes beyond usual admin
           templates and provides you entire intuitive programming framework. Server Side Rendering and Node.js backend
-          will even further speed up your development. You can use Sing App React to build any type of web applications
+          will even further speed up your development. You can use React UM to build any type of web applications
           like SAAS, CMS, financial dashboards, project management tools, etc.
         </p>
         <p className="lead">
-            This version of Sing App React includes full functionality needed to register, authenticate and manage the user base
+            This version of React UM includes full functionality needed to register, authenticate and manage the user base
             of your application, including all required frontend and backend components. It's a perfect solution to jump start your
             project as you basically get a working application out of the box and can focus on developing your business components.
         </p>
-        <img className="img-responsive w-100 border" src={dashboard} alt="screenshot" />
         <Link to="/app">Live demo</Link>
       </Widget>
       <Widget id="Features">

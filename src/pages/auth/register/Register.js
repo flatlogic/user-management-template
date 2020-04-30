@@ -87,7 +87,7 @@ class Register extends React.Component {
                 <Container>
                     <h5 className="auth-logo">
                         <i className="la la-circle text-gray"/>
-                        Sing App
+                        React UM
                         <i className="la la-circle text-warning"/>
                     </h5>
                     <Widget className="widget-auth mx-auto" title={<h3 className="mt-0">Create an account</h3>}>
@@ -138,7 +138,7 @@ class Register extends React.Component {
                     </Widget>
                 </Container>
                 <footer className="auth-footer">
-                    2019 &copy; Sing App - React Admin Dashboard Template.
+                    {new Date().getFullYear()} &copy; React User Management.
                 </footer>
             </div>
         );

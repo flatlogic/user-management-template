@@ -91,7 +91,7 @@ export function loginUser(creds) {
         type: LOGIN_REQUEST,
       });
       if (creds.social) {
-        window.location.href = config.baseURLApi + "/auth/signin/" + creds.social + (process.env.NODE_ENV === "production" ? "?app=sing-app-react" : "");
+        window.location.href = config.baseURLApi + "/auth/signin/" + creds.social;
       } else if (creds.email.length > 0 && creds.password.length > 0) {
         axios.post("/auth/signin/local", creds).then(res => {
           const token = res.data;

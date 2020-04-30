@@ -92,7 +92,7 @@ class Layout extends React.Component {
                 </CSSTransition>
               </TransitionGroup>
               <footer className={s.contentFooter}>
-                Sing App React Admin Dashboard Template - Made by <a href="https://flatlogic.com" rel="nofollow noopener noreferrer" target="_blank">Flatlogic</a>
+                React User Management - Made by <a href="https://flatlogic.com" rel="nofollow noopener noreferrer" target="_blank">Flatlogic</a>
               </footer>
             </main>
           </Hammer>

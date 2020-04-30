@@ -61,29 +61,26 @@ class Sidebar extends React.Component {
             <LinksGroup
               onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
               activeItem={this.props.activeItem}
-              header="Getting Started"
+              header="Overview"
               isHeader
-              link="/documentation/getting-started"
-              index="getting-started"
-              childrenLinks={[
-                {
-                  header: 'Overview', link: '/documentation/getting-started/overview',
-                },
-                {
-                  header: 'Licences', link: '/documentation/getting-started/licences',
-                },
-                {
-                  header: 'Quick Start', link: '/documentation/getting-started/quick-start',
-                }
-              ]}
+              link="/documentation/getting-started/overview"
+              index="overview"
             />
             <LinksGroup
               onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
               activeItem={this.props.activeItem}
-              header="Pages"
+              header="Licences"
               isHeader
-              link="/documentation/pages"
-              index="pages"
+              link="/documentation/getting-started/licences"
+              index="licences"
+            />
+            <LinksGroup
+              onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+              activeItem={this.props.activeItem}
+              header="Quick Start"
+              isHeader
+              link="/documentation/getting-started/quick-start"
+              index="quick-start"
             />
           </ul>
 

@@ -78,7 +78,7 @@ class Header extends React.Component {
               </NavItem>
               <NavItem>
                 <NavLink className={classnames(s.logo, 'd-sm-down-none px-4')} href={'/documentation'}>
-                  <span className={'fw-semi-bold'}>Sing App React</span> &nbsp;  Documentation
+                  <span className={'fw-semi-bold'}>React User Management</span> &nbsp;  Documentation
                 </NavLink>
               </NavItem>
             </Nav>
@@ -120,7 +120,7 @@ class Header extends React.Component {
                     Live Preview
                   </Link>
                 </div>
-                <NavLink href="https://flatlogic.com/admin-dashboards/sing-app-react" target="_blank" className="mr-1">
+                <NavLink href="https://flatlogic.com/admin-dashboards/react-user-management" target="_blank" className="mr-1">
                   <button className="btn btn-warning text-gray fw-semi-bold">
                     Buy Now
                   </button>

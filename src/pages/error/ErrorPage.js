@@ -35,7 +35,7 @@ class ErrorPage extends React.Component {
             </Form>
           </div>
           <footer className={s.pageFooter}>
-            2019 &copy; Sing App - React Admin Dashboard Template.
+            {new Date().getFullYear()} &copy; React User Management.
           </footer>
         </Container>
       </div>

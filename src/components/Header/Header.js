@@ -147,7 +147,7 @@ class Header extends React.Component {
           <i className="la la-circle text-primary mr-n-sm" />
           <i className="la la-circle text-danger" />
           &nbsp;
-          sing
+          react um
           &nbsp;
           <i className="la la-circle text-danger mr-n-sm" />
           <i className="la la-circle text-primary" />
