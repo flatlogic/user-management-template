@@ -5,6 +5,7 @@ import { Switch, Route, withRouter } from 'react-router';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Hammer from 'rc-hammerjs';
 import Header from '../Header';
+import Helper from '../Helper';
 import Sidebar from '../Sidebar';
 import { openSidebar, closeSidebar, toggleSidebar } from '../../actions/navigation';
 import s from './Layout.module.scss';
@@ -14,6 +15,7 @@ import UserListPage from '../Users/list/UsersListPage';
 import UserViewPage from '../Users/view/UsersViewPage';
 import ChangePasswordFormPage from '../Users/changePassword/ChangePasswordFormPage';
 import Dashboard from '../../pages/dashboard';
+import { SidebarTypes } from '../../reducers/layout';
 
 class Layout extends React.Component {
   static propTypes = {
@@ -64,13 +66,14 @@ class Layout extends React.Component {
           s.root,
           this.props.sidebarStatic ? `${s.sidebarStatic}` : '',
           !this.props.sidebarOpened ? s.sidebarClose : '',
-          'sing-dashboard'
+          'sing-dashboard',
+          `dashboard-${(this.props.sidebarType === SidebarTypes.TRANSPARENT) ? "light" : this.props.dashboardTheme}`,
         ].join(' ')}
       >
         <Sidebar />
         <div className={s.wrap}>
           <Header />
-
+          <Helper />
           <Hammer onSwipe={this.handleSwipe}>
             <main className={s.content}>
             <BreadcrumbHistory url={this.props.location.pathname} />
@@ -106,6 +109,8 @@ function mapStateToProps(store) {
   return {
     sidebarOpened: store.navigation.sidebarOpened,
     sidebarStatic: store.navigation.sidebarStatic,
+    dashboardTheme: store.layout.dashboardTheme,
+    sidebarType: store.layout.sidebarType,
     currentUser: store.auth.currentUser,
   };
 }
