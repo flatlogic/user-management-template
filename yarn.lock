@@ -2837,6 +2837,7 @@ chownr@^1.1.1:
 chroma-js@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/chroma-js/-/chroma-js-2.1.0.tgz#c0be48a21fe797ef8965608c1c4f911ef2da49d5"
+  integrity sha512-uiRdh4ZZy+UTPSrAdp8hqEdVb1EllLtTHOt5TMaOjJUvi+O54/83Fc5K2ld1P+TJX+dw5B+8/sCgzI6eaur/lg==
   dependencies:
     cross-env "^6.0.3"
 

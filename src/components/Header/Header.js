@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
+import { NavbarTypes } from '../../reducers/layout';
 import {
   Navbar,
   Nav,
@@ -19,6 +20,7 @@ import {
   Form,
   FormGroup,
 } from 'reactstrap';
+import chroma from 'chroma-js';
 import cx from 'classnames';
 import { logoutUser } from 'actions/auth';
 import { toggleSidebar, openSidebar, closeSidebar, changeActiveSidebarItem } from '../../actions/navigation';
@@ -51,12 +53,6 @@ class Header extends React.Component {
       run: true
     };
   }
-
-  start = () => {
-    this.setState({
-      run: true,
-    });
-  };
 
   toggleFocus = () => {
     this.setState({ focus: !this.state.focus })
@@ -100,18 +96,18 @@ class Header extends React.Component {
   }
   render() {
     const { focus } = this.state;
-    const { openUsersList } = this.props;
+    const { navbarType, navbarColor, openUsersList } = this.props;
 
     const user = this.props.currentUser;
     const avatar = user && user.avatar && user.avatar.length && user.avatar[0].publicUrl;
     const firstUserLetter = user && (user.firstName|| user.email)[0].toUpperCase();
 
     return (
-      <Navbar className={`${s.root} d-print-none`} style={{zIndex: !openUsersList ? 100 : 0}}>
+      <Navbar className={`${s.root} d-print-none ${navbarType === NavbarTypes.FLOATING ? s.navbarFloatingType : ''}`} style={{backgroundColor: navbarColor, zIndex: !openUsersList ? 100 : 0}}>
         <Nav>
           <NavItem>
             <NavLink className="d-md-down-none ml-5" id="toggleSidebar" onClick={this.toggleSidebar}>
-              <i className={`la la-bars`}/>
+            <i className={`la la-bars ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`}/>
             </NavLink>
             <UncontrolledTooltip placement="bottom" target="toggleSidebar">
               Turn on/off<br />sidebar<br />collapsing
@@ -119,12 +115,14 @@ class Header extends React.Component {
             <NavLink className="fs-lg d-lg-none" onClick={this.switchSidebar}>
             <span
               className={`rounded rounded-lg d-md-none d-sm-down-block`}>
-                <i
-                  className="la la-bars"
-                  style={{fontSize: 30}}
+                <i 
+                  className="la la-bars" 
+                  style={{fontSize: 30, color: navbarColor === "#ffffff" 
+                  ? "#ffffff"
+                  : chroma(navbarColor).luminance() < 0.4 ? "#ffffff" : ""}} 
                 />
               </span>
-              <i className={`la la-bars ml-3 d-sm-down-none`}/>
+              <i className={`la la-bars ml-3 d-sm-down-none ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`}/>
             </NavLink>
           </NavItem>
         </Nav>
@@ -142,7 +140,7 @@ class Header extends React.Component {
           </FormGroup>
         </Form>
 
-        <NavLink className={`${s.navbarBrand} d-md-none`}>
+        <NavLink className={`${s.navbarBrand} d-md-none ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`}>
           <i className="la la-circle text-primary mr-n-sm" />
           <i className="la la-circle text-danger" />
           &nbsp;
@@ -156,16 +154,16 @@ class Header extends React.Component {
           <NavbarText>
             <span className={`${s.avatar} rounded-circle thumb-sm float-left mr-2`}>
               {avatar ? (
-                <img src={avatar} alt="..."/>
+                <img src={avatar} alt="..." title={user && (user.firstName || user.email)} />
               ) : (
-                <span>{firstUserLetter}</span>
+                <span title={user && (user.firstName || user.email)}>{firstUserLetter}</span>
               )}
             </span>
-            <span>{user && (user.firstName || user.email)}</span>
+            <span className={`d-sm-down-none ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`}>{user && (user.firstName || user.email)}</span>
           </NavbarText>
-          <Dropdown nav isOpen={this.state.menuOpen} toggle={this.toggleMenu} className="d-sm-down-none tutorial-dropdown pr-4">
+          <Dropdown nav isOpen={this.state.menuOpen} toggle={this.toggleMenu} className="tutorial-dropdown pr-4">
             <DropdownToggle nav>
-              <i className={`la la-cog`} />
+            <i className={`la la-cog ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`} />
             </DropdownToggle>
             <DropdownMenu right className={`super-colors`}>
               <DropdownItem href="/#/app/profile"><i className="la la-user" /> My Account</DropdownItem>
@@ -183,6 +181,8 @@ function mapStateToProps(store) {
     sidebarOpened: store.navigation.sidebarOpened,
     sidebarStatic: store.navigation.sidebarStatic,
     currentUser: store.auth.currentUser,
+    navbarType: store.layout.navbarType,
+    navbarColor: store.layout.navbarColor,
   };
 }
 
