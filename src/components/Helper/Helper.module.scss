@@ -27,6 +27,7 @@
         padding-left: 25px;
   
         &:before, &:after {
+          content: "";
           outline: none !important;
           transition: $transition-base;
           margin-left: 4px;

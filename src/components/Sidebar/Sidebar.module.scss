@@ -10,6 +10,7 @@
   background-color: var(--sidebar-bg-color);
   color: var(--sidebar-color);
   overflow-y: auto;
+  position: absolute;
   @include scroll-bar($sidebar-scrollbar-bg);
 }
 
@@ -27,11 +28,11 @@
   overflow-y: auto;
   overflow-x: hidden;
   width: $sidebar-width-open;
-  transition: all $sidebar-transition-time ease-in-out;
+  transition: width $sidebar-transition-time ease-in-out;
 }
 
 .sidebarClose.sidebarWrapper {
-  width: $sidebar-width-closed;
+  width: $sidebar-width-closed; 
   @include media-breakpoint-down(sm) {
     width: 0;
   }
@@ -107,6 +108,10 @@
 .staticSidebar .labelName {
   transition: none;
   opacity: 1;
+}
+
+.glyphiconSm {
+  font-size: 9px;
 }
 
 .sidebarLabels {
