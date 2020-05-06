@@ -120,7 +120,7 @@ class Header extends React.Component {
                     Live Preview
                   </Link>
                 </div>
-                <NavLink href="https://flatlogic.com/admin-dashboards/react-user-management" target="_blank" className="mr-1">
+                <NavLink href="https://flatlogic.com/templates/user-management-react" target="_blank" className="mr-1">
                   <button className="btn btn-warning text-gray fw-semi-bold">
                     Buy Now
                   </button>
