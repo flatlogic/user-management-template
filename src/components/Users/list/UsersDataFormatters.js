@@ -13,7 +13,6 @@ import avatar6 from '../../../images/people/chat6.png';
 const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
 function imageFormatter(cell, rows,_ , index) {
-  console.log(rows)
   const imageUrl =
     cell && cell.length
       ? cell[0].publicUrl
