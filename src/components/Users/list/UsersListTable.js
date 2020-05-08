@@ -26,7 +26,7 @@ import Widget from 'components/Widget';
 class UsersListTable extends Component {
   state = {
     modalOpen: false,
-    idToDelete: null
+    idToDelete: null,
   }
 
   handleDelete() {
