@@ -25,6 +25,7 @@ import cx from 'classnames';
 import { logoutUser } from 'actions/auth';
 import { toggleSidebar, openSidebar, closeSidebar, changeActiveSidebarItem } from '../../actions/navigation';
 
+import avatar1 from '../../images/people/chat1.png';
 import s from './Header.module.scss';
 
 class Header extends React.Component {
@@ -154,7 +155,7 @@ class Header extends React.Component {
           <NavbarText>
             <span className={`${s.avatar} rounded-circle thumb-sm float-left mr-2`}>
               {avatar ? (
-                <img src={avatar} alt="..." title={user && (user.firstName || user.email)} />
+                <img src={avatar} onError={e => e.target.src = avatar1} alt="..." title={user && (user.firstName || user.email)} />
               ) : (
                 <span title={user && (user.firstName || user.email)}>{firstUserLetter}</span>
               )}
