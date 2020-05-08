@@ -13,12 +13,13 @@ import avatar6 from '../../../images/people/chat6.png';
 const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
 function imageFormatter(cell, rows,_ , index) {
+  console.log(rows)
   const imageUrl =
     cell && cell.length
       ? cell[0].publicUrl
       : undefined;
   return (
-      <span>{imageUrl ? <img width="60" height="60" className="rounded-circle" src={imageUrl} onError={(e) => e.target.src = avatars[index+1]} alt="avatar" /> : <span className={`${s.avatar} rounded-circle thumb-sm float-left mr-2`}>{rows.firstName.charAt(0).toUpperCase()}</span>}</span>
+      <span>{imageUrl ? <img width="60" height="60" className="rounded-circle" src={imageUrl} onError={(e) => e.target.src = avatars[index+1]} alt="avatar" /> : <span className={`${s.avatar} rounded-circle thumb-sm float-left mr-2`}>{rows.email.charAt(0).toUpperCase()}</span>}</span>
   );
 };
 
