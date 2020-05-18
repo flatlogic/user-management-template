@@ -23,6 +23,8 @@ import {
 
 import Widget from 'components/Widget';
 
+import s from '../Users.module.scss';
+
 class UsersListTable extends Component {
   state = {
     modalOpen: false,
@@ -45,31 +47,32 @@ class UsersListTable extends Component {
 
   actionFormatter(cell) {
     return (
-        <div>
+      <div className={`d-flex justify-content-between`}>
         <Button
-          color="default"
+          className={s.controBtn}
+          color="info"
           size="xs"
           onClick={() => this.props.dispatch(push(`/admin/users/${cell}`))}
         >
-      View
-      </Button>
-      &nbsp;&nbsp;
+          View
+        </Button>
         <Button
-          color="default"
+          className={s.controBtn}
+          color="success"
           size="xs"
           onClick={() => this.props.dispatch(push(`/admin/users/${cell}/edit`))}
         >
-        Edit
-      </Button>
-      <br/>
+          Edit
+        </Button>
         <Button
-          color="default"
+          className={s.controBtn}
+          color="danger"
           size="xs"
           onClick={() => this.openModal(cell)}
         >
-        Delete
+          Delete
         </Button>
-        </div>
+      </div>
      )
   }
 
@@ -110,40 +113,41 @@ class UsersListTable extends Component {
     return (
         <div>
           <Widget title={<h4>User management</h4>} collapse close>
+            <div className={s.usersTableWrapper}>
+              <BootstrapTable bordered={false} data={rows} version="4" pagination options={options} search tableContainerClass={`table-responsive table-striped table-hover ${s.usersListTableMobile}`}>
+                <TableHeaderColumn dataField="avatars" dataSort dataFormat={dataFormat.imageFormatter}>
+                  <span className="fs-sm">Avatar</span>
+                </TableHeaderColumn>
 
-            <BootstrapTable bordered={false} data={rows} version="4" pagination options={options} search tableContainerClass={`table-responsive table-striped table-hover`}>
-              <TableHeaderColumn dataField="avatars" dataSort dataFormat={dataFormat.imageFormatter}>
-                <span className="fs-sm">Avatar</span>
-              </TableHeaderColumn>
+                <TableHeaderColumn dataField="firstName" dataSort>
+                  <span className="fs-sm">First Name</span>
+                </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="firstName" dataSort>
-                <span className="fs-sm">First Name</span>
-              </TableHeaderColumn>
+                <TableHeaderColumn dataField="lastName" dataSort>
+                  <span className="fs-sm">Last Name</span>
+                </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="lastName" dataSort>
-                <span className="fs-sm">Last Name</span>
-              </TableHeaderColumn>
+                <TableHeaderColumn dataField="phoneNumber" dataSort>
+                  <span className="fs-sm">Phone Number</span>
+                </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="phoneNumber" dataSort>
-                <span className="fs-sm">Phone Number</span>
-              </TableHeaderColumn>
+                <TableHeaderColumn dataField="email" dataSort>
+                  <span className="fs-sm">E-mail</span>
+                </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="email" dataSort>
-                <span className="fs-sm">E-mail</span>
-              </TableHeaderColumn>
+                <TableHeaderColumn dataField="role" dataSort>
+                  <span className="fs-sm">Role</span>
+                </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="role" dataSort>
-                <span className="fs-sm">Role</span>
-              </TableHeaderColumn>
+                <TableHeaderColumn dataField="disabled" dataSort dataFormat={dataFormat.booleanFormatter}>
+                  <span className="fs-sm">Disabled</span>
+                </TableHeaderColumn>
 
-              <TableHeaderColumn dataField="disabled" dataSort dataFormat={dataFormat.booleanFormatter}>
-                <span className="fs-sm">Disabled</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn isKey dataField="id" dataFormat={this.actionFormatter.bind(this)}>
-                <span className="fs-sm">Actions</span>
-              </TableHeaderColumn>
-            </BootstrapTable>
+                <TableHeaderColumn isKey dataField="id" dataFormat={this.actionFormatter.bind(this)}>
+                  <span className="fs-sm">Actions</span>
+                </TableHeaderColumn>
+              </BootstrapTable>
+            </div>
           </Widget>
 
           <Modal size="sm" isOpen={this.props.modalOpen} toggle={() => this.closeModal()}>

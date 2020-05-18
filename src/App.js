@@ -18,20 +18,52 @@ import Register from 'pages/auth/register';
 import Reset from 'pages/auth/reset';
 import Forgot from 'pages/auth/forgot';
 
+import { tourConfig } from './tour';
+import Tour from "reactour";
+
 const CloseButton = ({closeToast}) => <i onClick={closeToast} className="la la-close notifications-close"/>
 
 class App extends React.PureComponent {
+
+  state = {
+    isTourOpen: false,
+    isShowingMore: false
+  }
+
+  componentDidMount() {
+    this.openTour();
+  }
+
+  closeTour = () => {
+    this.setState({ isTourOpen: false });
+  };
+
+  openTour = () => {
+    this.setState({ isTourOpen: true });
+  };
+
   render() {
     if (this.props.loadingInit) {
       return <div/>;
     }
-
+    const { isTourOpen } = this.state;
+    const accentColor = "rgb(33, 174, 140)";
+    
     return (
         <div>
             <ToastContainer
-                autoClose={5000}
-                hideProgressBar
-                closeButton={<CloseButton/>}
+              autoClose={5000}
+              hideProgressBar
+              closeButton={<CloseButton/>}
+            />
+            <Tour
+              onRequestClose={this.closeTour}
+              steps={tourConfig(this.props)}
+              isOpen={isTourOpen}
+              maskClassName="reactour-mask"
+              className="helper"
+              rounded={5}
+              accentColor={accentColor}
             />
             <ConnectedRouter history={getHistory()}>
               <HashRouter>
@@ -66,6 +98,7 @@ function mapStateToProps(store) {
     return {
       currentUser: store.auth.currentUser,
       loadingInit: store.auth.loadingInit,
+      rows: store.users.list.rows,
     };
 }
 
