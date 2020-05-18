@@ -50,7 +50,6 @@ class Dashboard extends React.Component {
     }
 
     render() {
-      console.log(this.props);
         return (
             <div className={s.root}>
                 <h1 className="page-title">Welcome, {this.props.currentUser ? (this.props.currentUser.firstName || "User") : "User"}! <br/>
