@@ -1,6 +1,12 @@
-import * as dataFormat from 'components/Users/list/UsersDataFormatters';
-import actions from 'actions/usersListActions';
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:strip-space elements="*" />
+<xsl:output method="text" />
+<xsl:template match="/opt">
+import * as dataFormat from 'components/CRUD/((Name))/list/((Name))DataFormatters';
+import actions from 'actions/((name))/((name))ListActions';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
@@ -23,20 +29,20 @@ import {
 
 import Widget from 'components/Widget';
 
-class UsersListTable extends Component {
+class ((Name))ListTable extends Component {
   state = {
     modalOpen: false,
     idToDelete: null
   }
 
   handleDelete() {
-    const userId = this.props.idToDelete;
-    this.props.dispatch(actions.doDelete(userId));
+    const id = this.props.idToDelete;
+    this.props.dispatch(actions.doDelete(id));
   }
 
   openModal(cell) {
-    const userId = cell;
-    this.props.dispatch(actions.doOpenConfirm(userId));
+    const id = cell;
+    this.props.dispatch(actions.doOpenConfirm(id));
   }
 
   closeModal() {
@@ -46,24 +52,24 @@ class UsersListTable extends Component {
   actionFormatter(cell) {
     return (
         <div>
-        <Button
+{ null && <Button
           color="default"
           size="xs"
-          onClick={() => this.props.dispatch(push(`/admin/users/${cell}`))}
+          onClick={() => this.props.dispatch(push(`/admin/((name))/${cell}`))}
         >
       View
       </Button>
-      &nbsp;&nbsp;
+}
         <Button
-          color="default"
+          color="info"
           size="xs"
-          onClick={() => this.props.dispatch(push(`/admin/users/${cell}/edit`))}
+          onClick={() => this.props.dispatch(push(`/admin/((name))/${cell}/edit`))}
         >
         Edit
       </Button>
-      <br/>
-        <Button
-          color="default"
+      &nbsp;&nbsp;
+      <Button
+          color="danger"
           size="xs"
           onClick={() => this.openModal(cell)}
         >
@@ -109,37 +115,37 @@ class UsersListTable extends Component {
 
     return (
         <div>
-          <Widget title={<h4>User management</h4>} collapse close>
-
+          <Widget title={<h4>((Name))</h4>} collapse close>
+            <Link to="/admin/((name))/new">
+              <button
+                className="btn btn-primary"
+                type="button"
+              >
+                New
+              </button>
+            </Link>
             <BootstrapTable bordered={false} data={rows} version="4" pagination options={options} search tableContainerClass={`table-responsive table-striped table-hover`}>
-              <TableHeaderColumn dataField="avatars" dataSort dataFormat={dataFormat.imageFormatter}>
-                <span className="fs-sm">Avatar</span>
+<xsl:for-each select="./entities[@name='((name))']/fields[@show_in_table = 'yes']">
+              <TableHeaderColumn dataField="{|@name|}" dataSort
+                <xsl:if test="@type='datetime'">
+                dataFormat={dataFormat.dateTimeFormatter}
+                </xsl:if>
+                <xsl:if test="@type='boolean'">
+                dataFormat={dataFormat.booleanFormatter}
+                </xsl:if>
+                <xsl:if test="@type='images'">
+                dataFormat={dataFormat.imageFormatter}
+                </xsl:if>
+                <xsl:if test="@type='files'">
+                dataFormat={dataFormat.filesFormatter}
+                </xsl:if>
+                <xsl:if test="@type='relation_one' or @type='relation_many'">
+                dataFormat={dataFormat.listFormatter}
+                </xsl:if>
+              >
+                <span className="fs-sm">{|@title|}</span>
               </TableHeaderColumn>
-
-              <TableHeaderColumn dataField="firstName" dataSort>
-                <span className="fs-sm">First Name</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn dataField="lastName" dataSort>
-                <span className="fs-sm">Last Name</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn dataField="phoneNumber" dataSort>
-                <span className="fs-sm">Phone Number</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn dataField="email" dataSort>
-                <span className="fs-sm">E-mail</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn dataField="role" dataSort>
-                <span className="fs-sm">Role</span>
-              </TableHeaderColumn>
-
-              <TableHeaderColumn dataField="disabled" dataSort dataFormat={dataFormat.booleanFormatter}>
-                <span className="fs-sm">Disabled</span>
-              </TableHeaderColumn>
-
+</xsl:for-each>
               <TableHeaderColumn isKey dataField="id" dataFormat={this.actionFormatter.bind(this)}>
                 <span className="fs-sm">Actions</span>
               </TableHeaderColumn>
@@ -164,11 +170,13 @@ class UsersListTable extends Component {
 
 function mapStateToProps(store) {
   return {
-    loading: store.users.list.loading,
-    rows: store.users.list.rows,
-    modalOpen: store.users.list.modalOpen,
-    idToDelete: store.users.list.idToDelete,
+    loading: store.((name)).list.loading,
+    rows: store.((name)).list.rows,
+    modalOpen: store.((name)).list.modalOpen,
+    idToDelete: store.((name)).list.idToDelete,
   };
 }
 
-export default connect(mapStateToProps)(UsersListTable);
+export default connect(mapStateToProps)(((Name))ListTable);
+</xsl:template>
+</xsl:stylesheet>

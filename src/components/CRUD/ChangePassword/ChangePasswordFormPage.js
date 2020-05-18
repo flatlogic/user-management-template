@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ChangePasswordForm from 'components/Users/changePassword/ChangePasswordForm';
+import ChangePasswordForm from 'components/CRUD/ChangePassword/ChangePasswordForm';
 import { push } from 'connected-react-router';
-import actions from 'actions/usersFormActions';
+import actions from 'actions/password';
 import { connect } from 'react-redux';
 
 class ChangePasswordFormPage extends Component {

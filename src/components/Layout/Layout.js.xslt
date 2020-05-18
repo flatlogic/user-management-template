@@ -1,3 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:strip-space elements="*" />
+<xsl:output method="text" />
+<xsl:template match="/opt">
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -10,10 +15,14 @@ import Sidebar from '../Sidebar';
 import { openSidebar, closeSidebar, toggleSidebar } from '../../actions/navigation';
 import s from './Layout.module.scss';
 import BreadcrumbHistory from '../BreadcrumbHistory';
-import UserFormPage from '../Users/form/UsersFormPage';
-import UserListPage from '../Users/list/UsersListPage';
-import UserViewPage from '../Users/view/UsersViewPage';
-import ChangePasswordFormPage from '../Users/changePassword/ChangePasswordFormPage';
+
+<xsl:for-each select="./entities">
+import <xsl:value-of select="@name_cap"/>FormPage from '../CRUD/<xsl:value-of select="@name_cap"/>/form/<xsl:value-of select="@name_cap"/>FormPage';
+import <xsl:value-of select="@name_cap"/>ListPage from '../CRUD/<xsl:value-of select="@name_cap"/>/list/<xsl:value-of select="@name_cap"/>ListPage';
+import <xsl:value-of select="@name_cap"/>ViewPage from '../CRUD/<xsl:value-of select="@name_cap"/>/view/<xsl:value-of select="@name_cap"/>ViewPage';
+</xsl:for-each>
+
+import ChangePasswordFormPage from '../CRUD/ChangePassword/ChangePasswordFormPage';
 import Dashboard from '../../pages/dashboard';
 import { SidebarTypes } from '../../reducers/layout';
 
@@ -85,12 +94,14 @@ class Layout extends React.Component {
                 >
                   <Switch>
                     <Route path={"/app/dashboard"} exact component={Dashboard} />
-                    <Route path={"/app/profile"} exact component={UserFormPage} />
+                    <Route path={"/app/profile"} exact component={UsersFormPage} />
                     <Route path={"/app/password"} exact component={ChangePasswordFormPage} />
-                    <Route path={"/admin/users"} exact component={UserListPage} />
-                    <Route path={"/admin/users/new"} exact component={UserFormPage} />
-                    <Route path={"/admin/users/:id/edit"} exact component={UserFormPage} />
-                    <Route path={"/admin/users/:id"} exact component={UserViewPage} />
+<xsl:for-each select="./entities">
+                    <Route path={"/admin/<xsl:value-of select="@name"/>"} exact component={<xsl:value-of select="@name_cap"/>ListPage} />
+                    <Route path={"/admin/<xsl:value-of select="@name"/>/new"} exact component={<xsl:value-of select="@name_cap"/>FormPage} />
+                    <Route path={"/admin/<xsl:value-of select="@name"/>/:id/edit"} exact component={<xsl:value-of select="@name_cap"/>FormPage} />
+                    <Route path={"/admin/<xsl:value-of select="@name"/>/:id"} exact component={<xsl:value-of select="@name_cap"/>ViewPage} />
+</xsl:for-each>
                   </Switch>
                 </CSSTransition>
               </TransitionGroup>
@@ -116,3 +127,5 @@ function mapStateToProps(store) {
 }
 
 export default withRouter(connect(mapStateToProps)(Layout));
+</xsl:template>
+</xsl:stylesheet>

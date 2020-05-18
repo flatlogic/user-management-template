@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import UsersForm from 'components/Users/form/UsersForm';
+import ((Name))Form from 'components/CRUD/((Name))/form/((Name))Form';
 import { push } from 'connected-react-router';
-import actions from 'actions/usersFormActions';
+import actions from 'actions/((name))/((name))FormActions';
 import { connect } from 'react-redux';
 
-class UsersFormPage extends Component {
+class ((Name))FormPage extends Component {
   state = {
     dispatched: false,
   };
@@ -47,10 +47,11 @@ class UsersFormPage extends Component {
   };
 
   render() {
+    console.log(this.props.record);
     return (
       <React.Fragment>
           {this.state.dispatched && (
-            <UsersForm
+            <((Name))Form
               saveLoading={this.props.saveLoading}
               findLoading={this.props.findLoading}
               currentUser={this.props.currentUser}
@@ -60,7 +61,7 @@ class UsersFormPage extends Component {
               isEditing={this.isEditing()}
               isProfile={this.isProfile()}
               onSubmit={this.doSubmit}
-              onCancel={() => this.props.dispatch(push('/admin/users'))}
+              onCancel={() => this.props.dispatch(push('/admin/((name))'))}
             />
           )}
       </React.Fragment>
@@ -70,11 +71,11 @@ class UsersFormPage extends Component {
 
 function mapStateToProps(store) {
   return {
-    findLoading: store.users.form.findLoading,
-    saveLoading: store.users.form.saveLoading,
-    record: store.users.form.record,
+    findLoading: store.((name)).form.findLoading,
+    saveLoading: store.((name)).form.saveLoading,
+    record: store.((name)).form.record,
     currentUser: store.auth.currentUser,
   };
 }
 
-export default connect(mapStateToProps)(UsersFormPage);
+export default connect(mapStateToProps)(((Name))FormPage);

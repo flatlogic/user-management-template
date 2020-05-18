@@ -2,7 +2,7 @@ import Errors from 'components/FormItems/error/errors';
 import axios from 'axios';
 
 async function list() {
-  const response = await axios.get(`/users`);
+  const response = await axios.get(`/((name))`);
   return response.data;
 }
 
@@ -14,14 +14,14 @@ const actions = {
   ) => {
     try {
       dispatch({
-        type: 'USERS_LIST_FETCH_STARTED',
+        type: '((NAME))_LIST_FETCH_STARTED',
         payload: { filter, keepPagination },
       });
 
       const response = await list();
 
       dispatch({
-        type: 'USERS_LIST_FETCH_SUCCESS',
+        type: '((NAME))_LIST_FETCH_SUCCESS',
         payload: {
           rows: response.rows,
           count: response.count,
@@ -31,7 +31,7 @@ const actions = {
       Errors.handle(error);
 
       dispatch({
-        type: 'USERS_LIST_FETCH_ERROR',
+        type: '((NAME))_LIST_FETCH_ERROR',
       });
     }
   },
@@ -39,18 +39,18 @@ const actions = {
   doDelete: (id) => async (dispatch) => {
     try {
       dispatch({
-        type: 'USERS_LIST_DELETE_STARTED',
+        type: '((NAME))_LIST_DELETE_STARTED',
       });
 
-      await axios.delete(`/users/${id}`)
+      await axios.delete(`/((name))/${id}`)
 
       dispatch({
-        type: 'USERS_LIST_DELETE_SUCCESS',
+        type: '((NAME))_LIST_DELETE_SUCCESS',
       });
 
       const response = await list();
       dispatch({
-        type: 'USERS_LIST_FETCH_SUCCESS',
+        type: '((NAME))_LIST_FETCH_SUCCESS',
         payload: {
           rows: response.rows,
           count: response.count,
@@ -61,13 +61,13 @@ const actions = {
       Errors.handle(error);
 
       dispatch({
-        type: 'USERS_LIST_DELETE_ERROR',
+        type: '((NAME))_LIST_DELETE_ERROR',
       });
     }
   },
   doOpenConfirm: (id) => async (dispatch) => {
       dispatch({
-        type: 'USERS_LIST_OPEN_CONFIRM',
+        type: '((NAME))_LIST_OPEN_CONFIRM',
         payload: {
           id: id
         },
@@ -75,7 +75,7 @@ const actions = {
   },
   doCloseConfirm: () => async (dispatch) => {
       dispatch({
-        type: 'USERS_LIST_CLOSE_CONFIRM',
+        type: '((NAME))_LIST_CLOSE_CONFIRM',
       });
   },
 };

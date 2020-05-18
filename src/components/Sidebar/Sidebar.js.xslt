@@ -1,3 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:strip-space elements="*" />
+<xsl:output method="text" />
+<xsl:template match="/opt">
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -74,16 +79,18 @@ class Sidebar extends React.Component {
             iconName="la-home"
           />
 
+<xsl:for-each select="./entities">
           {this.props.currentUser && this.props.currentUser.role === 'admin' &&
             <LinksGroup
               onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
               activeItem={this.props.activeItem}
-              header="Users"
-              link="/admin/users"
+              header="<xsl:value-of select="@name_cap"/>"
+              link="/admin/<xsl:value-of select="@name"/>"
               isHeader
               iconName="la-users"
             />
           }
+</xsl:for-each>
 
             <LinksGroup
               onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
@@ -132,3 +139,5 @@ function mapStateToProps(store) {
 }
 
 export default withRouter(connect(mapStateToProps)(Sidebar));
+</xsl:template>
+</xsl:stylesheet>

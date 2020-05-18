@@ -5,13 +5,13 @@ const initialData = {
 };
 
 export default (state = initialData, { type, payload }) => {
-  if (type === 'USERS_FORM_RESET') {
+  if (type === '((NAME))_FORM_RESET') {
     return {
       ...initialData,
     };
   }
 
-  if (type === 'USERS_FORM_FIND_STARTED') {
+  if (type === '((NAME))_FORM_FIND_STARTED') {
     return {
       ...state,
       record: null,
@@ -19,7 +19,7 @@ export default (state = initialData, { type, payload }) => {
     };
   }
 
-  if (type === 'USERS_FORM_FIND_SUCCESS') {
+  if (type === '((NAME))_FORM_FIND_SUCCESS') {
     return {
       ...state,
       record: payload,
@@ -27,7 +27,7 @@ export default (state = initialData, { type, payload }) => {
     };
   }
 
-  if (type === 'USERS_FORM_FIND_ERROR') {
+  if (type === '((NAME))_FORM_FIND_ERROR') {
     return {
       ...state,
       record: null,
@@ -35,42 +35,42 @@ export default (state = initialData, { type, payload }) => {
     };
   }
 
-  if (type === 'USERS_FORM_CREATE_STARTED') {
+  if (type === '((NAME))_FORM_CREATE_STARTED') {
     return {
       ...state,
       saveLoading: true,
     };
   }
 
-  if (type === 'USERS_FORM_CREATE_SUCCESS') {
+  if (type === '((NAME))_FORM_CREATE_SUCCESS') {
     return {
       ...state,
       saveLoading: false,
     };
   }
 
-  if (type === 'USERS_FORM_CREATE_ERROR') {
+  if (type === '((NAME))_FORM_CREATE_ERROR') {
     return {
       ...state,
       saveLoading: false,
     };
   }
 
-  if (type === 'USERS_FORM_UPDATE_STARTED') {
+  if (type === '((NAME))_FORM_UPDATE_STARTED') {
     return {
       ...state,
       saveLoading: true,
     };
   }
 
-  if (type === 'USERS_FORM_UPDATE_SUCCESS') {
+  if (type === '((NAME))_FORM_UPDATE_SUCCESS') {
     return {
       ...state,
       saveLoading: false,
     };
   }
 
-  if (type === 'USERS_FORM_UPDATE_ERROR') {
+  if (type === '((NAME))_FORM_UPDATE_ERROR') {
     return {
       ...state,
       saveLoading: false,

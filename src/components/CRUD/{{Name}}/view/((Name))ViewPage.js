@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import UsersView from 'components/Users/view/UsersView';
-import actions from 'actions/usersFormActions';
+import ((Name))View from 'components/CRUD/((Name))/view/((Name))View';
+import actions from 'actions/((name))/((name))FormActions';
 import { connect } from 'react-redux';
 
-class UsersPage extends Component {
+class ((Name))Page extends Component {
   componentDidMount() {
     const { dispatch, match } = this.props;
     dispatch(actions.doFind(match.params.id));
@@ -12,7 +12,7 @@ class UsersPage extends Component {
   render() {
     return (
       <React.Fragment>
-          <UsersView
+          <((Name))View
             loading={this.props.loading}
             record={this.props.record}
           />
@@ -28,4 +28,4 @@ function mapStateToProps(store) {
   };
 }
 
-export default connect(mapStateToProps)(UsersPage);
+export default connect(mapStateToProps)(((Name))Page);

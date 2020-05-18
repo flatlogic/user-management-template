@@ -1,10 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:strip-space elements="*" />
+<xsl:output method="text" />
+<xsl:template match="/opt">
 import React, { Component } from 'react';
 import Loader from 'components/Loader';
 import TextViewItem from 'components/FormItems/items/TextViewItem';
 import ImagesViewItem from 'components/FormItems/items/ImagesViewItem';
 import Widget from 'components/Widget';
 
-class UsersView extends Component {
+class ((Name))View extends Component {
   renderView() {
     const { record } = this.props;
 
@@ -55,4 +60,6 @@ class UsersView extends Component {
   }
 }
 
-export default UsersView;
+export default ((Name))View;
+</xsl:template>
+</xsl:stylesheet>
