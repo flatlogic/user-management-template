@@ -114,7 +114,7 @@ class Helper extends Component {
           </div>
           <div className="mt-5">
             <Button
-              href="https://flatlogic.com/admin-dashboards/sing-app-react"
+              href="https://flatlogic.com/templates/user-management-react"
               target="_blank"
               className="btn-rounded-f btn-block fs-mini purchase-button"
               color="info"
@@ -122,7 +122,7 @@ class Helper extends Component {
               <span className="text-white">Purchase</span>
             </Button>
             <Button
-              href="http://demo.flatlogic.com/sing-app/documentation/"
+              href="https://react-user-management.herokuapp.com/#/documentation/getting-started/overview"
               target="_blank"
               className="btn-rounded-f btn-block fs-mini text-white"
               color="primary"
@@ -140,7 +140,7 @@ class Helper extends Component {
               Support
             </Button>
             <Button
-              href="https://github.com/flatlogic/sing-app"
+              href="https://github.com/flatlogic/"
               target="_blank"
               className="btn-outline-default btn-rounded-f fs-mini text-muted px-2"
             >

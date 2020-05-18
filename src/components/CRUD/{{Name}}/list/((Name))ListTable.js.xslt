@@ -32,7 +32,7 @@ import Widget from 'components/Widget';
 class ((Name))ListTable extends Component {
   state = {
     modalOpen: false,
-    idToDelete: null
+    idToDelete: null,
   }
 
   handleDelete() {

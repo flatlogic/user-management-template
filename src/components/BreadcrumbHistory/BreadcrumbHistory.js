@@ -19,10 +19,11 @@ class BreadcrumbHistory extends Component {
     const length = route.length;
     return route.map((item,index) => {
       let middlewareUrl = "/" + url.split('/').slice(1, index + 2).join('/');
+      
       return (
         <BreadcrumbItem key={uuid()}>
           {length === index + 1 ?
-            item :
+            item : item === "Admin" ? item : 
             <Link to={middlewareUrl}>
               {item}
             </Link>
