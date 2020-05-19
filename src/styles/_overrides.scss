@@ -783,3 +783,11 @@ pre {
 .reactour-mask {
   display: none;
 }
+
+.reactour__helper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 17px 35px!important;
+  align-items: center;
+}

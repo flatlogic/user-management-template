@@ -62,9 +62,11 @@ class App extends React.PureComponent {
               onRequestClose={this.closeTour}
               steps={tourConfig(this.props)}
               isOpen={isTourOpen}
+              showNumber={false}
               maskClassName="reactour-mask"
               className="helper"
               rounded={5}
+              startAt={0}
               accentColor={accentColor}
             />
             <ConnectedRouter history={getHistory()}>
