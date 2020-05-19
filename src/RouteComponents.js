@@ -24,10 +24,11 @@ export const UserRoute = ({dispatch, component, ...rest}) => {
   }
 };
 
-export const AuthRoute = ({dispatch, component, ...rest}) => {
+export const AuthRoute = ({dispatch, component, closeTour, ...rest}) => {
   const {from} = rest.location.state || {from: {pathname: '/app'}};
-
+  closeTour()
   if (Login.isAuthenticated()) {
+    
     return (
       <Redirect to={from}/>
     );

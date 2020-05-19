@@ -70,17 +70,17 @@ class App extends React.PureComponent {
                 <Switch>
                   <Route path="/documentation" exact
                     render={() => <Redirect to="/documentation/getting-started/overview"/>}/>
-                  <Route path="/documentation" component={DocumentationLayoutComponent}/>
+                  <Route path="/documentation" render={(props) => <DocumentationLayoutComponent {...props} closeTour={this.closeTour} />}/>
                   <Route path="/" exact render={() => <Redirect to="/app"/>}/>
                   <Route path="/app" exact render={() => <Redirect to="/app/dashboard"/>}/>
                   <UserRoute path="/app" dispatch={this.props.dispatch} component={LayoutComponent}/>
                   <AdminRoute path="/admin" currentUser={this.props.currentUser} dispatch={this.props.dispatch}
                               component={LayoutComponent}/>
-                  <AuthRoute path="/register" exact component={Register}/>
-                  <AuthRoute path="/login" exact component={Login}/>
-                  <AuthRoute path="/verify-email" exact component={Verify}/>
-                  <AuthRoute path="/password-reset" exact component={Reset}/>
-                  <AuthRoute path="/forgot" exact component={Forgot}/>
+                  <AuthRoute closeTour={this.closeTour} path="/register" exact component={Register}/>
+                  <AuthRoute closeTour={this.closeTour} path="/login" exact component={Login}/>
+                  <AuthRoute closeTour={this.closeTour} path="/verify-email" exact component={Verify}/>
+                  <AuthRoute closeTour={this.closeTour} path="/password-reset" exact component={Reset}/>
+                  <AuthRoute closeTour={this.closeTour} path="/forgot" exact component={Forgot}/>
                   <Route path="/error" exact component={ErrorPage}/>
                   <Redirect from="*" to="/app/dashboard"/>
                 </Switch>

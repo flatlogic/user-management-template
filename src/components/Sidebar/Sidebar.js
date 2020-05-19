@@ -72,6 +72,7 @@ class Sidebar extends React.Component {
             link="/app/dashboard"
             isHeader
             iconName="la-home"
+            className="tour_item_home"
           />
 
           {this.props.currentUser && this.props.currentUser.role === 'admin' &&
@@ -82,6 +83,7 @@ class Sidebar extends React.Component {
               link="/admin/users"
               isHeader
               iconName="la-users"
+              className="tour_item_users"
             />
           }
 
@@ -92,6 +94,7 @@ class Sidebar extends React.Component {
               link="/app/profile"
               isHeader
               iconName="la-user"
+              className="tour_item_user"
             />
 
             <LinksGroup
@@ -101,6 +104,7 @@ class Sidebar extends React.Component {
               link="/app/password"
               isHeader
               iconName="la-key"
+              className="tour_item_key"
             />
 
           <LinksGroup
@@ -113,6 +117,7 @@ class Sidebar extends React.Component {
             index="documentation"
             labelColor="success"
             target="_blank"
+            className="tour_item_docs"
           />
 
           </ul>

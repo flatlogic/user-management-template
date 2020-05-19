@@ -41,6 +41,7 @@ class Layout extends React.Component {
 
 
   componentDidMount() {
+    this.props.closeTour();
     const staticSidebar = JSON.parse(localStorage.getItem('staticSidebar'));
     if (staticSidebar) {
       this.props.dispatch(toggleSidebar());
