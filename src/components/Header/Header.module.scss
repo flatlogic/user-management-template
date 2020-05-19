@@ -1,0 +1,118 @@
+@import '../../styles/app';
+
+.root {
+  z-index: 100;
+  background: var(--navbar-bg);
+  box-shadow: var(--navbar-shadow);
+  height: $navbar-height;
+  transition: background-color .2s ease, margin .2s ease, ;
+
+  &.navbarFloatingType {
+    margin: $spacer $content-padding 0;
+    border-radius: $border-radius;
+
+    @media (max-width: breakpoint-max(sm)) {
+      margin-left: $content-padding-sm;
+      margin-right: $content-padding-sm;
+    }
+  }
+
+  a {
+    color: #495057
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 7px 0;
+  }
+
+  :global {
+    .input-group {
+      overflow: hidden;
+    }
+
+    .input-group-prepend {
+      background-color: #fff;
+      transition: background-color ease-in-out 0.15s;
+      border-top-left-radius: 0.3rem;
+      border-bottom-left-radius: 0.3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+    }
+
+    .focus .input-group-prepend {
+      background: #f8f9fa;
+    }
+  }
+}
+
+.logo {
+  font-size: 16px;
+}
+
+.navbarForm {
+  padding: 6px 0 6px 1rem;
+  margin-left: 10px;
+  display: inline-block;
+  top: 2px;
+  width: auto;
+
+  .inputAddon {
+    position: relative;
+    display: inline;
+    border: none;
+    background-color: #fff;
+    transition: background-color ease-in-out 0.15s;
+  }
+
+  input {
+    border: none;
+    padding: 0.6rem 0.85rem 0.6rem 0;
+    display: inline !important;
+    width: 250px !important;
+    top: 2px;
+  }
+}
+
+
+.navbarBrand {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  pointer-events: none;
+
+  i {
+    font-size: 10px;
+  }
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
+  background: $warning;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+@media(max-width: 1020px) {
+  .headerSearchInput {
+    margin-left: 0!important;
+  }
+}
+
+@media(max-width: 950px) {
+  .headerSearchInput {
+    width: 180px;
+  }
+}
