@@ -13,7 +13,7 @@ export const tourConfig = (props) => {
     },
     {
       content: `Here is sample data.`,
-      selector: '.tour_item_user',
+      selector: '.tour_item_users',
       action: () => {
         if (props.rows) {
           props.dispatch(push(`/admin/users/${props.rows[0].id}`))
@@ -21,8 +21,8 @@ export const tourConfig = (props) => {
       }
     },
     {
-      content: "Here you can see edit options available",
-      selector: '.tour_item_user',
+      content: 'Here you can see edit options available',
+      selector: '.tour_item_users',
       action: () => {
         if (props.rows) {
           props.dispatch(push(`/admin/users/${props.rows[0].id}/edit`))
@@ -30,18 +30,18 @@ export const tourConfig = (props) => {
       }
     },
     {
-      content: "This is my profile page where you can see your own information",
+      content: 'This is my profile page where you can see your own information',
       selector: '.tour_item_user',
       action: () => props.dispatch(push('/app/profile'))
     },
     {
-      content: "And you can change the password, please, remember it. If you loose it you can you pre-build password reset functionality that we have added to this application",
+      content: 'And you can change the password, please, remember it. If you loose it you can you pre-build password reset functionality that we have added to this application',
       selector: '.tour_item_key',
       action: () => props.dispatch(push('/app/password'))
     },
     {
-      content:
-        "Thank you very much for taking this tour!"
+      content: 'Thank you very much for taking this tour!',
+        selector: '.tour_item_key',
     },
   ];
 }

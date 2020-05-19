@@ -30,8 +30,10 @@ class App extends React.PureComponent {
     isShowingMore: false
   }
 
-  componentDidMount() {
-    this.openTour();
+  componentDidUpdate(prevProps) {
+    if (this.props.currentUser !== prevProps.currentUser && this.props.currentUser.role === 'admin') {
+      this.openTour();
+    }
   }
 
   closeTour = () => {
