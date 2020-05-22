@@ -787,7 +787,16 @@ pre {
 .reactour__helper {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
   padding: 17px 35px!important;
   align-items: center;
+}
+
+.reactour__helper button.sc-bxivhb {
+  border: 1px solid $teal;
+  border-radius: 53px;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  flex: unset;
 }
