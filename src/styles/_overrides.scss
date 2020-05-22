@@ -793,10 +793,26 @@ pre {
 }
 
 .reactour__helper button.sc-bxivhb {
-  border: 1px solid $teal;
+  border: 1px solid transparent;
   border-radius: 53px;
   width: 30px;
   height: 30px;
   padding: 7px;
   flex: unset;
+}
+
+.reactour__helper button.sc-bxivhb:focus {
+  border: 1px solid $teal;
+}
+
+.reactour__helper button:focus {
+  outline: none;
+}
+
+.bzvgId:focus {
+  background-color: currentColor;
+  &::before {
+    transform: translate(-50%,-2px);
+    opacity: 0.5;
+  }
 }
