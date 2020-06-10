@@ -153,7 +153,7 @@ class Header extends React.Component {
 
         <Nav className="ml-auto">
           <NavbarText>
-            <span className={`${s.avatar} rounded-circle thumb-sm float-left mr-2`}>
+            <span className={`${s.avatar} rounded-circle float-left mr-2`}>
               {avatar ? (
                 <img src={avatar} onError={e => e.target.src = avatar1} alt="..." title={user && (user.firstName || user.email)} />
               ) : (

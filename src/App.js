@@ -32,12 +32,15 @@ class App extends React.PureComponent {
 
   componentDidUpdate(prevProps) {
     if (this.props.currentUser !== prevProps.currentUser && this.props.currentUser.role === 'admin') {
-      this.openTour();
+      if (sessionStorage.getItem('tour') !== "close") {
+        this.openTour();
+      }
     }
   }
 
   closeTour = () => {
     this.setState({ isTourOpen: false });
+    sessionStorage.setItem('tour', 'close');
   };
 
   openTour = () => {
