@@ -1,5 +1,10 @@
 # Changelog
 
+# Improvement
+
+## [1.2.0]
+
+- Updated dependencies, removed useless from package.json
 
 # Improvement
 
