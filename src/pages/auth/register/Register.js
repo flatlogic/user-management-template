@@ -138,7 +138,7 @@ class Register extends React.Component {
                     </Widget>
                 </Container>
                 <footer className="auth-footer">
-                    {new Date().getFullYear()} &copy; React User Management.
+                    {new Date().getFullYear()} &copy; React User Management Made by <a href="https://flatlogic.com" rel="noopener noreferrer" target="_blank">Flatlogic LLC</a>
                 </footer>
             </div>
         );

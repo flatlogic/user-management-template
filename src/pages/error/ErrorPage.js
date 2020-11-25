@@ -35,7 +35,7 @@ class ErrorPage extends React.Component {
             </Form>
           </div>
           <footer className={s.pageFooter}>
-            {new Date().getFullYear()} &copy; React User Management.
+            {new Date().getFullYear()} &copy; React User Management Made by <a href="https://flatlogic.com" rel="noopener noreferrer" target="_blank">Flatlogic LLC</a>
           </footer>
         </Container>
       </div>

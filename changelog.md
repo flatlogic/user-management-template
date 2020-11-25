@@ -2,6 +2,12 @@
 
 # Improvement
 
+## [1.2.1]
+
+- Added links to flatlogic on authentication pages
+
+# Improvement
+
 ## [1.2.0]
 
 - Updated dependencies, removed useless from package.json
