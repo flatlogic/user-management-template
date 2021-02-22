@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.2]
+
+- Updated documentation
+
 # Improvement
 
 ## [1.2.1]
