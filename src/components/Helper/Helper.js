@@ -124,7 +124,7 @@ class Helper extends Component {
             <Button
               href="https://react-user-management.herokuapp.com/#/documentation/getting-started/overview"
               target="_blank"
-              className="btn-rounded-f btn-block fs-mini text-white"
+              className="btn-rounded-f btn-block fs-mini text-white mt-4"
               color="primary"
             >
               Documentation
@@ -132,7 +132,7 @@ class Helper extends Component {
           </div>
           <div className="d-flex justify-content-between mt-lg">
             <Button
-              href="https://flatlogic.com/contact"
+              href="https://flatlogic.com/forum"
               target="_blank"
               className="btn-outline-default btn-rounded-f fs-mini text-muted px-2"
             >

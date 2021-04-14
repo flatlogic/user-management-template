@@ -8,6 +8,13 @@ import { openSidebar, closeSidebar, changeActiveSidebarItem } from '../../action
 import isScreen from '../../core/screenHelper';
 import { logoutUser } from 'actions/auth';
 
+import HomeIcon from '../../images/sidebar/Outline/Home';
+import FileTextIcon from '../../images/sidebar/Outline/FileText';
+import GridIcon from '../../images/sidebar/Outline/Grid';
+import LayoutIcon from '../../images/sidebar/Outline/Layout';
+import PersonIcon from '../../images/sidebar/Outline/Person';
+
+
 class Sidebar extends React.Component {
   static propTypes = {
     sidebarStatic: PropTypes.bool,
@@ -72,6 +79,7 @@ class Sidebar extends React.Component {
             link="/app/dashboard"
             isHeader
             iconName="la-home"
+            iconElement={<HomeIcon />}
             className="tour_item_home"
           />
 
@@ -83,6 +91,7 @@ class Sidebar extends React.Component {
               link="/admin/users"
               isHeader
               iconName="la-users"
+              iconElement={<GridIcon />}
               className="tour_item_users"
             />
           }
@@ -93,6 +102,7 @@ class Sidebar extends React.Component {
               header="My Profile"
               link="/app/profile"
               isHeader
+              iconElement={<PersonIcon />}
               iconName="la-user"
               className="tour_item_user"
             />
@@ -101,6 +111,7 @@ class Sidebar extends React.Component {
               onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
               activeItem={this.props.activeItem}
               header="Change Password"
+              iconElement={<FileTextIcon />}
               link="/app/password"
               isHeader
               iconName="la-key"
@@ -114,6 +125,7 @@ class Sidebar extends React.Component {
             link="/documentation"
             isHeader
             iconName="la-book"
+            iconElement={<LayoutIcon />}
             index="documentation"
             labelColor="success"
             target="_blank"

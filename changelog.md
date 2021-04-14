@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.0] 04/14/2021
+
+- Updated customization component
+- Added new colors to theme-variables
+- Added brand new icons
+- Updated icons for sidebar
+- Updated icons for navbar
+- Added link to flatlogic forum
+
 ## [1.2.2]
 
 - Updated documentation
