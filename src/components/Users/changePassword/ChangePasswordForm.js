@@ -1,8 +1,8 @@
 import { Formik } from 'formik';
 import React, { Component } from 'react';
-import Loader from 'components/Loader';
-import InputFormItem from 'components/FormItems/items/InputFormItem';
-import Widget from 'components/Widget';
+import Loader from '../../../components/Loader';
+import InputFormItem from '../../../components/FormItems/items/InputFormItem';
+import Widget from '../../../components/Widget';
 
 class UsersForm extends Component {
   handleSubmit = (values) => {

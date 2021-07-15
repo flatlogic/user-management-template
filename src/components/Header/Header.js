@@ -22,7 +22,7 @@ import {
 } from 'reactstrap';
 import chroma from 'chroma-js';
 import cx from 'classnames';
-import { logoutUser } from 'actions/auth';
+import { logoutUser } from '../../actions/auth';
 import { toggleSidebar, openSidebar, closeSidebar, changeActiveSidebarItem } from '../../actions/navigation';
 
 import adminDefault from '../../images/people/chat2.png';

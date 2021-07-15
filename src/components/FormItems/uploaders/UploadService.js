@@ -1,6 +1,6 @@
 import * as uuid from 'uuid/v4';
 import Axios from 'axios';
-import config from 'config';
+import config from '../../../config';
 
 function extractExtensionFrom(filename) {
   if (!filename) {
@@ -81,7 +81,7 @@ export default class FileUploader {
     );
 
     const privateUrl = `${path}/${filename}`;
-
+    console.log(privateUrl,'< ulr',config.baseURLApi, '< base url')
     return `${config.baseURLApi}/file/download?privateUrl=${privateUrl}`;
   }
 }

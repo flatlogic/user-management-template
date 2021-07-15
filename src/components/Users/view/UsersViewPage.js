@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import UsersView from 'components/Users/view/UsersView';
-import actions from 'actions/usersFormActions';
+import UsersView from '../../../components/Users/view/UsersView';
+import actions from '../../../actions/usersFormActions';
 import { connect } from 'react-redux';
 
 class UsersPage extends Component {

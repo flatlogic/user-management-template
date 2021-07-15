@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Container, Alert, Button } from 'reactstrap';
 import Widget from '../../../components/Widget';
 import { registerUser, authError } from '../../../actions/auth';
-import { loginUser } from 'actions/auth';
+import { loginUser } from '../../../actions/auth';
 import microsoft from '../../../images/microsoft.png';
 
 class Register extends React.Component {

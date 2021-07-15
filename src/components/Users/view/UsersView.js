@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Loader from 'components/Loader';
-import TextViewItem from 'components/FormItems/items/TextViewItem';
-import ImagesViewItem from 'components/FormItems/items/ImagesViewItem';
-import Widget from 'components/Widget';
+import Loader from '../../../components/Loader';
+import TextViewItem from '../../../components/FormItems/items/TextViewItem';
+import ImagesViewItem from '../../../components/FormItems/items/ImagesViewItem';
+import Widget from '../../../components/Widget';
 
 class UsersView extends Component {
   renderView() {

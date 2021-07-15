@@ -7,16 +7,16 @@ import { AdminRoute, UserRoute, AuthRoute } from './RouteComponents';
 import { ConnectedRouter } from 'connected-react-router';
 import { getHistory } from './index';
 
-import 'styles/theme.scss';
+import './styles/theme.scss';
 
-import ErrorPage from 'pages/error';
-import LayoutComponent from 'components/Layout';
-import DocumentationLayoutComponent from 'documentation/DocumentationLayout';
-import Login from 'pages/auth/login';
-import Verify from 'pages/auth/verify';
-import Register from 'pages/auth/register';
-import Reset from 'pages/auth/reset';
-import Forgot from 'pages/auth/forgot';
+import ErrorPage from './pages/error';
+import LayoutComponent from './components/Layout';
+import DocumentationLayoutComponent from './documentation/DocumentationLayout';
+import Login from './pages/auth/login';
+import Verify from './pages/auth/verify';
+import Register from './pages/auth/register';
+import Reset from './pages/auth/reset';
+import Forgot from './pages/auth/forgot';
 
 import { tourConfig } from './tour';
 import Tour from "reactour";

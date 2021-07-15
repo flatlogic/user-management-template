@@ -2,7 +2,7 @@ import {
     LOGIN_REQUEST, LOGIN_SUCCESS, AUTH_FAILURE, LOGOUT_SUCCESS, RESET_REQUEST, RESET_SUCCESS,
     PASSWORD_RESET_EMAIL_REQUEST, PASSWORD_RESET_EMAIL_SUCCESS, AUTH_INIT_SUCCESS, AUTH_INIT_ERROR,
     REGISTER_REQUEST, REGISTER_SUCCESS
-} from 'actions/auth';
+} from '../actions/auth';
 
 export default function auth(state = {
     isFetching: false,

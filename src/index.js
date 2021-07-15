@@ -4,12 +4,12 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router'
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
-import * as serviceWorker from 'serviceWorker';
+import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
-import createRootReducer from 'reducers';
-import config from 'config';
-import App from 'App';
-import { doInit } from 'actions/auth';
+import createRootReducer from './reducers';
+import config from './config';
+import App from './App';
+import { doInit } from './actions/auth';
 
 import { createHashHistory } from 'history';
 
