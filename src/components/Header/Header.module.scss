@@ -46,6 +46,36 @@
   }
 }
 
+.headerDropdownLinks{
+  color: inherit;
+  & > a, & > button {
+    display: flex;
+    padding: 18px 22px;
+  }
+}
+
+.headerDropdownIcon {
+  display: flex;
+  margin-right: 8px;
+  color: var(--sidebar-icon-bg);
+}
+
+.headerSvgFlipColor {
+  display: flex;
+  color: var(--navbar-icon-bg);
+  :global {
+    .bg-primary {
+      background-color: var(--navbar-icon-bg)!important;
+    }
+  }
+}
+
+.mobileCog {
+  @include media-breakpoint-down(sm) {
+    padding: 0.5rem 0!important;
+  }
+}
+
 .logo {
   font-size: 16px;
 }

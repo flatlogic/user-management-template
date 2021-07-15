@@ -74,9 +74,9 @@ class LinksGroup extends Component {
               target={this.props.target}
             >
               <span className={classnames('icon', s.icon)}>
-                <i className={`la ${this.props.iconName}`} />
+                {this.props.iconElement ? this.props.iconElement : <i className={`fi ${this.props.iconName}`} />}
               </span>
-              {this.props.header} {this.props.label && <sup className={`${s.headerLabel} ${s.headerUpdate} text-${this.props.labelColor || 'warning'}`}>{this.props.label}</sup>}
+              {this.props.header} {this.props.label && <sup className={`${s.headerLabel} ${s.headerUpdate}`}>{this.props.label}</sup>}
               {this.props.badge && <Badge className={s.badge} pill>9</Badge>}
             </NavLink>
           </li>
@@ -96,7 +96,7 @@ class LinksGroup extends Component {
             }}
             exact={exact}
           >
-            {this.props.header} {this.props.label && <sup className={`${s.headerLabel} text-${this.props.labelColor || 'warning'}`}>{this.props.label}</sup>}
+            {this.props.header} {this.props.label && <sup className={s.headerLabel}>{this.props.label}</sup>}
           </NavLink>
         </li>
       );
@@ -115,11 +115,11 @@ class LinksGroup extends Component {
               >
                 {this.props.isHeader ?
                   <span className={classnames('icon', s.icon)}>
-                    <i className={`fi ${this.props.iconName}`} />
+                    {this.props.iconElement ? this.props.iconElement : <i className={`fi ${this.props.iconName}`} />}
                   </span> : null
                 }
-                {this.props.header} {this.props.label && <sup className={`${s.headerLabel} ${s.headerNode} ml-1 text-${this.props.labelColor || 'warning'}`}>{this.props.label}</sup>}
-                <b className={['la la-angle-left', s.caret].join(' ')} />
+                {this.props.header} {this.props.label && <sup className={`${s.headerLabel} ${s.headerNode}`}>{this.props.label}</sup>}
+                <b className={['fa fa-angle-left', s.caret].join(' ')} />
               </a>
               {/* eslint-enable */}
               <Collapse className={s.panel} isOpen={isOpen}>
