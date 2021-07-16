@@ -10,9 +10,9 @@ import { logoutUser } from 'actions/auth';
 
 import HomeIcon from '../../images/sidebar/Outline/Home';
 import FileTextIcon from '../../images/sidebar/Outline/FileText';
-import GridIcon from '../../images/sidebar/Outline/Grid';
+//import GridIcon from '../../images/sidebar/Outline/Grid';
 import LayoutIcon from '../../images/sidebar/Outline/Layout';
-import PersonIcon from '../../images/sidebar/Outline/Person';
+//import PersonIcon from '../../images/sidebar/Outline/Person';
 
 
 class Sidebar extends React.Component {
@@ -90,9 +90,9 @@ class Sidebar extends React.Component {
               header="Users"
               link="/admin/users"
               isHeader
-              iconName="la-users"
-              iconElement={<GridIcon />}
-              className="tour_item_users"
+              iconElement={<i className="las la-lg la-user-friends"/>}
+              iconName="la-user-friends"
+              className="tour_item_user_friends"
             />
           }
 
@@ -102,9 +102,9 @@ class Sidebar extends React.Component {
               header="My Profile"
               link="/app/profile"
               isHeader
-              iconElement={<PersonIcon />}
-              iconName="la-user"
-              className="tour_item_user"
+              iconElement={<i className="las la-2x la-user-circle"/>}
+              iconName="la-user-circle"
+              className="tour_item_user_circle"
             />
 
             <LinksGroup

@@ -42,7 +42,6 @@ class LinksGroup extends Component {
   constructor(props) {
     super(props);
     this.togglePanelCollapse = this.togglePanelCollapse.bind(this);
-
     this.state = {
       headerLinkWasClicked: true,
     };
@@ -56,12 +55,14 @@ class LinksGroup extends Component {
     });
   }
 
+
   render() {
     const isOpen = this.props.activeItem &&
       this.props.activeItem.includes(this.props.index) &&
       this.state.headerLinkWasClicked;
 
     const {exact} = this.props.exact;
+
 
     if (!this.props.childrenLinks) {
       if (this.props.isHeader) {
@@ -73,7 +74,7 @@ class LinksGroup extends Component {
               exact={exact}
               target={this.props.target}
             >
-              <span className={classnames('icon', s.icon)}>
+              <span className={s.icon}>
                 {this.props.iconElement ? this.props.iconElement : <i className={`fi ${this.props.iconName}`} />}
               </span>
               {this.props.header} {this.props.label && <sup className={`${s.headerLabel} ${s.headerUpdate}`}>{this.props.label}</sup>}

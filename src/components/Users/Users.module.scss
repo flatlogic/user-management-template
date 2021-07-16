@@ -2,17 +2,28 @@
 
 .avatar {
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
   background: $warning;
   font-weight: 600;
   font-size: 18px;
   img {
-    height: 60px
+    height: 40px
   }
+}
+
+.text {
+  text-align: center;
+}
+
+.header {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .controBtn {

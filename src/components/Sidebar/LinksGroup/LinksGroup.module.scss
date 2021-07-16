@@ -88,13 +88,14 @@
   }
   
   a.headerLinkActive {
-    color: var(--sidebar-item-active-color);
+    color: var(--sidebar-icon-bg);
+    //color: var(--sidebar-item-active-color);
     font-weight: $font-weight-bold;
     white-space: nowrap;
     
-    &:hover {
-      color: var(--sidebar-icon-bg);
-    }
+    //&:hover {
+    //  color: var(--sidebar-icon-bg);
+    //}
 
     .icon {
       border-radius: 50%;

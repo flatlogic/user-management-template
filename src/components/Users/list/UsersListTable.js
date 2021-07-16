@@ -19,6 +19,7 @@ import {
 import {
   BootstrapTable,
   TableHeaderColumn,
+  SearchField
 } from 'react-bootstrap-table';
 
 import Widget from 'components/Widget';
@@ -51,7 +52,7 @@ class UsersListTable extends Component {
         <Button
           className={s.controBtn}
           color="info"
-          size="xs"
+          size="md"
           onClick={() => this.props.dispatch(push(`/admin/users/${cell}`))}
         >
           View
@@ -59,7 +60,7 @@ class UsersListTable extends Component {
         <Button
           className={s.controBtn}
           color="success"
-          size="xs"
+          size="md"
           onClick={() => this.props.dispatch(push(`/admin/users/${cell}/edit`))}
         >
           Edit
@@ -67,7 +68,7 @@ class UsersListTable extends Component {
         <Button
           className={s.controBtn}
           color="danger"
-          size="xs"
+          size="md"
           onClick={() => this.openModal(cell)}
         >
           Delete
@@ -80,6 +81,12 @@ class UsersListTable extends Component {
     const { dispatch } = this.props;
     dispatch(actions.doFetch({}));
   }
+
+  createCustomSearchField = () => {
+    return (
+        <SearchField className={'col-sm-6 col-md-8 mb-4 ml-auto'}/>
+    );
+  };
 
   renderSizePerPageDropDown = (props) => {
     const limits = [];
@@ -105,6 +112,7 @@ class UsersListTable extends Component {
     } = this.props;
 
     const options = {
+      searchField: this.createCustomSearchField,
       sizePerPage: 10,
       paginationSize: 5,
       sizePerPageDropDown: this.renderSizePerPageDropDown,
@@ -115,35 +123,35 @@ class UsersListTable extends Component {
           <Widget title={<h4>User management</h4>} collapse close>
             <div className={s.usersTableWrapper}>
               <BootstrapTable bordered={false} data={rows} version="4" pagination options={options} search tableContainerClass={`table-responsive table-striped table-hover ${s.usersListTableMobile}`}>
-                <TableHeaderColumn dataField="avatars" dataSort dataFormat={dataFormat.imageFormatter}>
+                <TableHeaderColumn dataField="avatars" dataSort dataFormat={dataFormat.imageFormatter} dataAlign='center'>
                   <span className="fs-sm">Avatar</span>
                 </TableHeaderColumn>
 
-                <TableHeaderColumn dataField="firstName" dataSort>
+                <TableHeaderColumn dataField="firstName" dataSort dataFormat={dataFormat.textFotmatter} dataAlign='center'>
                   <span className="fs-sm">First Name</span>
                 </TableHeaderColumn>
 
-                <TableHeaderColumn dataField="lastName" dataSort>
+                <TableHeaderColumn dataField="lastName" dataSort  dataFormat={dataFormat.textFotmatter} dataAlign='center'>
                   <span className="fs-sm">Last Name</span>
                 </TableHeaderColumn>
 
-                <TableHeaderColumn dataField="phoneNumber" dataSort>
+                <TableHeaderColumn dataField="phoneNumber" dataSort  dataFormat={dataFormat.textFotmatter} dataAlign='center'>
                   <span className="fs-sm">Phone Number</span>
                 </TableHeaderColumn>
 
-                <TableHeaderColumn dataField="email" dataSort>
+                <TableHeaderColumn dataField="email" dataSort  dataFormat={dataFormat.textFotmatter} dataAlign='center'>
                   <span className="fs-sm">E-mail</span>
                 </TableHeaderColumn>
 
-                <TableHeaderColumn dataField="role" dataSort>
+                <TableHeaderColumn dataField="role" dataSort  dataFormat={dataFormat.textFotmatter} dataAlign='center'>
                   <span className="fs-sm">Role</span>
                 </TableHeaderColumn>
 
-                <TableHeaderColumn dataField="disabled" dataSort dataFormat={dataFormat.booleanFormatter}>
+                <TableHeaderColumn dataField="disabled" dataSort dataFormat={dataFormat.booleanFormatter} dataAlign='center'>
                   <span className="fs-sm">Disabled</span>
                 </TableHeaderColumn>
 
-                <TableHeaderColumn isKey dataField="id" dataFormat={this.actionFormatter.bind(this)}>
+                <TableHeaderColumn isKey dataField="id" dataFormat={this.actionFormatter.bind(this)} dataAlign='center'>
                   <span className="fs-sm">Actions</span>
                 </TableHeaderColumn>
               </BootstrapTable>

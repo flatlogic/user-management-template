@@ -22,10 +22,14 @@ function imageFormatter(cell, rows,_ , index) {
   );
 };
 
+function textFotmatter(cell){
+    return (<p className={s.text}>{cell}</p>)
+}
+
 function booleanFormatter(cell) {
     return cell
-      ? 'Yes'
-      : 'No';
+        ? (<p className={s.text}>Yes</p>)
+        : (<p className={s.text}>No</p>);
 };
 
 function dateTimeFormatter(cell) {
@@ -40,7 +44,7 @@ function filesFormatter(cell) {
         { cell && cell.map((value) => {
           return (
             <div key={value.id}>
-              <i className="la la-link text-muted mr-2"></i>
+              <i className="la la-link text-muted mr-2"/>
               <a
                 href={value.publicUrl}
                 target="_blank"
@@ -81,4 +85,4 @@ function listFormatter(cell) {
 	);
 };
 
-export { booleanFormatter, imageFormatter, dateTimeFormatter, listFormatter, filesFormatter };
+export { booleanFormatter, imageFormatter, dateTimeFormatter, listFormatter, filesFormatter, textFotmatter};

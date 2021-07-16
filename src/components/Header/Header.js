@@ -30,7 +30,6 @@ import MenuIcon from '../../images/sidebar/Fill/MenuIcon';
 import FlipIcon from '../../images/sidebar/Outline/Flip';
 import CloseIcon from '../../images/sidebar/Fill/CloseIconOne';
 import SearchIcon from '../../images/sidebar/Outline/Search';
-import SettingsIcon from '../../images/sidebar/Outline/Settings';
 import PersonIcon from '../../images/sidebar/Outline/Person';
 import PowerIcon from '../../images/sidebar/Outline/Power';
 import s from './Header.module.scss';
@@ -114,7 +113,7 @@ class Header extends React.Component {
       <Navbar className={`${s.root} d-print-none ${navbarType === NavbarTypes.FLOATING ? s.navbarFloatingType : ''}`} style={{backgroundColor: navbarColor, zIndex: !openUsersList ? 100 : 0}}>
        <Nav>
           <NavItem>
-            <NavLink className={`d-md-down-none ml-5 ${s.toggleSidebar}`} id="toggleSidebar" onClick={this.toggleSidebar}>
+            <NavLink className={`d-md-down-none ${s.toggleSidebar}`} id="toggleSidebar" onClick={this.toggleSidebar}>
               <span className={s.headerSvgFlipColor}>
                 <MenuIcon  maskId={1001}/>
               </span>
@@ -152,7 +151,7 @@ class Header extends React.Component {
 
         </Nav>
 
-        <Form className={`d-sm-down-none ml-5 ${s.headerSearchInput}`} inline>
+        <Form className={`d-sm-down-none ml-1 ${s.headerSearchInput}`} inline>
           <FormGroup>
             <InputGroup onFocus={this.toggleFocus} onBlur={this.toggleFocus} className={
               cx('input-group-no-border', {'focus' : !!focus})
@@ -176,22 +175,23 @@ class Header extends React.Component {
         </NavLink>
 
         <Nav className="ml-auto">
-          <NavbarText>
-            <span className={`${s.avatar} rounded-circle float-left mr-2`}>
-              {avatar ? (
-                <img src={avatar} onError={e => e.target.src = adminDefault} alt="..." title={user && (user.firstName || user.email)} />
-              ) : user && user.role === 'admin' ? (
-                <img src={adminDefault} onError={e => e.target.src = adminDefault} alt="..." title={user && (user.firstName || user.email)} />
-              ) : <span title={user && (user.firstName || user.email)}>{firstUserLetter}</span>
-              }
-            </span>
-            <span className={`d-sm-down-none ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`}>{user && (user.firstName || user.email)}</span>
-          </NavbarText>
           <Dropdown nav isOpen={this.state.menuOpen} toggle={this.toggleMenu} className="tutorial-dropdown pr-4">
             <DropdownToggle nav className={`${s.mobileCog}`}>
-              <span className={`${s.headerSvgFlipColor}`}>
-                <SettingsIcon/>
-              </span>
+              <NavbarText>
+                <span className={`${s.avatar} rounded-circle float-left mr-2`}>
+                  {avatar ? (
+                    <img src={avatar} onError={e => e.target.src = adminDefault} alt="..." title={user && (user.firstName || user.email)} />
+                  ) : user && user.role === 'admin' ? (
+                    <img src={adminDefault} onError={e => e.target.src = adminDefault} alt="..." title={user && (user.firstName || user.email)} />
+                  ) : <span title={user && (user.firstName || user.email)}>{firstUserLetter}</span>
+                  }
+                </span>
+                <span className={`d-sm-down-none ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`}>{user && (user.firstName || user.email)}</span>
+              </NavbarText>
+
+              {/*<span className={`${s.headerSvgFlipColor}`}>*/}
+              {/*  <SettingsIcon/>*/}
+              {/*</span>*/}
             </DropdownToggle>
             <DropdownMenu right className={`${s.headerDropdownLinks} super-colors`}>
               <DropdownItem href="/#/app/profile"><span className={s.headerDropdownIcon}><PersonIcon/></span> My Account</DropdownItem>

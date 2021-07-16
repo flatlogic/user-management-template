@@ -5,7 +5,7 @@
   background: var(--navbar-bg);
   box-shadow: var(--navbar-shadow);
   height: $navbar-height;
-  transition: background-color .2s ease, margin .2s ease, ;
+  transition: background-color .2s ease, margin .2s ease;
 
   &.navbarFloatingType {
     margin: $spacer $content-padding 0;
@@ -59,7 +59,9 @@
   margin-right: 8px;
   color: var(--sidebar-icon-bg);
 }
-
+.toggleSidebar {
+  margin-left: 2.5rem !important;
+}
 .headerSvgFlipColor {
   display: flex;
   color: var(--navbar-icon-bg);
