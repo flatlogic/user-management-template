@@ -2,3 +2,7 @@ node_modules/
 build/
 dist/
 .idea
+
+build/
+test-results/
+playwright-report/

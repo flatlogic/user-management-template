@@ -188,7 +188,7 @@ class Header extends React.Component {
             <span className={`d-sm-down-none ${chroma(navbarColor).luminance() < 0.4 ? "text-white" : ""}`}>{user && (user.firstName || user.email)}</span>
           </NavbarText>
           <Dropdown nav isOpen={this.state.menuOpen} toggle={this.toggleMenu} className="tutorial-dropdown pr-4">
-            <DropdownToggle nav className={`${s.mobileCog}`}>
+            <DropdownToggle nav aria-label="Account menu" className={`${s.mobileCog}`}>
               <span className={`${s.headerSvgFlipColor}`}>
                 <SettingsIcon/>
               </span>

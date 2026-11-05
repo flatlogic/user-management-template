@@ -1,6 +1,6 @@
 import axios from 'axios';
 import config from '../config';
-import jwt from "jsonwebtoken";
+import decodeToken from "../helpers/decodeToken.mjs";
 import { toast } from 'react-toastify';
 import { push } from 'connected-react-router';
 import Errors from '../components/FormItems/error/errors';
@@ -73,7 +73,7 @@ export function logoutUser() {
 
 export function receiveToken(token) {
     return (dispatch) => {
-        let user = jwt.decode(token);
+        let user = decodeToken(token);
 
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
