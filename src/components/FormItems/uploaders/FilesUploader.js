@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FileUploader from 'components/FormItems/uploaders/UploadService';
-import Errors from 'components/FormItems/error/errors';
+import FileUploader from './UploadService';
+import Errors from '../error/errors';
 
 class FilesUploader extends Component {
   constructor(props) {

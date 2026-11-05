@@ -116,3 +116,24 @@ This template is free to use. Modify it, break it, make it your own. Just don’
 > **Questions or feedback?**  
 > Join our [Flatlogic Community Discord](https://discord.gg/flatlogic-community) or visit our [support forum](https://flatlogic.com/forum). We might even reply!
 
+
+## Dependency maintenance
+
+Use Node >=22.12 and npm. `npm ci`, `npm run build`, and `npm test` verify the
+canonical npm lock and the production application. Vite replaces CRA/Webpack,
+keeping React16, existing SCSS and user-management routes. The superseded Yarn
+lock is removed after a clean full npm audit.
+
+JWT payload decoding now uses the browser-focused jwt-decode package. Its small
+adapter preserves the prior null result on malformed tokens and rethrows
+unexpected failures; two Node tests cover payload/Unicode and malformed input.
+This keeps server verification unchanged and removes server crypto polyfills
+that were needed only for the previous decoder import.
+
+The unpatched legacy react-bootstrap-table is replaced by table-next with pagination
+and a local React search input, preserving sorting and View/Edit/Delete actions. A
+same-major Underscore override patches its old pinned utility dependency.
+Formik2 and Yup0.32 close their old context/property-expr dependency findings.
+Browser regression runs against local API fixtures; it does not contact the
+production backend. The prior Layout placeholder is replaced by real login,
+user-table, profile-edit, and logout coverage.
