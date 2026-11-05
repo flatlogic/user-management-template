@@ -68,6 +68,8 @@
     "@playwright/test": "^1.58.0"
   },
   "overrides": {
-    "underscore": "^1.13.7"
+    "react-bootstrap-table-next": {
+      "underscore": "^1.13.8"
+    }
   }
 }
