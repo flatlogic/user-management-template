@@ -42,7 +42,8 @@
     "react-bootstrap-table-next": "^4.0.3",
     "react-bootstrap-table2-paginator": "^2.1.2",
     "uuid": "^14.0.0",
-    "events": "^3.3.0"
+    "events": "^3.3.0",
+    "jquery": "^3.7.1"
   },
   "scripts": {
     "start": "vite --host 127.0.0.1",

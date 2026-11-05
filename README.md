@@ -125,7 +125,7 @@ keeping React16, existing SCSS and user-management routes. The superseded Yarn
 lock is removed after a clean full npm audit.
 
 JWT payload decoding now uses the browser-focused jwt-decode package. Its small
-adapter preserves the prior null result on malformed tokens and rethrows
+adapter preserves JWS structure/header checks and the prior null result on malformed tokens, and rethrows
 unexpected failures; two Node tests cover payload/Unicode and malformed input.
 This keeps server verification unchanged and removes server crypto polyfills
 that were needed only for the previous decoder import.
